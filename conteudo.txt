@@ -1,0 +1,7 @@
+tipos primitivos
+nao fazer comparação direta quando classes, usar metodo(equals)
+BigDecimal é mais facil para arrendondar do que o double*
+Criar classes de exceção*
+Extração de métodos
+Arrays e Listas
+Parcelas

@@ -1,0 +1,10 @@
+Aprendi mais sobre:
+JUnit
+Adicionar o resto na ultima parcela
+Manipulação de Arrays sem utilizar Collections
+
+Seria legal ver mais sobre:
+Design Patterns
+Lombok
+Streams
+Programação Funcional

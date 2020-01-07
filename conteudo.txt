@@ -1,0 +1,14 @@
+Instalar Spring Tool Suite 4
+Executar o compilador direto
+*String pool 
+referência na memória.
+Verificar documentação das classes NomeDaClasse javadoc no google
+RuntimeException
+Criar new Maven Project
+Operações com:
+Arrays
+List
+BigDecimal
+*LocalDate
+Clean Code
+Git

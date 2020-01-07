@@ -1,0 +1,12 @@
+O que aprendi com esses treinamentos:
+- Conceitos básicos de Orientação a Objetos (*)
+- Entrada de dados pelo teclado com scanner
+- Saída de dados com o println
+- Uma breve introdução sobre streams
+- Revisão sobre arrays
+- Conceitos de lista, set e map
+- Utilização de lista com o exemplo do calculo de parcelas
+- Manipulação de datas com o LocalDate e formatação com o SimpleDateTime (*)
+- Dicas sobre clean code (*)
+- Utilização do bigDecimal para trabalhar com ponto flutuante (*)
+- Criação e tratamento de exceptions

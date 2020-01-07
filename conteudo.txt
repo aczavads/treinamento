@@ -1,0 +1,7 @@
+Como utilizar algumas das principais collections*
+Como tratar exceptions*
+Como refatorar os métodos (extraindo-os)*
+Como criar testes unitários.
+Configuração de um ambiente git.
+Descrição mais acertiva dos nomes dos métodos, classes, etc..
+Utilização de alguns comandos básicos.

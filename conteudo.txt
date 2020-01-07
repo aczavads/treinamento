@@ -1,0 +1,13 @@
+- Trabalhar com Data (LocalDate*)
+- BigDecimal*
+- Trabalhar com Exceções*
+- Formatação de datas e numeros decimais*
+- String;
+- Array;
+- List;
+- Double;
+- Compara nomes;
+- Fazer Parcelamento de valores;
+- Maven;
+- Teste Unitarios;
+

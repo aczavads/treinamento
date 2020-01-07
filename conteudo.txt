@@ -1,0 +1,8 @@
+Com o curso consegui começar a utilizar o spring tools como ide, pois nunca tinha utilizado antes.
+Ao mesmo tempo consegui relembrar a syntax do Java, pois fazia um tempo que não programava em Java.
+Os exercícios ajudaram bastante nesse processo de recordar.
+Com a explicação do professor ficou bem claro como o BigDouble ajuda em sistemas com parcelamento. 
+Também foi bem interessante os exercícios com o LocalDate, Collections e Arrays.
+Com os exercícios envolvendo JUnit foi bem legal para relembrar também. Não lembrava mais sobre o hashCode e equals. 
+A parte do git também foi interessante, pois foi a primeira vez que instalei e utilizei git no Windows.
+Também foi bem legal a importância que o professor dava para a importância de dar nomes significativos para as variáveis.

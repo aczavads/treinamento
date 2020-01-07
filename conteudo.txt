@@ -1,0 +1,11 @@
+- fizemos um olá mundo
+- esclarecimento sobre == e equals, diferença e quando utilizar para tipos primitivos e objetos
+- utilização de input com Scanner e while determinando quando parar
+- calcular média
+- executar uma aplicação java passando parâmetros
+- api LocalDate
+- cast
+- aplicações para calcular parcelamento com: double, array, BigDecimal
+- algoritmo que calcula parcelamento garantindo que não sobre valor
+- lançamento de exceções
+- equals e hashcode

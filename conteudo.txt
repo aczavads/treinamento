@@ -1,0 +1,11 @@
+- Double
+- Int
+- While
+- For
+- List
+- Map *
+- Hashcode *
+- Equals *
+- LocalDate
+- BigDecimal
+- Testes com JUnit *

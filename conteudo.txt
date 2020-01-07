@@ -1,0 +1,12 @@
+dia1
+fundamentos; tipos primitivos, Objeto. referencia
+para comparações utilizar .equals() a ==
+
+dia2
+collections; diferença entre List e Set.
+localDate; como instanciar e manipular.
+exception; criando tratamento espeficicos para cara erro.
+object; trabalhando com objetos para manipular diversos atributos.
+bigDecimal double; trabalhando com valores flutuantes como arredondar. 
+comparação de bigDecimal utilizando .compareTo()
+junit; adicionado validações utilizando assert ou no caso da exception expected. ***

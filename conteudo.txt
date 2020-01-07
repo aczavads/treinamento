@@ -1,0 +1,14 @@
+BigDecimal *
+Equals *
+Int
+For
+While
+Double *
+Arrays
+LocalDate *
+ParseException *
+String
+hashCode *
+return *
+else 
+FLOOR *

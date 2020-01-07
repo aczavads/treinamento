@@ -1,0 +1,14 @@
+- Foram feitas experimentações em java sem o uso de IDE, o que foi um desafio
+	por mais básicos que foram as atividades realizadas;
+- Foi explorado conceitos básicos que há muito não havia praticado, com exercícios
+	simples e de fácil assimilação;
+- Vimos conteúdos de base na teoria, que consolidou diversos conhecimentos
+	adquiridos na prática;
+- Aprendi conceitos importantes de clean code;
+- Aprendi diferenças muito significativas na manipulação de listas e conjuntos;
+- Aprendi a trabalhar com datas usando a classe LocalDate, que era desconhecida
+	por mim até então;
+- Aprendi a manipular numerais com BigDecimal;
+- Exercitamos a lógica de programação resolvendo problemas baseados em
+	parcelamento financeiro;
+- De maneira geral, tem sido muito bem aproveitado este tempo de treinamento;

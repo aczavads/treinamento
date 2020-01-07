@@ -1,0 +1,27 @@
+Dia1
+Montar o ambiente de desenvolvimento.
+
+Dia 2 
+
+Double
+BigDecimal
+Arrays
+DateTime *
+RunTimeExceptions
+	- Criar Exceptions próprias
+Collections 
+	- List
+	- Set *
+
+Testes
+	- Junit4
+	- Assertions
+
+Classe Parcela
+	- hashCode e equals *
+
+Git
+	- configurar
+	- clonar
+	- pull request
+

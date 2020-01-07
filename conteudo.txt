@@ -1,0 +1,10 @@
+- Configurar JAVA e STS
+- Melhores formas de escrever o código (code Clean)
+- Trabalhar com Arrays
+- Manipulação de Datas
+- Exceptions
+- Arredondamento de Decimais (Double,BigDecimal)
+- Classes
+- Collections
+- * Testes com Junit
+- * GitHub

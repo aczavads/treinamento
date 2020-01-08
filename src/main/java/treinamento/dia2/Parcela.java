@@ -67,7 +67,18 @@ public class Parcela {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Parcela [numero=");
+		builder.append(numero);
+		builder.append(", vencimento=");
+		builder.append(vencimento);
+		builder.append(", valor=");
+		builder.append(valor);
+		builder.append("]");
+		return builder.toString();
+	}
 
 }

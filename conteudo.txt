@@ -1,7 +1,9 @@
 Dia1
 Montar o ambiente de desenvolvimento.
 
-Dia 2 
+================================================================
+Dia2
+
 
 Double
 BigDecimal
@@ -24,4 +26,21 @@ Git
 	- configurar
 	- clonar
 	- pull request
+	
+================================================================
+Dia 3
+
+Map *
+
+Design Patterns *
+Singleton
+Factory *
+
+
+
+
+
+
+
+
 

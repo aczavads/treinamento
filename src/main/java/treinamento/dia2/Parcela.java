@@ -5,6 +5,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Parcela {
+	@Override
+	public String toString() {
+		return "Parcela [numero=" + numero + ", vencimento=" + vencimento + ", valor=" + valor + "]";
+	}
 	private int numero;
 	private LocalDate vencimento;
 	private BigDecimal valor;

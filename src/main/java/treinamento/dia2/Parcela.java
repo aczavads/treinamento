@@ -9,6 +9,19 @@ public class Parcela {
 	private LocalDate vencimento;
 	private BigDecimal valor;
 	
+	
+	/*
+	@Override
+	public String toString() {
+		return "Parcela nro " + numero + " com vencimento em " + vencimento + " no valor de " + valor;
+	}
+	*/
+	
+	@Override
+	public String toString() {
+		return "Parcela [numero=" + numero + ", vencimento=" + vencimento + ", valor=" + valor + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

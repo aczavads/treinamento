@@ -52,22 +52,29 @@ public class Parcela {
 	public int getNumero() {
 		return numero;
 	}
+	
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+	
 	public LocalDate getVencimento() {
 		return vencimento;
 	}
+	
 	public void setVencimento(LocalDate vencimento) {
 		this.vencimento = vencimento;
 	}
+	
 	public BigDecimal getValor() {
 		return valor;
 	}
+	
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
 	
-	
-
+	public String toString() {
+		String string = "Numero " + this.numero + " valor: " + this.valor + " vencimento " + this.vencimento;
+		return string;
+	}
 }

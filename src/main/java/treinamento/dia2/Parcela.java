@@ -8,7 +8,7 @@ public class Parcela {
 	private int numero;
 	private LocalDate vencimento;
 	private BigDecimal valor;
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -48,26 +48,35 @@ public class Parcela {
 		this.vencimento = vencimento;
 		this.valor = valor;
 	}
-	
+
 	public int getNumero() {
 		return numero;
 	}
+
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+
 	public LocalDate getVencimento() {
 		return vencimento;
 	}
+
 	public void setVencimento(LocalDate vencimento) {
 		this.vencimento = vencimento;
 	}
+
 	public BigDecimal getValor() {
 		return valor;
 	}
+
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return "Parcela [numero=" + numero + ", vencimento=" + vencimento + ", valor=" + valor + "]";
+	}
+
+	
 }

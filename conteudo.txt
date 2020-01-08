@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Instalar Spring Tool Suite 4
 Executar o compilador direto
 *String pool 
@@ -12,3 +13,6 @@ BigDecimal
 *LocalDate
 Clean Code
 Git
+=======
+Aprendi a estacionar ao lado da PUC que não tem Estar.
+>>>>>>> e912df6a44d00b67d2cb0d52e9723002641da826

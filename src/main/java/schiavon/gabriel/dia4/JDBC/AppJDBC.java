@@ -40,7 +40,6 @@ public class AppJDBC {
 	private static List<Pessoa> recuperarTodas(Connection conn) throws SQLException {
 		List<Pessoa> pessoas = new ArrayList<>();
 		ResultSet rsPessoas = conn.createStatement().executeQuery("select id, codigo, nome from pessoa");
-		
 		while (rsPessoas.next()) {
 			final Pessoa pessoa = new Pessoa(
 					(UUID) rsPessoas.getObject("id"),

@@ -2,6 +2,6 @@ package treinamento.thyagofranco.dia3.designpatterns.factory;
 
 public interface SuperLogger {
 	
-	public void log(String mensagem);
+	void log(String mensagem);
 
 }

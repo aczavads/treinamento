@@ -1,4 +1,8 @@
-package thais.matera.dia3.factory;
+package thais.matera.dia4;
+
+import thais.matera.dia3.factory.ConsoleLogger;
+import thais.matera.dia3.factory.GraphicLogger;
+import thais.matera.dia3.factory.Logger;
 
 public class ConsoleLoggerWithGraphic implements Logger {
 	private final ConsoleLogger consoleLogger;

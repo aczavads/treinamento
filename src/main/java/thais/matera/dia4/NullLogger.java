@@ -1,4 +1,6 @@
-package thais.matera.dia3.factory;
+package thais.matera.dia4;
+
+import thais.matera.dia3.factory.Logger;
 
 public class NullLogger implements Logger {
 	

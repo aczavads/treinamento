@@ -1,5 +1,8 @@
 package thais.matera.dia3.factory;
 
+import thais.matera.dia4.ConsoleLoggerWithGraphic;
+import thais.matera.dia4.NullLogger;
+
 public abstract class LoggerFactory {
 	public static Logger createInstance(String type) {
 		Logger logger;

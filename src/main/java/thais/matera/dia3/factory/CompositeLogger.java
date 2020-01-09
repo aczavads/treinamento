@@ -3,6 +3,8 @@ package thais.matera.dia3.factory;
 import java.util.ArrayList;
 import java.util.List;
 
+import thais.matera.dia4.NullLogger;
+
 public class CompositeLogger implements Logger {
 	private List<Logger> loggers;
 	

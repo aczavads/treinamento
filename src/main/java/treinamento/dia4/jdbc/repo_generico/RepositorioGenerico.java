@@ -30,8 +30,7 @@ public class RepositorioGenerico<ENTIDADE extends Entidade> {
 	}
 	
 	public void insert(ENTIDADE objeto) {
-		try {
-			PreparedStatement psInsert = conn.prepareStatement(insert);
+		try (PreparedStatement psInsert = conn.prepareStatement(insert)) {
 			for (int i = 0; i < fields.length; i++) {
 				Field field = fields[i];
 				field.setAccessible(true);

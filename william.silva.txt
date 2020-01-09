@@ -12,3 +12,12 @@
 - Exercitamos a lógica de programação resolvendo problemas baseados em
 	parcelamento financeiro;
 - De maneira geral, tem sido muito bem aproveitado este tempo de treinamento;
+
+
+
+design patterns
+
+- Singleton
+- Factory
+- Composite
+- Null Object

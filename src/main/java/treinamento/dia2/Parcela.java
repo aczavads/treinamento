@@ -8,6 +8,19 @@ public class Parcela {
 	private int numero;
 	private LocalDate vencimento;
 	private BigDecimal valor;
+	
+	
+	/*
+	@Override
+	public String toString() {
+		return "Parcela nro " + numero + " com vencimento em " + vencimento + " no valor de " + valor;
+	}
+	*/
+	
+	@Override
+	public String toString() {
+		return "Parcela [numero=" + numero + ", vencimento=" + vencimento + ", valor=" + valor + "]";
+	}
 
 	@Override
 	public int hashCode() {
@@ -48,35 +61,26 @@ public class Parcela {
 		this.vencimento = vencimento;
 		this.valor = valor;
 	}
-
+	
 	public int getNumero() {
 		return numero;
 	}
-
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-
 	public LocalDate getVencimento() {
 		return vencimento;
 	}
-
 	public void setVencimento(LocalDate vencimento) {
 		this.vencimento = vencimento;
 	}
-
 	public BigDecimal getValor() {
 		return valor;
 	}
-
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-
-	@Override
-	public String toString() {
-		return "Parcela [numero=" + numero + ", vencimento=" + vencimento + ", valor=" + valor + "]";
-	}
-
 	
+	
+
 }

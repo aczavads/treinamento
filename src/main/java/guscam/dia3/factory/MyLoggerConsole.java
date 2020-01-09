@@ -1,6 +1,6 @@
 package guscam.dia3.factory;
 
-public class MyLoogerConsole implements MyLogger {
+public class MyLoggerConsole implements MyLogger {
 
 	@Override
 	public void log(String message) {

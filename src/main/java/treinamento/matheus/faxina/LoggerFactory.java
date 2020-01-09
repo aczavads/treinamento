@@ -7,8 +7,16 @@ public abstract class LoggerFactory {
 			return new LoggerConsole();
 		} else if (tipo.equals("grafico")) {
 			return new LoggerGrafico();
+		} else if (tipo.equals("console-com-grafico")) {
+			return new LoggerConsoleComGrafico();
+		} else if (tipo.equals("console-triplo")) {
+			LoggerComposite loggerComposite = new LoggerComposite();
+			loggerComposite.addLogger(new LoggerConsole());
+			loggerComposite.addLogger(new LoggerConsole());
+			loggerComposite.addLogger(new LoggerConsole());
+			return loggerComposite;
 		}
-		return null;
+		return new NullLogger();
 	}
 
 }

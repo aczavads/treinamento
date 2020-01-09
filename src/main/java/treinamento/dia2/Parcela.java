@@ -81,11 +81,6 @@ public class Parcela {
 		this.valor = valor;
 	}
 
-	@Override
-	public String toString() {
-		return "Parcela [numero=" + numero + ", vencimento=" + vencimento + ", valor=" + valor + "]";
-	}
-	
 	
 
 }

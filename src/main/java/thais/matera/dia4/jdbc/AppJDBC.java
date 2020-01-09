@@ -3,16 +3,16 @@ package thais.matera.dia4.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
-import javax.swing.JOptionPane;
-
 public class AppJDBC {
-	private static final Person rachael = new Person(1, "Rachael Garde");
+	private static final Person rachael = new Person(1, "Rachel Greene");
 	private static final Person monica = new Person(2, "Monica");
 	private static final Person ross = new Person(3, "Ross");
-	
 	
 	public static void main(String[] args) {
 		try {
@@ -26,13 +26,17 @@ public class AppJDBC {
 			insertPerson(conn, monica);
 			insertPerson(conn, ross);
 			
-			rachael.setName("Rachael");
+			rachael.setName("Rachel");
+			
 			updatePerson(conn, rachael);
 			deletePerson(conn, ross);
-			
-			JOptionPane.showMessageDialog(null, "Transaction running...");
-			
+			deletePerson(conn, monica.getId());
+					
 			conn.commit();
+			
+			List<Person> people = selectAll(conn);
+			showAllPerson(people);
+
 		} catch (Exception err) {
 			throw new RuntimeException(err);
 		}
@@ -40,10 +44,36 @@ public class AppJDBC {
 		System.out.println("connected");
 	}
 	
+	private static void showAllPerson(List<Person> people) {
+		people.forEach(p -> System.out.println(p.toString()));
+	}
+
+	private static List<Person> selectAll(Connection conn) throws SQLException {
+		List<Person> people = new ArrayList<>();
+		
+		ResultSet rsPeople = conn.createStatement().executeQuery("select id, code, name from person");
+		
+		while(rsPeople.next()) {
+			UUID idReturned = (UUID) rsPeople.getObject("id");
+			Integer codeReturned = rsPeople.getInt("code");
+			String nameReturned = rsPeople.getString("name");
+			
+			Person returned = new Person(idReturned, codeReturned, nameReturned);
+			
+			people.add(returned);
+		}
+				
+		return people;
+	}
+
 	private static void deletePerson(Connection conn, Person person) throws SQLException {
+		deletePerson(conn, person.getId());
+	}
+	
+	private static void deletePerson(Connection conn, UUID id) throws SQLException {
 		PreparedStatement psDelete = 
 				conn.prepareStatement("delete from person where id = ?");
-		psDelete.setObject(1, person.getId());
+		psDelete.setObject(1, id);
 		psDelete.executeUpdate();
 	}
 

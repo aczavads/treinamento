@@ -7,10 +7,18 @@ public class Person {
 	private Integer code;
 	private String name;
 
-	public UUID getId() {
-		return id;
+	public Person(UUID id, Integer code, String name) {
+		this.id = id;
+		this.code = code;
+		this.name = name;
 	}
-
+	
+	public Person(Integer code, String name) {
+		this.code = code;
+		this.name = name;
+		this.id = UUID.randomUUID();
+	}
+	
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", code=" + code + ", name=" + name + "]";
@@ -40,6 +48,10 @@ public class Person {
 			return false;
 		return true;
 	}
+	
+	public UUID getId() {
+		return id;
+	}
 
 	public Integer getCode() {
 		return code;
@@ -55,12 +67,6 @@ public class Person {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Person(Integer code, String name) {
-		this.code = code;
-		this.name = name;
-		this.id = UUID.randomUUID();
 	}
 
 }

@@ -1,10 +1,12 @@
 package GLF.dia3.factory2;
 
+import javax.swing.JOptionPane;
+
 public class SuperLoggerGrafico implements SuperLogger {
 
 	@Override
 	public void log(String mensagem) {
-		System.out.println(mensagem);
+		JOptionPane.showMessageDialog(null,mensagem);
 		
 	}
 

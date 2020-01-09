@@ -8,9 +8,13 @@ public class App {
 		//console: System.out.println("");
 		//grafico:JOptionPane.showMessageDialog(null,"");
 		
-		SuperLogger logger = SuperLoggerFactory.createInstance("console"); //grafico
+		//SuperLogger logger = SuperLoggerFactory.createInstance("grafico"); //grafico
 		
-		logger.log("...");
+		//SuperLogger logger = SuperLoggerFactory.createInstance("console-com-grafico");
+		
+		SuperLogger logger = SuperLoggerFactory.createInstance("console-triplo");
+		
+		logger.log("teste");
 		logger.log("...");
 	}
 }

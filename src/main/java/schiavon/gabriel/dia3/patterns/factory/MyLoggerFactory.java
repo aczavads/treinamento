@@ -5,12 +5,12 @@ public interface MyLoggerFactory {
 	static MyLogger createInstance(TiposMyLogger tipoLogger) {
 		if (tipoLogger.isConsole()) {
 			return new LoggerPorConsole();
-		} else {
-			if (tipoLogger.isGrafico()) {
-				return new LoggerPorGrafico();
-			}
 		}
 		
+		if (tipoLogger.isGrafico()) {
+			return new LoggerPorGrafico();
+		}
+
 		return null;
 	}
 

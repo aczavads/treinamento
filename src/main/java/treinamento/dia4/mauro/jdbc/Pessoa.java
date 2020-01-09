@@ -1,4 +1,4 @@
-package treinamento.dia4.jdbc;
+package treinamento.dia4.mauro.jdbc;
 
 import java.util.UUID;
 

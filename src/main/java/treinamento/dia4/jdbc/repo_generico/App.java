@@ -1,45 +1,28 @@
 package treinamento.dia4.jdbc.repo_generico;
 
 import java.lang.reflect.Field;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.UUID;
 
 public class App {
+	private static final Produto omo = new Produto("Omo Progress");
+	private static final Grupo grupoLegal = new Grupo("Grupo legal", LocalDate.of(2020, 1, 15));
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		Connection conn = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
+		//RepositorioGenerico<Produto> repoProduto = new RepositorioGenerico<>(conn, Produto.class);
+		//RepositorioGenerico<Grupo> repoGrupo = new RepositorioGenerico<>(conn, Grupo.class);
+		RepositorioGenerico<ProdutoBonificado> repoProdutoBonificado = new RepositorioGenerico<>(conn, ProdutoBonificado.class);
 
-		String select = gerarSelectDe(Produto.class);
-		String delete = gerarDeleteDe(Produto.class);
-		System.out.println(select);
-		System.out.println(delete);
+		//System.out.println(Produto.class.isAssignableFrom(Entidade.class));
+		//System.out.println(Entidade.class.isAssignableFrom(Produto.class));
+		//repoProduto.insert(omo);
+		// repoGrupo.insert(grupoLegal);
+		System.out.println("Foi.");
+
 	}
 
-	private static String gerarDeleteDe(Class<? extends Entidade> classe) {
-		String delete = "delete from ";
-		try {
-			String nomeDaTabela = classe.getSimpleName().toLowerCase();
-			delete += nomeDaTabela + " where ";
-			String nomeDoId = Arrays.stream(classe.getDeclaredFields())
-				.filter(f -> f.isAnnotationPresent(ChavePrimaria.class))
-				.findFirst().get().getName().toLowerCase();
-			delete += nomeDoId + " = ?";
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return delete;
-	}
-	private static String gerarSelectDe(Class<? extends Entidade> classe) {
-		String select = "select ";
-		try {
-			String nomeDaTabela = classe.getSimpleName().toLowerCase();
-			Field[] campos = classe.getDeclaredFields();
-			for (Field field : campos) {
-				select += field.getName().toLowerCase() + ",";
-			}
-			select = select.substring(0, select.length()-1); //removendo última vírgula...
-			select += " from " + nomeDaTabela;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return select;
-	}
 }

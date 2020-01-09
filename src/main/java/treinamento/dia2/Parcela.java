@@ -10,7 +10,16 @@ public class Parcela {
 	private BigDecimal valor;
 	
 	
+<<<<<<< HEAD
 	
+=======
+	/*
+	@Override
+	public String toString() {
+		return "Parcela nro " + numero + " com vencimento em " + vencimento + " no valor de " + valor;
+	}
+	*/
+>>>>>>> 7f41d66d2e349f359b0dd92cca2d42a3269e44ed
 	
 	@Override
 	public String toString() {

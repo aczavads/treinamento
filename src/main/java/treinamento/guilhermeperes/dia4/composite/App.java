@@ -10,6 +10,7 @@ public class App {
 				LoggerFactory.createLogger(ConsoleLogger.class),
 				LoggerFactory.createLogger(GraficoLogger.class)
 			);
+		
 		Logger graficoConsoleLogger = LoggerFactory.createLogger(LoggerComConsoleEGrafico.class);
 		graficoConsoleLogger.log("Guilherme");
 	}

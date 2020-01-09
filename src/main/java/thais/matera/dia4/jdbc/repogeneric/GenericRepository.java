@@ -28,8 +28,7 @@ public class GenericRepository<ENTITY extends Entity> {
 	public void insert(ENTITY object) {
 		String insert = generateInsertOf(entityClass);
 		
-		try {
-			PreparedStatement psInsert = conn.prepareStatement(insert);
+		try(PreparedStatement psInsert = conn.prepareStatement(insert)) {
 			Field[] fields = getAllFields(entityClass);
 			
 			for(int i = 0; i < fields.length; i++) {

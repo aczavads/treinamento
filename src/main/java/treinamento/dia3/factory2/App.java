@@ -10,7 +10,7 @@ public class App {
 		//gráfico: JOptionPane.showMessageDialog(null, "");
 		
 		//SuperLogger logger = SuperLoggerFactory.createInstance("console"); 
-		SuperLogger logger = SuperLoggerFactory.createInstance("gráfico"); 
+		SuperLogger logger = SuperLoggerFactory.createInstance("Console-com-gráfico"); 
 		
 		logger.log("Mensagem importante!");
 		logger.log("Outra mensagem");

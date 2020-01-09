@@ -7,15 +7,7 @@ import java.time.LocalDate;
 public class Parcela {
 	private int numero;
 	private LocalDate vencimento;
-	private BigDecimal valor;
-	
-	
-	/*
-	@Override
-	public String toString() {
-		return "Parcela nro " + numero + " com vencimento em " + vencimento + " no valor de " + valor;
-	}
-	*/
+	private BigDecimal valor;	
 	
 	@Override
 	public int hashCode() {

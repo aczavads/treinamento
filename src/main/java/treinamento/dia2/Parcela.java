@@ -85,9 +85,5 @@ public class Parcela {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	
-	public String toString() {
-		String string = "Numero " + this.numero + " valor: " + this.valor + " vencimento " + this.vencimento;
-		return string;
-	}
+
 }

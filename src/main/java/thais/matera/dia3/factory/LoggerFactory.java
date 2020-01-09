@@ -8,8 +8,12 @@ public abstract class LoggerFactory {
 			logger = new ConsoleLogger();
 		}else if(type.equalsIgnoreCase("graphic")) {
 			logger = new GraphicLogger();
+		}else if(type.equalsIgnoreCase("console-with-graphic")) {
+			logger = new ConsoleLoggerWithGraphic();
+		}else if(type.equals("composite")) {
+			logger = new CompositeLogger(new ConsoleLogger(), new GraphicLogger());
 		}else {
-			logger = null;
+			logger = new NullLogger();
 		}
 		
 		return logger;

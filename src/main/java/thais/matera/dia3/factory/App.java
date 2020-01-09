@@ -6,5 +6,13 @@ public class App {
 		
 		logger.log("Mensagem importante");
 		logger.log("Outra mensagem");
+		
+		Logger loggerTwo = LoggerFactory.createInstance("console-with-graphic");
+		
+		loggerTwo.log("logger with composition");
+		
+		Logger loggerComposite = LoggerFactory.createInstance("composite");
+				
+		loggerComposite.log("composite test");
 	}
 }

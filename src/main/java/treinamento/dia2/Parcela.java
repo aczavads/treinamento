@@ -9,19 +9,6 @@ public class Parcela {
 	private LocalDate vencimento;
 	private BigDecimal valor;
 	
-	
-	/*
-	@Override
-	public String toString() {
-		return "Parcela nro " + numero + " com vencimento em " + vencimento + " no valor de " + valor;
-	}
-	*/
-	
-	@Override
-	public String toString() {
-		return "Parcela [numero=" + numero + ", vencimento=" + vencimento + ", valor=" + valor + "]";
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -79,19 +66,6 @@ public class Parcela {
 	}
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Parcela [numero=");
-		builder.append(numero);
-		builder.append(", vencimento=");
-		builder.append(vencimento);
-		builder.append(", valor=");
-		builder.append(valor);
-		builder.append("]");
-		return builder.toString();
 	}
 	
 	

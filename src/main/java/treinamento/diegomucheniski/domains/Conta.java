@@ -49,4 +49,17 @@ public class Conta extends BaseEntity {
 		return correntista;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Conta [numero=");
+		builder.append(numero);
+		builder.append(", abertaEm=");
+		builder.append(abertaEm);
+		builder.append(", correntista=");
+		builder.append(correntista);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }

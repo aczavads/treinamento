@@ -5,10 +5,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Correntista extends BaseEntity {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Correntista extends BaseEntity {
 	
 	private String nome;
 	
@@ -35,5 +38,7 @@ public class Correntista extends BaseEntity {
 	public Set<Conta> getContas() {
 		return Collections.unmodifiableSet(contas);
 	}
+	
+	
 
 }

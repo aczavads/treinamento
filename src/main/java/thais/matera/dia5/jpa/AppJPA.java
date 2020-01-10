@@ -7,13 +7,13 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class AppJPA {
-	private static Contrato contrato1;
-	private static Contrato contrato2;
+	private static MyContrato contrato1;
+	private static MyContrato contrato2;
 	
 	static {
 		try {
-			contrato1 = new Contrato(new InteiroPositivo(1), LocalDate.of(2020, 1, 10), new CPF("387.389.969-87"));
-			contrato2 = new Contrato(new InteiroPositivo(2), LocalDate.of(2020, 1, 10), new CPF("387.389.969-87"));
+			contrato1 = new MyContrato(new InteiroPositivo(1), LocalDate.of(2020, 1, 10), new CPF("387.389.969-87"));
+//			contrato2 = new Contrato(new InteiroPositivo(2), LocalDate.of(2020, 1, 10), new CPF("387.389.969-87"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -12,10 +12,10 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @NamedQueries({
-	@NamedQuery(name = "delete_contrato", query = "delete from Contrato")
+	@NamedQuery(name = "delete_contrato2", query = "delete from Contrato")
 })
 @Entity
-public class Contrato {
+public class MyContrato {
 	@Id
 	private UUID id;
 	
@@ -32,11 +32,11 @@ public class Contrato {
 	@Column(nullable = false)
 	private LocalDate emissao;
 	
-	public Contrato() {
+	public MyContrato() {
 		id = UUID.randomUUID();
 	}
 	
-	public Contrato(InteiroPositivo numero, LocalDate emissao, CPF cpf) {
+	public MyContrato(InteiroPositivo numero, LocalDate emissao, CPF cpf) {
 		this();
 		this.numero = numero;
 		this.emissao = emissao;
@@ -69,7 +69,7 @@ public class Contrato {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Contrato other = (Contrato) obj;
+		MyContrato other = (MyContrato) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

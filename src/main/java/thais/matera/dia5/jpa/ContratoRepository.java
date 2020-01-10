@@ -12,7 +12,7 @@ public class ContratoRepository {
 		this.manager = entityManager;
 	}
 	
-	public void save(Contrato contato) {
+	public void save(MyContrato contato) {
 		this.manager.persist(contato);
 	}
 	
@@ -20,7 +20,7 @@ public class ContratoRepository {
 		this.manager.createNamedQuery("delete_contrato").executeUpdate();
 	}
 	
-	public void delete(Contrato contrato) {
+	public void delete(MyContrato contrato) {
 		this.delete(contrato.getId());
 	}
 	
@@ -31,7 +31,7 @@ public class ContratoRepository {
 	}
 	
 	
-	public List<Contrato> findAll() {
-		return manager.createQuery("select c from Contrato c", Contrato.class).getResultList();
+	public List<MyContrato> findAll() {
+		return manager.createQuery("select c from Contrato c", MyContrato.class).getResultList();
 	}
 }

@@ -10,10 +10,12 @@ import javax.swing.JOptionPane;
 
 public class AppJpa {
 	private static Contrato contrato1 = new Contrato(
-			new InteiroPositivo(1), LocalDate.of(2020, 1, 10));
+			new InteiroPositivo(1), LocalDate.of(2020, 1, 10),
+			new CPF("242.798.315-21"));
 	
 	private static Contrato contrato2 = new Contrato(
-			new InteiroPositivo(2), LocalDate.of(2020, 1, 10));
+			new InteiroPositivo(2), LocalDate.of(2020, 1, 10),
+			new CPF("515.107.071-15"));
 	
 	public static void main(String[] args) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("pu");

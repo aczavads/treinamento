@@ -1,50 +1,27 @@
 package treinamento.thyagofranco.dia4.jdbc.repository_generico;
 
-
-import java.lang.reflect.Field;
-import java.util.Arrays;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.time.LocalDate;
 
 public class App {
-	public static void main(String[] args) {
-		String select = gerarSelectDe(Produto.class);
-		String delete = gerarDeleteDe(Produto.class);
-		System.out.println(select);
-		System.out.println(delete);
-		
-	}
-	
-	
-	private static String gerarDeleteDe(Class<? extends Entidade> classe) {
-		String delete = "delete from";
-		try {
-			String nomeDaTabela = classe.getSimpleName().toLowerCase();
-			delete += nomeDaTabela + " where ";
-			String nomeDoId = Arrays.stream(classe.getDeclaredFields())
-				.filter(f -> f.isAnnotationPresent(ChavePrimaria.class))
-				.findFirst().get().getName().toLowerCase();
-			delete += nomeDoId + " = ?";
-		} catch (Exception e) {
-			e.printStackTrace();
+	private static final Produto omo = new Produto("Omo Progress");
+	private static final Grupo grupoLegal = new Grupo("Grupo legal", LocalDate.of(2020, 1, 15));
+
+	public static void main(String[] args) throws Exception {
+		try (Connection conn = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "")) {
+			//RepositorioGenerico<Produto> repoProduto = new RepositorioGenerico<>(conn, Produto.class);
+			//RepositorioGenerico<Grupo> repoGrupo = new RepositorioGenerico<>(conn, Grupo.class);
+			RepositorioGenerico<ProdutoBonificado> repoProdutoBonificado = new RepositorioGenerico<>(conn, ProdutoBonificado.class);
+
+			//System.out.println(Produto.class.isAssignableFrom(Entidade.class));
+			//System.out.println(Entidade.class.isAssignableFrom(Produto.class));
+			//repoProduto.insert(omo);
+			// repoGrupo.insert(grupoLegal);
 		}
-		return delete;
-	}
-	
-	private static String gerarSelectDe(Class<? extends Entidade> classe) {   //<? extends > Isso é generics
-		String select = "";
-		try {
-			String nomeDaTabela = classe.getSimpleName().toLowerCase();
-			Field[] campos = classe.getDeclaredFields();
-			for (Field field : campos) {
-				select += field.getName().toLowerCase() + ",";
-				
-			}
-			select = select.substring(0,select.length()-1);   // tirando a virgula depois do último campo
-			select += "from " + nomeDaTabela;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		System.out.println("Foi.");
 		
-		return select;
+
 	}
+
 }

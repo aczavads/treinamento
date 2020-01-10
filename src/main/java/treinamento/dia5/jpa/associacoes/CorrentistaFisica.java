@@ -9,14 +9,14 @@ import javax.persistence.Entity;
 
 import treinamento.dia5.jpa.CPF;
 
-@Entity
+//@Entity
 public class CorrentistaFisica extends Correntista {
-	@Embedded
-	@Column(unique = true, nullable = false)
-	@AttributeOverride(name = "valor", column = @Column(name="cpf"))
+	//@Embedded
+	//@Column(unique = true, nullable = false)
+	//@AttributeOverride(name = "valor", column = @Column(name="cpf"))
 	private CPF cpf;
 
-	@Column(nullable = false)
+	//@Column(nullable = false)
 	private LocalDate nascidaEm;
 	
 	public CorrentistaFisica() {

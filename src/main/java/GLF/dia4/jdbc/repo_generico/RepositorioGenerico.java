@@ -14,11 +14,11 @@ public class RepositorioGenerico<ENTIDADE extends Entidade> {
 		this.ClasseDaEntidade = classeDaEntidade;
 	}
 
-	public void delete( UUID id) {
+	public void delete(UUID id) {
 		
 	}
 	
-	public void insert( ENTIDADE objeto) {
+	public void insert(ENTIDADE objeto) {
 		
 	}
 	

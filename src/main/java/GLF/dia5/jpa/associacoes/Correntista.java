@@ -1,7 +1,11 @@
-package treinamento.dia5.jpa.associacoes;
+package GLF.dia5.jpa.associacoes;
+
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
@@ -9,6 +13,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Correntista extends BaseEntity {
 	private String nome;
 	
@@ -22,7 +28,7 @@ public class Correntista extends BaseEntity {
 		super();
 		this.nome = nome;
 	}
-	public List<Conta> getContas() {
+	public List<Conta> getConta() {
 		return contas;
 	}	
 	public String getNome() {
@@ -36,5 +42,6 @@ public class Correntista extends BaseEntity {
 		return "Correntista [nome=" + nome + "]";
 	}
 	
-
+	
+	
 }

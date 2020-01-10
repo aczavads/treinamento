@@ -5,11 +5,11 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-@Entity
+//@Entity
 public class CorrentistaJuridica extends Correntista {
-	@Column(nullable = false, unique = true)
+	//@Column(nullable = false, unique = true)
 	public String razaoSocial;
-	@Column(nullable = false)
+	//@Column(nullable = false)
 	public LocalDate fundadaEm;
 	
 	public CorrentistaJuridica() {

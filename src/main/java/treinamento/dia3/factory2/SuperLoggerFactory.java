@@ -1,11 +1,8 @@
 package treinamento.dia3.factory2;
 
-
-
 import treinamento.dia4.composite.NullSuperLogger;
 import treinamento.dia4.composite.SuperLoggerComposite;
 import treinamento.dia4.composite.SuperLoggerConsoleComGrafico;
-
 
 public abstract class SuperLoggerFactory {
 	//SuperLogger logger = SuperLoggerFactory.createInstance("console");
@@ -15,7 +12,6 @@ public abstract class SuperLoggerFactory {
 		} 
 		if (tipo.equals("gráfico")) {
 			return new SuperLoggerGrafico();
-
 		} 
 		if (tipo.equals("console-com-gráfico")) {
 			return new SuperLoggerConsoleComGrafico();
@@ -28,7 +24,6 @@ public abstract class SuperLoggerFactory {
 //			composite.addLogger(new SuperLoggerConsole());
 //			composite.addLogger(new SuperLoggerConsole());
 			return composite;
-
 		}
 		return new NullSuperLogger();
 	}

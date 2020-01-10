@@ -13,7 +13,6 @@ public class App {
 		//SuperLogger logger = SuperLoggerFactory.createInstance("gráfico"); 
 		//SuperLogger logger = SuperLoggerFactory.createInstance("console-com-gráfico"); 
 		SuperLogger logger = SuperLoggerFactory.createInstance("console-sei-lá"); 
-
 		
 		logger.log("Mensagem importante!");
 		logger.log("Outra mensagem");

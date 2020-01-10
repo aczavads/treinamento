@@ -1,41 +1,24 @@
-package treinamento.guilhermeperes.dia5.jpa;
+package treinamento.guilhermeperes.dia5.jpa.base;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Stream;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Id;
 
-public abstract class SQLRepository<ENTITY, ID> {
+public abstract class SQLRepository<ENTITY extends BaseEntity, ID> {
 	private final EntityManager manager;
 	private final Class<?> entityClass;
 	private final String entityClassName;
-	private final String entityIdName;
 	
 	public SQLRepository(EntityManager manager) {
 		this.manager = manager;
 		this.entityClass = getEntityClass();
 		this.entityClassName = entityClass.getSimpleName();
-		this.entityIdName = getEntityIdField().getName();
 	}
 	
 	private Class<?> getEntityClass() {
 		return (Class<?>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-	}
-	
-	private Field getEntityIdField() {
-		Optional<Field> idField = Stream.of(entityClass.getDeclaredFields())
-				.filter(field -> field.getDeclaredAnnotation(Id.class) != null)
-				.findFirst();
-		
-		if (idField.isPresent()) {
-			return idField.get();
-		}
-		
-		return null;
 	}
 	
 	private String buildSqlString(String... strings) {
@@ -55,7 +38,7 @@ public abstract class SQLRepository<ENTITY, ID> {
 	}
 	
 	public void deleteById(ID id) {
-		String query = buildSqlString("delete from ", entityClassName, " where ", entityIdName, " = :id");
+		String query = buildSqlString("delete from ", entityClassName, " where id = :id");
 		
 		manager.createQuery(query)
 				.setParameter("id", id)

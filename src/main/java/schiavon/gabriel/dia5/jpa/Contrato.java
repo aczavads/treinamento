@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-@NamedQueries({ @NamedQuery(name = "delete_contrato", query = "delete from Contrato") })
-@Entity
+//@NamedQueries({ @NamedQuery(name = "delete_contrato1", query = "delete from Contrato") })
+//@Entity
 public class Contrato {
 
 	@Id

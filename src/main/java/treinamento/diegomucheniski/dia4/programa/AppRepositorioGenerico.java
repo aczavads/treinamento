@@ -9,7 +9,7 @@ import treinamento.diegomucheniski.domains.Grupo;
 import treinamento.diegomucheniski.domains.Produto;
 import treinamento.diegomucheniski.domains.ProdutoBonificado;
 
-public class TesteRepositorioGenerico {
+public class AppRepositorioGenerico {
 	
 	private static final Produto omo = new Produto("Omo Progress");
 	private static final Grupo grupoLegal = new Grupo("Grupo legal", LocalDate.of(2020, 1, 15));

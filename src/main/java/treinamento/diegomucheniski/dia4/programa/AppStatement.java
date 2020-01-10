@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import treinamento.diegomucheniski.dia4.repositories.PessoaRepository;
 import treinamento.diegomucheniski.domains.Pessoa;
 
-public class TestaStatement {
+public class AppStatement {
 
 	public static void main(String[] args) {
 		

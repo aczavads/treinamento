@@ -25,6 +25,11 @@ public class Contrato {
 	@AttributeOverride(name = "valor", column = @Column(name="numero"))
 	private InteiroPositivo numero;
 	
+	@Embedded
+	@Column(unique = true, nullable = false)
+	@AttributeOverride(name = "valor", column = @Column(name="cpfdotitular"))
+	private CPF cpfDoTitular;
+	
 	@Column(nullable = false)
 	private LocalDate emissao;
 	
@@ -32,12 +37,18 @@ public class Contrato {
 		id = UUID.randomUUID();
 	}
 
-	public Contrato(InteiroPositivo numero, LocalDate emissao) {
+	public Contrato(InteiroPositivo numero, LocalDate emissao, CPF cpfDoTitular) {
 		this();
 		this.numero = numero;
 		this.emissao = emissao;
+		this.cpfDoTitular = cpfDoTitular;
 	}
-	
+	public CPF getCpfDoTitular() {
+		return cpfDoTitular;
+	}
+	public void setCpfDoTitular(CPF cpfDoTitular) {
+		this.cpfDoTitular = cpfDoTitular;
+	}
 	public LocalDate getEmissao() {
 		return emissao;
 	}

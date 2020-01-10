@@ -8,6 +8,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
+import treinamento.dia4.jdbc.repo_generico.ChavePrimaria;
+import treinamento.dia4.jdbc.repo_generico.Entidade;
+
 public class RepositorioGenerico<ENTIDADE extends Entidade> {
 	private Class<ENTIDADE> classeDaEntidade;
 	private Connection conn;

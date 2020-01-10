@@ -3,14 +3,11 @@ package treinamento.dia4.jdbc.repo_generico.fernando.santos.repository.impl;
 import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
-import treinamento.dia4.fernando.santos.jdbc.repository.Pessoa;
 import treinamento.dia4.jdbc.repo_generico.fernando.santos.ConnectionPool;
 import treinamento.dia4.jdbc.repo_generico.fernando.santos.domain.BaseEntity;
 import treinamento.dia4.jdbc.repo_generico.fernando.santos.repository.Repositoty;

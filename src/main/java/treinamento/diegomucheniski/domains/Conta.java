@@ -1,10 +1,17 @@
 package treinamento.diegomucheniski.domains;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import treinamento.diegomucheniski.enums.TipoMovimentoConta;
 
 @Entity
 public class Conta extends BaseEntity {
@@ -16,7 +23,11 @@ public class Conta extends BaseEntity {
 	private LocalDate abertaEm;
 	
 	@ManyToOne
-	private Correntista correntista;
+	private Correntista correntista;	
+	
+	@OneToMany()
+	@JoinColumn(name = "conta_id")
+	Set<MovimentoConta> movimentos = new HashSet<>();
 	
 	public Conta() {
 		super();
@@ -27,6 +38,24 @@ public class Conta extends BaseEntity {
 		this.numero = numero;
 		this.abertaEm = abertaEm;
 		this.correntista = correntista;
+	}
+	
+	public MovimentoConta debitar(LocalDate efetuadoEm, BigDecimal valor, String historico) {
+		MovimentoConta debito = new MovimentoConta(efetuadoEm, valor, historico, TipoMovimentoConta.DEBITO);
+		this.movimentos.add(debito);
+		return debito;
+	}
+	
+	public MovimentoConta creditar(LocalDate efetuadoEm, BigDecimal valor, String historico) {
+		MovimentoConta credito = new MovimentoConta(efetuadoEm, valor, historico, TipoMovimentoConta.CREDITO);
+		this.movimentos.add(credito);
+		return credito;
+	}
+	
+	public MovimentoConta movimentar(LocalDate efetuadoEm, BigDecimal valor, String historico, TipoMovimentoConta tipo) {
+		MovimentoConta movimento = new MovimentoConta(efetuadoEm, valor, historico, tipo);
+		this.movimentos.add(movimento);
+		return movimento;
 	}
 
 	public Long getNumero() {
@@ -47,7 +76,7 @@ public class Conta extends BaseEntity {
 	
 	public Correntista getCorrentista() {
 		return correntista;
-	}
+	}	
 
 	@Override
 	public String toString() {

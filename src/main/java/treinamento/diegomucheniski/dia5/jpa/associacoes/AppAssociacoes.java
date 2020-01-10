@@ -1,5 +1,6 @@
 package treinamento.diegomucheniski.dia5.jpa.associacoes;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
@@ -12,6 +13,8 @@ import treinamento.diegomucheniski.domains.Conta;
 import treinamento.diegomucheniski.domains.Correntista;
 import treinamento.diegomucheniski.domains.CorrentistaPessoaFisica;
 import treinamento.diegomucheniski.domains.CorrentistaPessoaJuridica;
+import treinamento.diegomucheniski.domains.MovimentoConta;
+import treinamento.diegomucheniski.enums.TipoMovimentoConta;
 
 public class AppAssociacoes {
 	
@@ -68,10 +71,20 @@ public class AppAssociacoes {
 		contaBancoDoBrasil = manager.find(Conta.class, contaBancoDoBrasil.getId());		
 		System.out.println("Correntista pela Conta: " + contaBancoDoBrasil.getCorrentista().getNome());		
 		
+		MovimentoConta credito1 = new MovimentoConta(LocalDate.of(2020, 1, 10), new BigDecimal("1000.00"), "Transferencia Teste", TipoMovimentoConta.CREDITO);
+		MovimentoConta debito1 = new MovimentoConta(LocalDate.of(2020, 1, 10), new BigDecimal("100.00"), "Transferencia Teste", TipoMovimentoConta.DEBITO);
+		
+		movimentarConta(manager, contaBancoDoBrasil, credito1);
+		movimentarConta(manager, contaBancoDoBrasil, debito1);
+		
 	}
 
 	private static void persistirNoBanco(EntityManager manager, Correntista correntista, Conta conta) {
 		manager.persist(correntista);
+		persistirNoBanco(manager, conta);
+	}
+	
+	private static void persistirNoBanco(EntityManager manager, Conta conta) {		
 		manager.persist(conta);		
 		manager.getTransaction().commit();
 		manager.clear(); // Gambeta por causa do H2
@@ -84,5 +97,14 @@ public class AppAssociacoes {
 		joao.getContas().forEach(System.out::println);
 	}
 
+	private static void movimentarConta(EntityManager manager, Conta conta, MovimentoConta movimento) {
+		if (movimento.getTipo().equals(TipoMovimentoConta.DEBITO)) {
+			conta.debitar(movimento.getEfetuadoEm(), movimento.getValor(), movimento.getHistorico());
+		}
+		else if (movimento.getTipo().equals(TipoMovimentoConta.CREDITO)) {
+			conta.creditar(movimento.getEfetuadoEm(), movimento.getValor(), movimento.getHistorico());
+		}		
+		persistirNoBanco(manager, conta);
+	}
 
 }

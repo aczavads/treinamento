@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity
+//@Entity
 public class Conta extends BaseEntity {
 	@Column(nullable = false, unique = true)
 	private Long numero;

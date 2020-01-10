@@ -13,7 +13,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @NamedQueries({
-	@NamedQuery(name = "delete_contrato",query = "delete from Contrato")
+	@NamedQuery(name = "delete_contrato2",query = "delete from Contrato")
 })
 @Entity
 public class Contrato {

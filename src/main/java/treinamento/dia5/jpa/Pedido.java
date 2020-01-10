@@ -5,7 +5,7 @@ import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Pedido {
 	@Id
 	private UUID id;

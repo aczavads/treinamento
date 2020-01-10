@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 
 import treinamento.dia5.jpa.CPF;
 
-@Entity
+//@Entity
 public class CorrentistaFisica extends Correntista {
 	@Embedded
 	@Column(unique = true, nullable = false)

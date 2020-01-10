@@ -15,7 +15,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
 	@NamedQuery(name = "delete_contrato", query = "delete from Contrato")
 })
-@Entity
+//@Entity
 public class Contrato {
 	@Id
 	private UUID id;

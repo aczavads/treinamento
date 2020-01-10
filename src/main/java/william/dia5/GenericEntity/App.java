@@ -17,6 +17,7 @@ public class App {
 		EntityManager manager = factory.createEntityManager();
 		try {
 			manager.getTransaction().begin();
+			manager.createNativeQuery("delete from MovimentoConta").executeUpdate();
 			manager.createNativeQuery("delete from Conta").executeUpdate();
 			manager.createNativeQuery("delete from CORRENTISTAFISICA ").executeUpdate();
 			manager.createNativeQuery("delete from CORRENTISTAJURIDICA").executeUpdate();
@@ -50,8 +51,19 @@ public class App {
 		Conta c3 = new Conta(643L, LocalDate.of(2014, 2, 14), lilian);
 		Conta c4 = new Conta(865L, LocalDate.of(2015, 4, 15), william);
 		Conta c5 = new Conta(352L, LocalDate.of(2016, 6, 17), william);
+		
+		
 //		
+		c1.creditar(1040.0);
+		c1.creditar(540.0);
+		c1.creditar(760.0);
+		c1.debitar(553.2);
+		c1.debitar(765.2);
+		c1.debitar(2341.4);
+		c1.debitar(6346.0);
+
 		manager.getTransaction().begin();
+		
 		manager.persist(william);
 		manager.persist(douglas);
 		manager.persist(lilian);

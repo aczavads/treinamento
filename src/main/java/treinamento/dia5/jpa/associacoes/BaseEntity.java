@@ -5,7 +5,7 @@ import java.util.UUID;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
+//@MappedSuperclass
 public class BaseEntity {
 	@Id
 	private UUID id;

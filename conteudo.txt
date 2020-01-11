@@ -36,6 +36,27 @@ Design Patterns *
 Singleton
 Factory *
 
+=====================================================
+Dia 4
+
+Jdbc
+Generics * 
+Reflaction *
+Annotations *
+
+
+=======================================================
+Dia 5 
+
+JPA*
+associacoes*
+SQL
+Enum
+
+
+
+
+
 
 
 

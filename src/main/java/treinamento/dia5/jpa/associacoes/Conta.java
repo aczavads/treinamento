@@ -1,12 +1,16 @@
 package treinamento.dia5.jpa.associacoes;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Conta extends BaseEntity {
@@ -18,6 +22,22 @@ public class Conta extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name = "correntista_id")
 	private Correntista correntista;
+	
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "conta_id")
+	private Set<MovimentoConta> movimentos = new HashSet<>();
+	
+	public MovimentoConta debitar(LocalDate efetuadoEm, BigDecimal valor, String historico) {
+		return movimentar(efetuadoEm, valor, historico, TipoMovimentoConta.DEBITO);
+	}
+	public MovimentoConta creditar(LocalDate efetuadoEm, BigDecimal valor, String historico) {
+		return movimentar(efetuadoEm, valor, historico, TipoMovimentoConta.CREDITO);
+	}
+	private MovimentoConta movimentar(LocalDate efetuadoEm, BigDecimal valor, String historico, TipoMovimentoConta tipo) {
+		MovimentoConta movimento = new MovimentoConta(efetuadoEm, historico, valor, tipo);
+		this.movimentos.add(movimento);
+		return movimento;
+	}
 	
 	public Conta() {
 		super();

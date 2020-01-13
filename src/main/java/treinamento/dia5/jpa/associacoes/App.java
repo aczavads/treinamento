@@ -1,5 +1,6 @@
 package treinamento.dia5.jpa.associacoes;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
@@ -35,10 +36,15 @@ public class App {
 		Conta c12 = new Conta(josias, 12L, LocalDate.of(2020, 1, 10));		
 		Conta c15 = new Conta(josias, 15L, LocalDate.of(2020, 1, 10));		
 		Conta c99 = new Conta(josias, 99L, LocalDate.of(2020, 1, 10));		
+		c12.debitar(LocalDate.of(2020, 1, 9), new BigDecimal("100.00"), "Lançamento inicial");
+		c12.creditar(LocalDate.of(2020, 1, 10), new BigDecimal("7500.00"), "Adiantamento de salário");
 
 		Correntista matera = new CorrentistaJuridica("Matera", "MATERA SYSTEMS", LocalDate.of(2000, 10, 10));
 		Conta c199 = new Conta(matera, 199L, LocalDate.of(2020, 1, 10));		
 		Conta c177 = new Conta(matera, 177L, LocalDate.of(2020, 1, 10));		
+		c177.creditar(LocalDate.of(2019, 12, 9), new BigDecimal("66567.00"), "Lançamento inicial");
+		c177.creditar(LocalDate.of(2019, 12, 10), new BigDecimal("1000.00"), "Créditos recebidos");
+		c177.creditar(LocalDate.of(2019, 12, 10), new BigDecimal("1000.00"), "Créditos recebidos");
 		
 		em.persist(josias);
 		em.persist(c12);

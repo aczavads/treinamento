@@ -11,17 +11,24 @@ import treinamento.dia5.jpa.CPF;
 
 public class App {
 	public static void main(String[] args) {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("pu");
-		EntityManager manager = factory.createEntityManager();
+		EntityManagerFactory factory = null;
+		EntityManager manager = null;
 		
 		try {
+			factory = Persistence.createEntityManagerFactory("pu");
+			manager = factory.createEntityManager();
 			manager.getTransaction().begin();
 			
 			manager.createQuery("delete from MyConta").executeUpdate();
+			manager.createQuery("delete from MyContrato").executeUpdate();
+			manager.createQuery("delete from MyCorrentistaFisica").executeUpdate();
 			manager.createQuery("delete from MyCorrentista").executeUpdate();
-			manager.createQuery("delete from MovimentoConta").executeUpdate();
+			manager.createQuery("delete from MyCorrentistaJuridica").executeUpdate();
+			manager.createQuery("delete from MyMovimentoConta").executeUpdate();
 			
-			gerenciarContas(manager);
+//			manager.getTransaction().commit();
+			
+//			gerenciarContas(manager);
 		} catch (Exception e) {
 			manager.getTransaction().rollback();
 			e.printStackTrace();
@@ -43,7 +50,7 @@ public class App {
 		
 //		c12.debitar(LocalDate.of(2020, 1, 12), new BigDecimal("1000.00"), "adiantamento");
 //		c12.debitar(LocalDate.of(2020, 1, 12), new BigDecimal("1000.00"), "adiantamento");
-		c12.debitar(LocalDate.of(2020, 1, 12), new BigDecimal("1000.00"), "adiantamento");
+//		c12.debitar(LocalDate.of(2020, 1, 12), new BigDecimal("1000.00"), "adiantamento");
 		
 		em.persist(josias);
 		em.persist(c12);

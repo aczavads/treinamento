@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-public class MovimentoConta extends BaseEntity {
+public class MyMovimentoConta extends BaseEntity {
 	@Column(nullable = false)
 //	@Enumerated(EnumType.STRING	)
 	private TipoMovimentoConta tipo;
@@ -21,11 +21,11 @@ public class MovimentoConta extends BaseEntity {
 	@Column(nullable = false)
 	private String historico;
 	
-	public MovimentoConta() {
+	public MyMovimentoConta() {
 		super();
 	}
 
-	public MovimentoConta(TipoMovimentoConta tipo, LocalDate efetuadoEm, String historico, BigDecimal valor) {
+	public MyMovimentoConta(TipoMovimentoConta tipo, LocalDate efetuadoEm, String historico, BigDecimal valor) {
 		super();
 		this.tipo = tipo;
 		this.efetuadoEm = efetuadoEm;

@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 
 import treinamento.dia5.jpa.associacoes.BaseEntity;
 
-@Entity
+// @Entity
 public class Livro extends BaseEntity {
 	private String titulo;
 

@@ -7,9 +7,10 @@ import javax.persistence.Entity;
 public class PessoaFisica extends Pessoa {
 
 	@Column(nullable = false, unique = true)
-	private CPF cpf;
+	// private CPF cpf;
+	private String cpf;
 
-	public PessoaFisica(String nome, CPF cpf) {
+	public PessoaFisica(String nome, String cpf) {
 		super(nome);
 		this.cpf = cpf;
 	}
@@ -18,7 +19,7 @@ public class PessoaFisica extends Pessoa {
 		super();
 	}
 
-	public CPF getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 }

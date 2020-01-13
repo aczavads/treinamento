@@ -9,8 +9,6 @@ import javax.persistence.Persistence;
 
 import treinamento.guilhermeperes.dia5.jpa.conta.Conta;
 import treinamento.guilhermeperes.dia5.jpa.conta.ContaRepository;
-import treinamento.guilhermeperes.dia5.jpa.pessoa.CNPJ;
-import treinamento.guilhermeperes.dia5.jpa.pessoa.CPF;
 import treinamento.guilhermeperes.dia5.jpa.pessoa.PessoaFisica;
 import treinamento.guilhermeperes.dia5.jpa.pessoa.PessoaFisicaRepository;
 import treinamento.guilhermeperes.dia5.jpa.pessoa.PessoaJuridica;
@@ -25,8 +23,11 @@ public class App {
 		PessoaFisicaRepository repoPessoaFisica = new PessoaFisicaRepository(manager);
 		PessoaJuridicaRepository repoPessoaJuridica = new PessoaJuridicaRepository(manager);
 		
-		PessoaFisica pessoaFisica = new PessoaFisica("Guilherme Beidaki", new CPF("278.320.040-61"));
-		PessoaJuridica pessoaJuridica = new PessoaJuridica("Paulo Cesar", new CNPJ("34.135.835/0001-70"));
+		// PessoaFisica pessoaFisica = new PessoaFisica("Guilherme Beidaki", new CPF("278.320.040-61"));
+		// PessoaJuridica pessoaJuridica = new PessoaJuridica("Paulo Cesar", new CNPJ("34.135.835/0001-70"));
+		
+		PessoaFisica pessoaFisica = new PessoaFisica("Guilherme Beidaki", "278.320.040-61");
+		PessoaJuridica pessoaJuridica = new PessoaJuridica("Paulo Cesar", "34.135.835/0001-70");
 		
 		Conta conta1 = new Conta(1, LocalDate.of(2020, 1, 10), pessoaFisica);
 		Conta conta2 = new Conta(2, LocalDate.of(2020, 1, 10), pessoaJuridica);

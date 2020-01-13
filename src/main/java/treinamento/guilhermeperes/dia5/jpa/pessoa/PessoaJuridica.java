@@ -7,9 +7,10 @@ import javax.persistence.Entity;
 public class PessoaJuridica extends Pessoa {
 	
 	@Column(nullable = false, unique = true)
-	private CNPJ cnpj;
+	//private CNPJ cnpj;
+	private String cnpj;
 
-	public PessoaJuridica(String nome, CNPJ cnpj) {
+	public PessoaJuridica(String nome, String cnpj) {
 		super(nome);
 		this.cnpj = cnpj;
 	}
@@ -18,7 +19,7 @@ public class PessoaJuridica extends Pessoa {
 		super();
 	}
 
-	public CNPJ getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
 }

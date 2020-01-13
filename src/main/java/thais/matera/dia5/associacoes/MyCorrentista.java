@@ -11,22 +11,22 @@ import javax.persistence.OneToMany;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Correntista extends BaseEntity {
+public abstract class MyCorrentista extends BaseEntity {
 	private String nome;
 	
 	@OneToMany(mappedBy = "correntista")
-	private Set<Conta> contas = new HashSet<>();
+	private Set<MyConta> contas = new HashSet<>();
 	
-	public Correntista() {
+	public MyCorrentista() {
 		super();
 	}
 	
-	public Correntista(String nome) {
+	public MyCorrentista(String nome) {
 		super();
 		this.nome = nome;
 	}
 	
-	public Set<Conta> getContas() {
+	public Set<MyConta> getContas() {
 		return Collections.unmodifiableSet(contas);
 	}
 

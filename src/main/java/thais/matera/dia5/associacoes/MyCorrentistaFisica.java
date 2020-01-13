@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import treinamento.dia5.jpa.CPF;
 
 @Entity
-public class CorrentistaFisica extends Correntista {
+public class MyCorrentistaFisica extends MyCorrentista {
 	@Embedded
 	@Column(unique = true, nullable = false)
 	@AttributeOverride(name = "valor", column = @Column(name="cpfdotitular"))
@@ -19,11 +19,11 @@ public class CorrentistaFisica extends Correntista {
 	@Column(nullable = false)
 	private LocalDate nascidaEm;
 	
-	public CorrentistaFisica() {
+	public MyCorrentistaFisica() {
 		super();
 	}
 	
-	public CorrentistaFisica(String nome, CPF cpf, LocalDate nascidaEm) {
+	public MyCorrentistaFisica(String nome, CPF cpf, LocalDate nascidaEm) {
 		super(nome);
 		this.cpf = cpf;
 		this.nascidaEm = nascidaEm;

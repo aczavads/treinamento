@@ -8,7 +8,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
 @Entity
-public class CorrentistaJuridica extends Correntista {
+public class MyCorrentistaJuridica extends MyCorrentista {
 	@Column(unique = true, nullable = false)
 	private String razaoSocial;
 	
@@ -20,7 +20,7 @@ public class CorrentistaJuridica extends Correntista {
 	@AttributeOverride(name = "valor", column = @Column(name="cnpjdaempresa"))
 	private CNPJ cnpj;
 	
-	public CorrentistaJuridica() {
+	public MyCorrentistaJuridica() {
 		super();
 	}
 	
@@ -29,7 +29,7 @@ public class CorrentistaJuridica extends Correntista {
 		return "CorrentistaJuridica [razaoSocial=" + razaoSocial + ", fundadaEm=" + fundadaEm + ", cnpj=" + cnpj + "]";
 	}
 
-	public CorrentistaJuridica(String nome, CNPJ cnpj, String razaoSocial, LocalDate fundadaEm) {
+	public MyCorrentistaJuridica(String nome, CNPJ cnpj, String razaoSocial, LocalDate fundadaEm) {
 		super(nome);
 		this.razaoSocial = razaoSocial;
 		this.fundadaEm = fundadaEm;

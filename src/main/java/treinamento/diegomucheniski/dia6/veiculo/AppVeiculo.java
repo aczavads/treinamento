@@ -1,0 +1,25 @@
+package treinamento.diegomucheniski.dia6.veiculo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.PropertySource;
+
+@SpringBootApplication
+public class AppVeiculo implements CommandLineRunner {
+	
+	@Autowired
+	private Veiculo veiculo;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(AppVeiculo.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {		
+		veiculo.ligar();	
+		veiculo.desligar();
+	}
+
+}

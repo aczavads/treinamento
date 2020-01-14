@@ -6,8 +6,13 @@ import org.springframework.http.HttpStatus;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode(callSuper = false)
 @JsonIgnoreProperties({"cause", "localizedMessage", "stackTrace", "suppressed"})
-public class BaseException extends RuntimeException {
+public abstract class BaseException extends RuntimeException {
 	
 	private static final long serialVersionUID = 1L;
 	private final LocalDateTime timestamp = LocalDateTime.now();
@@ -19,21 +24,5 @@ public class BaseException extends RuntimeException {
 		this.status = status.value();
 		this.error = status.toString();
 		this.message = message;
-	}
-
-	public LocalDateTime getTimestamp() {
-		return timestamp;
-	}
-
-	public int getStatus() {
-		return status;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public String getError() {
-		return error;
 	}
 }

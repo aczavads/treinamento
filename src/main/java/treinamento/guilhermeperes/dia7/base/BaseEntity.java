@@ -5,7 +5,10 @@ import java.util.UUID;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import lombok.Data;
+
 @MappedSuperclass
+@Data
 public abstract class BaseEntity {
 	
 	@Id
@@ -13,13 +16,5 @@ public abstract class BaseEntity {
 
 	public BaseEntity() {
 		this.id = UUID.randomUUID();
-	}
-
-	public BaseEntity(UUID id) {
-		this.id = id;
-	}
-
-	public UUID getId() {
-		return id;
 	}
 }

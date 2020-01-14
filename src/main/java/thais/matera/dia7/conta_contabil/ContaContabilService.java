@@ -19,6 +19,6 @@ public class ContaContabilService {
 	}
 
 	public ContaContabil findById(UUID id) {
-		return repo.findById(id).get();
+		return repo.findById(id).orElseThrow(() -> new RegistroNaoEncontrado("Conta contabil " + id));
 	}
 }

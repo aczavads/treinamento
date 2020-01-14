@@ -27,6 +27,13 @@ public class ContaContabil extends BaseEntity {
 		super();
 	}
 
+	public ContaContabil(UUID id, String codigo, String nome, ContaContabil contaSuperior) {
+		super(id);
+		this.codigo = codigo;
+		this.nome = nome;
+		this.contaSuperior = contaSuperior;
+	}
+
 	public ContaContabil(String codigo, String nome, ContaContabil contaSuperior) {
 		super();
 		this.codigo = codigo;
@@ -51,10 +58,12 @@ public class ContaContabil extends BaseEntity {
 		this.nome = nome;
 	}
 
+	@JsonIgnore
 	public ContaContabil getContaSuperior() {
 		return contaSuperior;
 	}
 	
+	@JsonIgnore
 	public List<ContaContabil> getContasFilhas() {
 		return contasFilhas;
 	}
@@ -68,12 +77,12 @@ public class ContaContabil extends BaseEntity {
 	}
 	
 	public UUID getContaSuperiorId() {
-		if (this.contaSuperior == null) {
-			return null;
-		}
-		return this.contaSuperior.getId();
+		if (this.contaSuperior != null) {
+			return this.contaSuperior.getId();
+		} 
+		return null;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "ContaContabil [codigo=" + codigo + ", nome=" + nome + ", contaSuperior=" + contaSuperior + ", getId()="

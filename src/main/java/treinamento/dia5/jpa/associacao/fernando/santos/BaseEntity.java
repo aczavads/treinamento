@@ -3,13 +3,17 @@ package treinamento.dia5.jpa.associacao.fernando.santos;
 import java.io.Serializable;
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable {
 
+	private static final long serialVersionUID = 7597724799390789657L;
+
 	@Id
+	@Column(columnDefinition = "uuid")
 	private UUID id;
 
 	public BaseEntity() {

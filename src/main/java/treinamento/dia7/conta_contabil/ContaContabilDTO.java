@@ -1,4 +1,4 @@
-package william.dia7.Conta_Contabilwd;
+package treinamento.dia7.conta_contabil;
 
 import java.util.UUID;
 
@@ -8,5 +8,6 @@ import lombok.Data;
 public class ContaContabilDTO {
 	private UUID id;
 	private UUID contaSuperior;
-	private String dfa;
+	private String nome;
+	private String codigo;
 }

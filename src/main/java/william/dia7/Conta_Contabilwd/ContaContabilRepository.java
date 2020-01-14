@@ -26,4 +26,5 @@ public interface ContaContabilRepository extends JpaRepository<ContaContabil, UU
 			"SELECT * FROM hierarquia"
 			)
 	List<Map<String, Object>> recuperarHierarquia();
+
 }

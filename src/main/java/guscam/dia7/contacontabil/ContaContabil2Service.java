@@ -1,6 +1,7 @@
 package guscam.dia7.contacontabil;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.transaction.Transactional;
@@ -24,6 +25,18 @@ public class ContaContabil2Service {
 
 	public ContaContabil2 findById(UUID id) {
 		return repo.findById(id).orElseThrow(() -> new RegistroNaoEncontrado("Conta não encontrada"));
+	}
+
+	public Long contarNumeroDeContas() {
+		return repo.contarContas();
+	}
+
+	public List<ContaContabil2> selecionarContasRaiz() {
+		return repo.selecionarContasRaiz();
+	}
+
+	public List<Map<String, Object>> selecionarContasPelaHierarquia() {
+		return repo.selecionarContasPelaHierarquia();
 	}
 	
 }

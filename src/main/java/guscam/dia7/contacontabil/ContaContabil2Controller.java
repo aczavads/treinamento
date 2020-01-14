@@ -1,6 +1,7 @@
 package guscam.dia7.contacontabil;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,21 @@ public class ContaContabil2Controller {
 	@GetMapping("/{id}")
 	public ContaContabil2 findById(@PathVariable UUID id) {
 		return service.findById(id);
+	}
+
+	@GetMapping("/total-contas")
+	public Long contarNumeroDeContas() {
+		return service.contarNumeroDeContas();
+	}
+
+	@GetMapping("/raizes")
+	public List<ContaContabil2> selecionarContasRaiz() {
+		return service.selecionarContasRaiz();
+	}
+
+	@GetMapping("/pela-hierarquia")
+	public List<Map<String, Object>> listar() {
+		return service.selecionarContasPelaHierarquia();
 	}
 	
 	@PostMapping

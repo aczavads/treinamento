@@ -1,7 +1,12 @@
 package guscam.dia7.contacontabil;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import treinamento.dia5.jpa.associacoes.BaseEntity;
 
@@ -13,6 +18,9 @@ public class ContaContabil2 extends BaseEntity {
 	@ManyToOne
 	private ContaContabil2 contaSuperior;
 
+	@OneToMany(mappedBy = "contaSuperior")
+	private List<ContaContabil2> contasFilhas;
+	
 	public ContaContabil2() {
 		super();
 	}
@@ -46,6 +54,15 @@ public class ContaContabil2 extends BaseEntity {
 
 	public void setContaSuperior(ContaContabil2 contaSuperior) {
 		this.contaSuperior = contaSuperior;
+	}
+
+	@JsonIgnore
+	public List<ContaContabil2> getContasFilhas() {
+		return contasFilhas;
+	}
+
+	public void setContasFilhas(List<ContaContabil2> contasFilhas) {
+		this.contasFilhas = contasFilhas;
 	}
 
 	@Override

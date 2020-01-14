@@ -16,7 +16,6 @@ public class AppSpringJPA implements CommandLineRunner {
 	private EntityManagerFactory factory;
 	
 	private Logger logger = LoggerFactory.getLogger(AppSpringJPA.class);
-
 	
 	public static void main(String[] args) {
 		SpringApplication.run(AppSpringJPA.class, args);

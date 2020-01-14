@@ -1,7 +1,12 @@
 package thais.matera.dia7.conta_contabil;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import thais.matera.dia5.associacoes.BaseEntity;
 
@@ -13,6 +18,9 @@ public class ContaContabil extends BaseEntity {
 	@ManyToOne
 	private ContaContabil contaSuperior;
 	
+//	@OneToMany(mappedBy = "contaSuperior")
+//	private List<ContaContabil> contasFilhas;
+
 	public ContaContabil() {
 		super();
 	}
@@ -23,6 +31,14 @@ public class ContaContabil extends BaseEntity {
 		this.nome = nome;
 		this.contaSuperior = contaSuperior;
 	}
+
+//	public List<ContaContabil> getContasFilhos() {
+//		return contasFilhas;
+//	}
+//	
+//	public void setContasFilhos(List<ContaContabil> contasFilhos) {
+//		this.contasFilhas = contasFilhos;
+//	}
 
 	public String getCodigo() {
 		return codigo;
@@ -49,6 +65,7 @@ public class ContaContabil extends BaseEntity {
 		return contaSuperior;
 	}
 
+	@JsonIgnore
 	public void setContaSuperior(ContaContabil contaSuperior) {
 		this.contaSuperior = contaSuperior;
 	}

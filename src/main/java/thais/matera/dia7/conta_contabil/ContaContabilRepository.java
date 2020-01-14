@@ -4,16 +4,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-/*
- * query recursiva: contando de 1 até 10
- */
-//WITH contador (numero) AS (
-//SELECT 1 AS numero
-//UNION ALL
-//SELECT contador.numero+1 FROM contador WHERE contador.numero < 10
-//)
-//SELECT * FROM contador
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -36,4 +26,5 @@ public interface ContaContabilRepository extends JpaRepository<ContaContabil, UU
 			")" + 
 			"SELECT * FROM hierarquia")
 	List<Map<String, Object>> recuperarHierarquia();
+
 }

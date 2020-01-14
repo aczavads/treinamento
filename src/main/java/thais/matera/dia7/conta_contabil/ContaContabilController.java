@@ -48,4 +48,5 @@ public class ContaContabilController {
 		service.save(nova);
 		return nova.getId();
 	}
+	
 }

@@ -21,18 +21,18 @@ public class ContaContabilController {
 	private ContaContabilService service;
 	
 	@GetMapping
-	public List<ContaContabil> get() {
+	public List<ContaContabilFS2> get() {
 		return service.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ContaContabil get(@PathVariable UUID id) {
+	public ContaContabilFS2 get(@PathVariable UUID id) {
 		return service.findById(id);
 	}
 	
 	@PostMapping
 	public UUID post(@RequestBody ContaContabilDTO nova) {
-		ContaContabil novaContaContabil = service.save(nova);
+		ContaContabilFS2 novaContaContabil = service.save(nova);
 		return novaContaContabil.getId();
 	}
 	

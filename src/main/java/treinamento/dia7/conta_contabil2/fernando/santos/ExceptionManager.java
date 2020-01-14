@@ -15,5 +15,7 @@ public class ExceptionManager {
 		logger.warn("Erro de argumentos.", ex);
 		return ResponseEntity.notFound().build();
 	}
+	
+	
 
 }

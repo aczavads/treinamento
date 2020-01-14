@@ -31,10 +31,11 @@ public class ContaContabilController {
 	}
 	
 	@PostMapping
-	public UUID post(@RequestBody ContaContabil nova) {
-		service.save(nova);
-		return nova.getId();
+	public UUID post(@RequestBody ContaContabilDTO nova) {
+		ContaContabil novaContaContabil = service.save(nova);
+		return novaContaContabil.getId();
 	}
+	
 	@GetMapping("/hierarquia")
 	public List<Map<String, Object>> recuperarHierarquia() {
 		return service.recuperarHierarquia();

@@ -2,6 +2,7 @@ package treinamento.thyagofranco.dia5.associacoes;
 
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
@@ -9,10 +10,15 @@ import javax.persistence.MappedSuperclass;
 public abstract class BaseEntity {
 	
 	@Id
+	@Column(columnDefinition = "uuid")
 	private UUID id;
 	
 	public BaseEntity() {
 		id = UUID.randomUUID();
+	}
+	
+	public BaseEntity(UUID id) {
+		this.id = id;
 	}
 	
 	public UUID getId() {

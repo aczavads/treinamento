@@ -13,3 +13,48 @@ SELECT rec.numero + 1 FROM rec WHERE rec.numero < 10
 select * from rec
 
 
+/*
+
+NUMERO {1,2,3,4,5,6,7,8,9,10}
+
+Sem recursão
+*/
+
+WITH contador(numero) AS (
+SELECT 1 AS numero
+UNION ALL
+SELECT contador.numero+1 FROM contador WHERE contador.numero < 10
+)
+SELECT * FROM contador
+
+
+
+
+Criar tabela com 1000 UUIDs
+create table teste as 
+WITH contador(numero, id) AS (
+SELECT 1 AS numero, random_uuid()
+UNION ALL
+SELECT contador.numero+1, random_uuid() FROM contador WHERE contador.numero < 1000
+)
+SELECT * FROM contador
+
+
+Recuperando níveis de hierarquia de conta
+
+WITH RECURSIVE hierarquia(id, nome, conta_superior_id, nivel) AS (
+SELECT id, nome, conta_superior_id, 1 
+FROM conta_contabil_thyago 
+WHERE conta_superior_id is null
+UNION ALL
+SELECT f.id, f.nome, f.conta_superior_id, hierarquia.nivel+1 
+FROM conta_contabil_thyago f, hierarquia 
+WHERE f.conta_superior_id = hierarquia.id
+)
+SELECT * FROM hierarquia
+
+
+
+
+
+

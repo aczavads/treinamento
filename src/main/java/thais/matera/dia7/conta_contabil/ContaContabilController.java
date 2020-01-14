@@ -25,7 +25,7 @@ public class ContaContabilController {
 	
 	@GetMapping("/{id}")
 	public ContaContabil get(@PathVariable UUID id) {
-		return service.findById(id).get();
+		return service.findById(id);
 	}
 	
 	@GetMapping("/contarContas")

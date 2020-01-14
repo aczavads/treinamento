@@ -13,21 +13,28 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import treinamento.dia5.jpa.associacoes.BaseEntity;
 
 @Entity
-public class ContaContabilFS2 extends BaseEntity {
+public class ContaContabil extends BaseEntity {
 	private String codigo;	
 	private String nome;
 	
 	@ManyToOne
-	private ContaContabilFS2 contaSuperior;
+	private ContaContabil contaSuperior;
 	
 	@OneToMany(mappedBy = "contaSuperior")
-	private List<ContaContabilFS2> contasFilhas;
+	private List<ContaContabil> contasFilhas;
 	
-	public ContaContabilFS2() {
+	public ContaContabil() {
 		super();
 	}
 
-	public ContaContabilFS2(String codigo, String nome, ContaContabilFS2 contaSuperior) {
+	public ContaContabil(UUID id, String codigo, String nome, ContaContabil contaSuperior) {
+		super(id);
+		this.codigo = codigo;
+		this.nome = nome;
+		this.contaSuperior = contaSuperior;
+	}
+
+	public ContaContabil(String codigo, String nome, ContaContabil contaSuperior) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -51,25 +58,27 @@ public class ContaContabilFS2 extends BaseEntity {
 		this.nome = nome;
 	}
 
-	public ContaContabilFS2 getContaSuperior() {
+	@JsonIgnore
+	public ContaContabil getContaSuperior() {
 		return contaSuperior;
 	}
 	
-	public List<ContaContabilFS2> getContasFilhas() {
+	@JsonIgnore
+	public List<ContaContabil> getContasFilhas() {
 		return contasFilhas;
 	}
 
-	public void setContaSuperior(ContaContabilFS2 contaSuperior) {
+	public void setContaSuperior(ContaContabil contaSuperior) {
 		this.contaSuperior = contaSuperior;
 	}
 	
 	public UUID getContaSuperiorId() {
-		if (this.contaSuperior == null) {
-			return null;
-		}
-		return this.contaSuperior.getId();
+		if (this.contaSuperior != null) {
+			return this.contaSuperior.getId();
+		} 
+		return null;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "ContaContabil [codigo=" + codigo + ", nome=" + nome + ", contaSuperior=" + contaSuperior + ", getId()="

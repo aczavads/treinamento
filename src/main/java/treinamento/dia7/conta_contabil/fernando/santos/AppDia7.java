@@ -1,4 +1,4 @@
-package treinamento.dia7.conta_contabil.fernando.fernandes;
+package treinamento.dia7.conta_contabil.fernando.santos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

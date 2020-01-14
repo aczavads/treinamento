@@ -26,14 +26,14 @@ SELECT contador.numero+1, random_uuid() FROM contador WHERE contador.numero < 10
 SELECT * FROM contador
  */
 
-public interface ContaContabilRepository extends JpaRepository<ContaContabilFS2, UUID>{
+public interface ContaContabilRepository extends JpaRepository<ContaContabil, UUID>{
 	
 	@Query(nativeQuery = true, value = "select count(*) from conta_contabil")
 	Long contarContas();
 	
 	
 	@Query(nativeQuery = true, value = "select * from conta_contabil c where c.conta_superior_id is null")
-	List<ContaContabilFS2> selecionarContasRaiz();
+	List<ContaContabil> selecionarContasRaiz();
 	
 	//Para retornar a query com o novo campo "nivel" precisamos retornar 
 	//com um tipo de retorno que aceite qualquer conjunto de campos e valores.

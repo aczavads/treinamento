@@ -11,15 +11,25 @@ public class ContaContabilService {
 	@Autowired
 	private ContaContabilRepository repo;
 
-	public List<ContaContabilFS2> findAll() {
+	public List<ContaContabil> findAll() {
 		return repo.findAll();
 	}
 	
-	public void save(ContaContabilFS2 nova) {
-		repo.save(nova);
+	public ContaContabil save(ContaContabilDTO nova) {
+		ContaContabil contaSuperior = null;
+		if (nova.getContaSuperiorId() != null) {
+			contaSuperior = findById(nova.getContaSuperiorId());
+		}
+		ContaContabil novaContaContabil = null;
+		if (nova.getId() == null) {
+			novaContaContabil = new ContaContabil(nova.getCodigo(), nova.getNome(), contaSuperior);			
+		} else {
+			novaContaContabil = new ContaContabil(nova.getId(), nova.getCodigo(), nova.getNome(), contaSuperior);			
+		}
+		return repo.save(novaContaContabil);
 	}
 
-	public ContaContabilFS2 findById(UUID id) {
+	public ContaContabil findById(UUID id) {
 		return repo
 				.findById(id)
 				.orElseThrow(() -> new RegistroNaoEncontrado("Conta contábil: " + id));

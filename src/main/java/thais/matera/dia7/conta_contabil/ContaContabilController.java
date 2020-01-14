@@ -25,7 +25,7 @@ public class ContaContabilController {
 	
 	@GetMapping("/{id}")
 	public ContaContabil get(@PathVariable UUID id) {
-		return service.findById(id);
+		return service.findById(id).get();
 	}
 	
 	@GetMapping("/contarContas")
@@ -34,7 +34,7 @@ public class ContaContabilController {
 	}
 	
 	@GetMapping("/selecionarContasRaiz")
-	public List<ContaContabil> selecionarContasRaiz() {
+	public List<ContaContabilDTO> selecionarContasRaiz() {
 		return service.selecionarContasRaiz();
 	}
 	
@@ -44,9 +44,9 @@ public class ContaContabilController {
 	}
 	
 	@PostMapping
-	public UUID post(@RequestBody ContaContabil nova) {
-		service.save(nova);
-		return nova.getId();
+	public UUID post(@RequestBody ContaContabilDTO nova) {
+		ContaContabil novaCC = service.save(nova);
+		return novaCC.getId();
 	}
 	
 }

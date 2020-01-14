@@ -60,7 +60,11 @@ public class ContaContabil extends BaseEntity {
 	}
 
 	public void setContaSuperior(ContaContabil contaSuperior) {
-		this.contaSuperior = contaSuperior;
+		if(this.contaSuperior != null) {
+			this.contaSuperior = contaSuperior;
+		}
+		
+		this.contaSuperior = null;
 	}
 	
 	public UUID getContaSuperiorId() {
@@ -76,7 +80,4 @@ public class ContaContabil extends BaseEntity {
 				+ getId() + "]";
 	}
 	
-	
-	
-
 }

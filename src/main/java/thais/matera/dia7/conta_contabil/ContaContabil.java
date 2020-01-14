@@ -1,6 +1,7 @@
 package thais.matera.dia7.conta_contabil;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -18,8 +19,8 @@ public class ContaContabil extends BaseEntity {
 	@ManyToOne
 	private ContaContabil contaSuperior;
 	
-//	@OneToMany(mappedBy = "contaSuperior")
-//	private List<ContaContabil> contasFilhas;
+	@OneToMany(mappedBy = "contaSuperior")
+	private List<ContaContabil> contasFilhas;
 
 	public ContaContabil() {
 		super();
@@ -31,14 +32,18 @@ public class ContaContabil extends BaseEntity {
 		this.nome = nome;
 		this.contaSuperior = contaSuperior;
 	}
+	
+	public ContaContabil(UUID id, String codigo, String nome, ContaContabil contaSuperior) {
+		super(id);
+		this.codigo = codigo;
+		this.nome = nome;
+		this.contaSuperior = contaSuperior;
+	}
 
-//	public List<ContaContabil> getContasFilhos() {
-//		return contasFilhas;
-//	}
-//	
-//	public void setContasFilhos(List<ContaContabil> contasFilhos) {
-//		this.contasFilhas = contasFilhos;
-//	}
+	@JsonIgnore
+	public List<ContaContabil> getContasFilhas() {
+		return contasFilhas;
+	}
 
 	public String getCodigo() {
 		return codigo;
@@ -61,6 +66,7 @@ public class ContaContabil extends BaseEntity {
 		return "ContaContabil [codigo=" + codigo + ", nome=" + nome + ", contaSuperior=" + contaSuperior + "]";
 	}
 
+	@JsonIgnore
 	public ContaContabil getContaSuperior() {
 		return contaSuperior;
 	}

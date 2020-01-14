@@ -12,7 +12,7 @@ public interface ContaContabilRepository extends JpaRepository<ContaContabil, UU
 	Long contarContas();
 	
 	@Query(nativeQuery = true, value = "select * from conta_contabil c where c.conta_superior_id is null")
-	List<ContaContabil> selecionarContasRaiz();
+	List<ContaContabilDTO> selecionarContasRaiz();
 	
 	@Query(nativeQuery = true, value = 
 			"WITH RECURSIVE hierarquia (id, nome, conta_superior_id, nivel) as ( " + 

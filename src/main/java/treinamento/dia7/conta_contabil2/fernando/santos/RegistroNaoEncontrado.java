@@ -3,7 +3,7 @@ package treinamento.dia7.conta_contabil2.fernando.santos;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(code = HttpStatus.NOT_FOUND)
+@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 public class RegistroNaoEncontrado extends RuntimeException {
 	private static final long serialVersionUID = -4666552778314784101L;
 

@@ -953,3 +953,437 @@ Caused by: java.lang.RuntimeException: Tipo do motor inválido
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
 	... 19 common frames omitted
+2020-01-14 08:59:55,033 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 3588 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 08:59:55,035 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 08:59:55,413 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 08:59:55,434 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12ms. Found 0 JPA repository interfaces.
+2020-01-14 08:59:55,795 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 08:59:55,849 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 08:59:55,970 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 08:59:56,599 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 08:59:56,648 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 08:59:56,664 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 08:59:56,859 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 08:59:56,867 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 08:59:56,947 INFO org.springframework.boot.StartupInfoLogger [main] Started App in 2.218 seconds (JVM running for 2.51)
+2020-01-14 08:59:56,950 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 08:59:56,953 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-14 08:59:56,958 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-01-14 09:02:11,956 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 15628 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:02:11,959 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:02:12,304 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:02:12,326 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12ms. Found 0 JPA repository interfaces.
+2020-01-14 09:02:12,701 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:02:12,757 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:02:12,871 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:02:13,480 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:02:13,529 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:02:13,545 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:02:13,743 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:02:13,750 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:02:13,822 INFO org.springframework.boot.StartupInfoLogger [main] Started App in 2.17 seconds (JVM running for 2.457)
+2020-01-14 09:02:13,825 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:02:13,828 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:02:13,835 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-01-14 09:07:45,848 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 13460 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:07:45,851 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:07:46,201 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:07:46,219 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:07:46,584 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:07:46,637 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:07:46,756 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:07:47,380 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:07:47,429 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:07:47,445 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:07:47,642 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:07:47,648 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:07:47,721 INFO org.springframework.boot.StartupInfoLogger [main] Started App in 2.172 seconds (JVM running for 2.508)
+2020-01-14 09:07:47,724 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:07:47,726 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:07:47,733 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-01-14 09:08:09,980 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 7880 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:08:09,983 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:08:10,376 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:08:10,395 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:08:10,755 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:08:10,810 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:08:10,929 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:08:11,542 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:08:11,592 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:08:11,608 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:08:11,805 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:08:11,811 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:08:11,818 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'app': Unsatisfied dependency expressed through field 'veiculo'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'veiculo': Unsatisfied dependency expressed through field 'motor'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'thais.matera.dia6.injecao.Motor' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-01-14 09:08:11,818 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:08:11,821 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:08:11,827 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2020-01-14 09:08:11,833 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-01-14 09:08:11,938 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field motor in thais.matera.dia6.injecao.Veiculo required a bean of type 'thais.matera.dia6.injecao.Motor' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'thais.matera.dia6.injecao.Motor' in your configuration.
+
+2020-01-14 09:08:31,924 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 6800 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:08:31,926 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:08:32,281 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:08:32,300 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:08:32,661 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:08:32,716 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:08:32,843 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:08:33,457 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:08:33,506 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:08:33,523 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:08:33,716 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:08:33,723 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:08:33,729 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'app': Unsatisfied dependency expressed through field 'veiculo'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'veiculo': Unsatisfied dependency expressed through field 'motor'; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'thais.matera.dia6.injecao.Motor' available: expected single matching bean but found 3: motorEletrico,motorV6,motorV8
+2020-01-14 09:08:33,729 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:08:33,731 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:08:33,736 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2020-01-14 09:08:33,743 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-01-14 09:08:33,745 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field motor in thais.matera.dia6.injecao.Veiculo required a single bean, but 3 were found:
+	- motorEletrico: defined in file [C:\Treinamento\Github\treinamento-master\target\classes\thais\matera\dia6\injecao\MotorEletrico.class]
+	- motorV6: defined in file [C:\Treinamento\Github\treinamento-master\target\classes\thais\matera\dia6\injecao\MotorV6.class]
+	- motorV8: defined in file [C:\Treinamento\Github\treinamento-master\target\classes\thais\matera\dia6\injecao\MotorV8.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+2020-01-14 09:10:40,357 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 11220 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:10:40,360 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:10:40,702 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:10:40,721 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:10:41,081 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:10:41,135 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:10:41,261 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:10:41,875 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:10:41,925 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:10:41,940 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:10:42,136 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:10:42,143 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:10:42,154 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'app': Unsatisfied dependency expressed through field 'veiculo'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'veiculo': Unsatisfied dependency expressed through field 'motor'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'thais.matera.dia6.injecao.Motor' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-01-14 09:10:42,154 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:10:42,158 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:10:42,166 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2020-01-14 09:10:42,175 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-01-14 09:10:42,278 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field motor in thais.matera.dia6.injecao.Veiculo required a bean of type 'thais.matera.dia6.injecao.Motor' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'thais.matera.dia6.injecao.Motor' in your configuration.
+
+2020-01-14 09:10:53,289 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 10992 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:10:53,292 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:10:53,652 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:10:53,671 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:10:54,029 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:10:54,083 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:10:54,205 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:10:54,837 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:10:54,885 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:10:54,900 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:10:55,096 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:10:55,103 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:10:55,110 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'app': Unsatisfied dependency expressed through field 'veiculo'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'veiculo': Unsatisfied dependency expressed through field 'motor'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'thais.matera.dia6.injecao.Motor' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-01-14 09:10:55,110 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:10:55,113 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:10:55,119 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2020-01-14 09:10:55,128 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-01-14 09:10:55,207 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field motor in thais.matera.dia6.injecao.Veiculo required a bean of type 'thais.matera.dia6.injecao.Motor' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'thais.matera.dia6.injecao.Motor' in your configuration.
+
+2020-01-14 09:11:49,612 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 12036 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:11:49,615 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:11:49,996 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:11:50,016 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:11:50,385 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:11:50,439 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:11:50,565 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:11:51,182 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:11:51,231 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:11:51,245 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:11:51,451 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:11:51,459 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:11:51,467 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'app': Unsatisfied dependency expressed through field 'veiculo'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'veiculo': Unsatisfied dependency expressed through field 'motor'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'thais.matera.dia6.injecao.Motor' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-01-14 09:11:51,467 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:11:51,469 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:11:51,475 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2020-01-14 09:11:51,481 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-01-14 09:11:51,554 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field motor in thais.matera.dia6.injecao.Veiculo required a bean of type 'thais.matera.dia6.injecao.Motor' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'thais.matera.dia6.injecao.Motor' in your configuration.
+
+2020-01-14 09:12:16,859 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 9716 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:12:16,862 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:12:17,257 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:12:17,276 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12ms. Found 0 JPA repository interfaces.
+2020-01-14 09:12:17,646 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:12:17,699 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:12:17,814 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:12:18,429 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:12:18,478 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:12:18,493 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:12:18,687 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:12:18,695 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:12:18,771 INFO org.springframework.boot.StartupInfoLogger [main] Started App in 2.218 seconds (JVM running for 2.51)
+2020-01-14 09:12:18,774 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:12:18,777 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:12:18,783 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-01-14 09:12:57,062 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 13456 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:12:57,064 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:12:57,427 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:12:57,446 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:12:57,805 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:12:57,860 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:12:57,983 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:12:58,604 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:12:58,653 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:12:58,669 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:12:58,867 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:12:58,873 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:12:58,960 INFO org.springframework.boot.StartupInfoLogger [main] Started App in 2.203 seconds (JVM running for 2.481)
+2020-01-14 09:12:58,963 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:12:58,965 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:12:58,972 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-01-14 09:13:49,148 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 15024 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:13:49,151 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:13:49,505 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:13:49,524 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:13:49,893 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:13:49,949 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:13:50,068 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:13:50,691 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:13:50,740 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:13:50,756 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:13:50,954 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:13:50,960 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:13:50,975 WARN org.springframework.context.support.AbstractApplicationContext [main] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'app': Unsatisfied dependency expressed through field 'veiculo'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'veiculo': Unsatisfied dependency expressed through field 'motor'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'MotorFactory' defined in class path resource [thais/matera/dia6/injecao/AppConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [thais.matera.dia6.injecao.Motor]: Factory method 'MotorFactory' threw exception; nested exception is java.lang.RuntimeException: Tipo do motor inválido
+2020-01-14 09:13:50,975 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:13:50,977 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:13:50,983 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2020-01-14 09:13:50,989 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [main] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-01-14 09:13:50,992 ERROR org.springframework.boot.SpringApplication [main] Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'app': Unsatisfied dependency expressed through field 'veiculo'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'veiculo': Unsatisfied dependency expressed through field 'motor'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'MotorFactory' defined in class path resource [thais/matera/dia6/injecao/AppConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [thais.matera.dia6.injecao.Motor]: Factory method 'MotorFactory' threw exception; nested exception is java.lang.RuntimeException: Tipo do motor inválido
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:116)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1422)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:878)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at thais.matera.dia6.injecao.App.main(App.java:15)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'veiculo': Unsatisfied dependency expressed through field 'motor'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'MotorFactory' defined in class path resource [thais/matera/dia6/injecao/AppConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [thais.matera.dia6.injecao.Motor]: Factory method 'MotorFactory' threw exception; nested exception is java.lang.RuntimeException: Tipo do motor inválido
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:116)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1422)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1287)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1207)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 18 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'MotorFactory' defined in class path resource [thais/matera/dia6/injecao/AppConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [thais.matera.dia6.injecao.Motor]: Factory method 'MotorFactory' threw exception; nested exception is java.lang.RuntimeException: Tipo do motor inválido
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:656)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:484)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1287)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1207)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 31 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [thais.matera.dia6.injecao.Motor]: Factory method 'MotorFactory' threw exception; nested exception is java.lang.RuntimeException: Tipo do motor inválido
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	... 44 common frames omitted
+Caused by: java.lang.RuntimeException: Tipo do motor inválido
+	at thais.matera.dia6.injecao.AppConfiguration.MotorFactory(AppConfiguration.java:28)
+	at thais.matera.dia6.injecao.AppConfiguration$$EnhancerBySpringCGLIB$$26232e21.CGLIB$MotorFactory$0(<generated>)
+	at thais.matera.dia6.injecao.AppConfiguration$$EnhancerBySpringCGLIB$$26232e21$$FastClassBySpringCGLIB$$f0ec268d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at thais.matera.dia6.injecao.AppConfiguration$$EnhancerBySpringCGLIB$$26232e21.MotorFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 45 common frames omitted
+2020-01-14 09:16:00,633 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 14232 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:16:00,636 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:16:00,994 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:16:01,014 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 12ms. Found 0 JPA repository interfaces.
+2020-01-14 09:16:01,376 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:16:01,430 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:16:01,551 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:16:02,174 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:16:02,222 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:16:02,238 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:16:02,437 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:16:02,445 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:16:02,530 INFO org.springframework.boot.StartupInfoLogger [main] Started App in 2.197 seconds (JVM running for 2.489)
+2020-01-14 09:16:02,533 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:16:02,536 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:16:02,543 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-01-14 09:16:26,674 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 4684 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:16:26,677 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:16:27,029 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:16:27,048 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:16:27,411 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:16:27,466 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:16:27,584 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:16:28,201 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:16:28,248 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:16:28,262 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:16:28,457 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:16:28,463 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:16:28,555 INFO org.springframework.boot.StartupInfoLogger [main] Started App in 2.185 seconds (JVM running for 2.469)
+2020-01-14 09:16:28,558 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:16:28,560 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:16:28,566 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-01-14 09:16:59,261 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 12912 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:16:59,263 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:16:59,618 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:16:59,637 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:17:00,000 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:17:00,057 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:17:00,180 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:17:00,792 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:17:00,842 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:17:00,858 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:17:01,055 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:17:01,061 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:17:01,151 INFO org.springframework.boot.StartupInfoLogger [main] Started App in 2.193 seconds (JVM running for 2.473)
+2020-01-14 09:17:01,154 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:17:01,157 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:17:01,164 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-01-14 09:17:22,018 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 9948 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:17:22,021 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:17:22,373 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:17:22,391 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:17:22,763 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:17:22,817 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:17:22,940 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:17:23,548 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:17:23,596 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:17:23,612 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:17:23,806 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:17:23,815 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:17:23,898 INFO org.springframework.boot.StartupInfoLogger [main] Started App in 2.18 seconds (JVM running for 2.462)
+2020-01-14 09:17:23,901 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:17:23,903 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:17:23,908 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-01-14 09:17:53,020 INFO org.springframework.boot.StartupInfoLogger [main] Starting App on CP5865 with PID 10736 (C:\Treinamento\Github\treinamento-master\target\classes started by tasc in C:\Treinamento\Github\treinamento-master)
+2020-01-14 09:17:53,022 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-14 09:17:53,376 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-14 09:17:53,394 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 11ms. Found 0 JPA repository interfaces.
+2020-01-14 09:17:53,763 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-14 09:17:53,817 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-14 09:17:53,943 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-14 09:17:54,553 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-14 09:17:54,602 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-14 09:17:54,616 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-14 09:17:54,812 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-14 09:17:54,818 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:17:54,905 INFO org.springframework.boot.StartupInfoLogger [main] Started App in 2.186 seconds (JVM running for 2.476)
+2020-01-14 09:17:54,908 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-14 09:17:54,909 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-14 09:17:54,914 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.

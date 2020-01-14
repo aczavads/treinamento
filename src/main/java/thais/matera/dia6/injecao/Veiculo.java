@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Veiculo {
-//	@Autowired
-//	private Motor motor;
+	@Autowired
+	private Motor motor;
 	
 	public void ligar() {
-//		motor.ligar();
+		motor.ligar();
 	}
 	
 	public void desligar() {

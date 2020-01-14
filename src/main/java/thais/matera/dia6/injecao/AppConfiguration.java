@@ -8,18 +8,18 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @PropertySource("classpath:veiculo.properties")
 public class AppConfiguration {
-	@Value("@{tipo.do.motor}")
+	@Value("${tipo.do.motor}")
 	private String motorTipo;
 	
 	@Bean
 	public Motor MotorFactory() {
-//		if(motorTipo.equals("v8")) {
-//			return new MotorV8();
-//		}
-//		
-//		if(motorTipo.equals("v6")) {
-//			return new MotorV6();
-//		}
+		if(motorTipo.equals("v8")) {
+			return new MotorV8();
+		}
+		
+		if(motorTipo.equals("v6")) {
+			return new MotorV6();
+		}
 		
 		if(motorTipo.equals("eletrico")){
 			return new MotorEletrico();

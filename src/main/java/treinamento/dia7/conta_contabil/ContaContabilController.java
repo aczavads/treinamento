@@ -1,6 +1,7 @@
 package treinamento.dia7.conta_contabil;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,10 @@ public class ContaContabilController {
 	public UUID post(@RequestBody ContaContabil nova) {
 		service.save(nova);
 		return nova.getId();
+	}
+	@GetMapping("/hierarquia")
+	public List<Map<String, Object>> recuperarHierarquia() {
+		return service.recuperarHierarquia();
 	}
 }
 

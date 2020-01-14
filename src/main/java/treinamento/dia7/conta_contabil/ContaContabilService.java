@@ -1,6 +1,7 @@
 package treinamento.dia7.conta_contabil;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,8 @@ public class ContaContabilService {
 		return repo
 				.findById(id)
 				.orElseThrow(() -> new RegistroNaoEncontrado("Conta contábil: " + id));
+	}
+	public List<Map<String, Object>> recuperarHierarquia() {
+		return repo.recuperarHierarquia();
 	}
 }

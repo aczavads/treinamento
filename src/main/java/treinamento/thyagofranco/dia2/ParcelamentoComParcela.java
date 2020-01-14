@@ -20,9 +20,11 @@ public class ParcelamentoComParcela {
 
 		List<Parcela> parcelas = parcelar(valor, quantidadeDeParcelas, dataBase, prazoEmDias);
 
-		for (Parcela p : parcelas) {
-			imprimirParcelaNoConsole(p);
-		}
+//		for (Parcela p : parcelas) {
+//			imprimirParcelaNoConsole(p);
+//		}
+		
+		parcelas.forEach(p -> imprimirParcelaNoConsole(p));
 	}
 
 	public static List<Parcela> parcelar(BigDecimal valor, int quantidadeDeParcelas, LocalDate dataBase, int prazoEmDias) {

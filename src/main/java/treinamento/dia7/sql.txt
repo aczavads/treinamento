@@ -1,0 +1,15 @@
+/* NUMERO {1,2,3,4,5,6,7,8,9,10}
+
+Query SQL recursiva
+
+*/ 
+
+
+WITH RECURSIVE rec (numero) AS (
+SELECT 1 as numero
+UNION ALL
+SELECT rec.numero + 1 FROM rec WHERE rec.numero < 10
+)
+select * from rec
+
+

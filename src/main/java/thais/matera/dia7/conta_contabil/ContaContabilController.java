@@ -1,6 +1,7 @@
 package thais.matera.dia7.conta_contabil;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,21 @@ public class ContaContabilController {
 	@GetMapping("/{id}")
 	public ContaContabil get(@PathVariable UUID id) {
 		return service.findById(id);
+	}
+	
+	@GetMapping("/contarContas")
+	public Long getCount() {
+		return service.contarContas();
+	}
+	
+	@GetMapping("/selecionarContasRaiz")
+	public List<ContaContabil> selecionarContasRaiz() {
+		return service.selecionarContasRaiz();
+	}
+	
+	@GetMapping("/recuperarHierarquia")
+	public List<Map<String, Object>> recuperarHierarquia() {
+		return service.recuperarHierarquia();
 	}
 	
 	@PostMapping

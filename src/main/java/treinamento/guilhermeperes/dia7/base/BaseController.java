@@ -24,28 +24,38 @@ public abstract class BaseController<
 	@PostMapping
 	public ResponseEntity<Void> post(@RequestBody ENTITY entity) {
 		service.save(entity);
-		return ResponseEntity.ok().build();
+		return ResponseEntity
+				.ok()
+				.build();
 	}
 	
 	@PutMapping
 	public ResponseEntity<Void> updateById(@RequestBody ENTITY entity) {
 		service.save(entity);
-		return ResponseEntity.ok().build();
+		return ResponseEntity
+				.ok()
+				.build();
 	}
 	
 	@DeleteMapping
 	public ResponseEntity<Void> deleteById(@RequestBody ENTITY entity) {
 		service.deleteById(entity);
-		return ResponseEntity.ok().build();
+		return ResponseEntity
+				.ok()
+				.build();
 	}
 	
 	@GetMapping
 	public ResponseEntity<List<ENTITY>> findAll() {
-		return ResponseEntity.ok().body(service.findAll());
+		return ResponseEntity
+				.ok()
+				.body(service.findAll());
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<ENTITY> findById(@PathVariable UUID id) {
-		return ResponseEntity.ok().body(service.findById(id));
+		return ResponseEntity
+				.ok()
+				.body(service.findById(id));
 	}
 }

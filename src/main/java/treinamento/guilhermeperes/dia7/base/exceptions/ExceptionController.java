@@ -9,6 +9,8 @@ public class ExceptionController {
 	
 	@ExceptionHandler(NotFoundedException.class)
 	public ResponseEntity<NotFoundedException> handleNotFounded(NotFoundedException exception) {
-		return ResponseEntity.status(exception.getStatus()).body(exception);
+		return ResponseEntity
+				.status(exception.getStatus())
+				.body(exception);
 	}
 }

@@ -28,7 +28,8 @@ public abstract class BaseService<
 	}
 	
 	public ENTITY findById(UUID id) {
-		return repo.findById(id)
+		return repo
+				.findById(id)
 				.orElseThrow(() -> new NotFoundedException("Cannot find Conta with provided id"));
 	}
 }

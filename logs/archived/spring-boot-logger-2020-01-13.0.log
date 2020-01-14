@@ -1,0 +1,43 @@
+2020-01-13 16:35:59,178 INFO org.springframework.boot.StartupInfoLogger [main] Starting AppLivro on CP5869 with PID 14508 (C:\Users\user\projetos\treinamento\target\classes started by user in C:\Users\user\projetos\treinamento)
+2020-01-13 16:35:59,180 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-13 16:35:59,462 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-13 16:35:59,477 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 9ms. Found 0 JPA repository interfaces.
+2020-01-13 16:35:59,787 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-13 16:35:59,826 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-13 16:35:59,906 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-13 16:35:59,965 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-13 16:35:59,993 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-13 16:36:00,003 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-13 16:36:00,356 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-13 16:36:00,407 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-13 16:36:00,511 INFO org.springframework.boot.StartupInfoLogger [main] Started AppLivro in 1.579 seconds (JVM running for 2.469)
+2020-01-13 16:36:00,655 INFO treinamento.dia6.AppSpringJPA [main] Inicializando aplicação Spring...
+2020-01-13 16:36:00,658 INFO treinamento.dia6.AppSpringJPA [main] Encerrando aplicação Spring...
+2020-01-13 16:36:00,661 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-13 16:36:00,663 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-13 16:36:00,667 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-01-13 16:38:59,731 INFO org.springframework.boot.StartupInfoLogger [main] Starting AppLivro on CP5869 with PID 5516 (C:\Users\user\projetos\treinamento\target\classes started by user in C:\Users\user\projetos\treinamento)
+2020-01-13 16:38:59,733 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-13 16:39:00,016 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-13 16:39:00,031 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 9ms. Found 0 JPA repository interfaces.
+2020-01-13 16:39:00,306 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-13 16:39:00,346 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-13 16:39:00,424 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-01-13 16:39:00,487 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-01-13 16:39:00,515 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-01-13 16:39:00,525 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-01-13 16:39:00,885 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-01-13 16:39:00,940 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-13 16:39:01,037 INFO org.springframework.boot.StartupInfoLogger [main] Started AppLivro in 1.554 seconds (JVM running for 2.424)
+2020-01-13 16:39:01,171 INFO treinamento.dia6.AppSpringJPA [main] Inicializando aplicação Spring...
+2020-01-13 16:39:01,173 INFO treinamento.dia6.AppSpringJPA [main] Encerrando aplicação Spring...
+2020-01-13 16:39:01,175 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-01-13 16:39:01,177 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-01-13 16:39:01,182 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-01-13 16:39:11,036 INFO org.springframework.boot.StartupInfoLogger [main] Starting AppLivro on CP5869 with PID 4136 (C:\Users\user\projetos\treinamento\target\classes started by user in C:\Users\user\projetos\treinamento)
+2020-01-13 16:39:11,038 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-01-13 16:39:11,321 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-01-13 16:39:11,336 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 9ms. Found 0 JPA repository interfaces.
+2020-01-13 16:39:11,600 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-01-13 16:39:11,638 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-01-13 16:39:11,717 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}

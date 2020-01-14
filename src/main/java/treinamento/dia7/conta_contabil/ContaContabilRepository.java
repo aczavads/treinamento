@@ -40,19 +40,17 @@ public interface ContaContabilRepository extends JpaRepository<ContaContabil, UU
 	//Podemos criar um DTO específico ou usar uma lista de mapas. Ex:
 	//List<Map<String, Object>> recuperarHierarquia();
 	@Query(nativeQuery = true, 
-			value="WITH RECURSIVE hierarquia (id, nome, conta_superior_id, nivel) AS (\r\n" + 
-					"SELECT id, nome, conta_superior_id, 1 \r\n" + 
+			value="WITH RECURSIVE hierarquia (id, nome, codigo, conta_superior_id, nivel) AS (\r\n" + 
+					"SELECT id, nome, codigo, conta_superior_id, 1 \r\n" + 
 					"  FROM conta_contabil \r\n" + 
 					" WHERE conta_superior_id is null\r\n" + 
 					"UNION ALL\r\n" + 
-					"SELECT f.id, f.nome, f.conta_superior_id, hierarquia.nivel+1 \r\n" + 
+					"SELECT f.id, f.nome, f.codigo, f.conta_superior_id, hierarquia.nivel+1 \r\n" + 
 					"  FROM conta_contabil f, hierarquia \r\n" + 
 					" WHERE f.conta_superior_id = hierarquia.id\r\n" + 
-					")\r\n" + 
-					"SELECT * FROM hierarquia")
+					") " + 
+					"SELECT cast(id as varchar) as \"id\", nome, cast(conta_superior_id as varchar) as conta_superior_id, codigo, nivel FROM hierarquia")
 	List<Map<String, Object>> recuperarHierarquia();
-	
-
 }
 
 

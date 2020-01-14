@@ -1,5 +1,6 @@
 package treinamento.guilhermeperes.dia7.api.conta;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class ContaController extends BaseController<Conta, ContaRepository, Cont
 	private ContaService service;
 	
 	@GetMapping("/hierarquia")
-	public ResponseEntity<Map<String, Object>> recuperarHierarquia() {
+	public ResponseEntity<List<Map<String, Object>>> recuperarHierarquia() {
 		return ResponseEntity.ok().body(service.recuperarHierarquia());
 	}
 }

@@ -1,5 +1,6 @@
 package treinamento.guilhermeperes.dia7.api.conta;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -19,5 +20,5 @@ public interface ContaRepository extends JpaRepository<Conta, UUID> {
 					" WHERE f.conta_superior_id = hierarquia.id\r\n" + 
 					")\r\n" + 
 					"SELECT * FROM hierarquia")
-	public Map<String, Object> recuperarHierarquia();
+	public List<Map<String, Object>> recuperarHierarquia();
 }

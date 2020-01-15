@@ -12,6 +12,7 @@
 
 	<property name="TIPO_DESCRICAO_255" value="varchar(255)" />
 	<property name="TIPO_CODIGO_CONTABIL" value="varchar(49)" />
+	<property name="TIPO_DATE" value="date" />
 
 	<property name="ID_TYPE" value="char(36)" dbms="postgres" />
 

@@ -6,8 +6,9 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 
 @TransationalService
 public class ContaContabilService {
@@ -17,46 +18,56 @@ public class ContaContabilService {
 	public List<ContaContabilFS2> findAll() {
 		return repo.findAll();
 	}
-	
+
 	public ContaContabilFS2 save(ContaContabilDTO nova) {
 		ContaContabilFS2 contaSuperior = null;
 		if (nova.getContaSuperiorId() != null) {
 			contaSuperior = findById(nova.getContaSuperiorId());
 		}
 		ContaContabilFS2 novaContaContabil = null;
-		
+
 		UUID contaSuperiorId = nova.getContaSuperiorId();
-		if(contaSuperiorId != null) {
+		if (contaSuperiorId != null) {
 			Optional<ContaContabilFS2> contaSuperiorEncontrada = repo.findById(contaSuperiorId);
-			
-			if(contaSuperiorEncontrada.isPresent()) {
+
+			if (contaSuperiorEncontrada.isPresent()) {
 				String codigoSuperior = contaSuperiorEncontrada.get().getCodigo();
-				if(!codigoSuperior.contains(".")) {
+				if (!codigoSuperior.contains(".")) {
 					codigoSuperior = codigoSuperior.concat(".");
 				}
 				String codigoFilho = nova.getCodigo();
-				if(!codigoSuperior.startsWith(codigoFilho)) {
+				if (!codigoSuperior.startsWith(codigoFilho)) {
 					throw new CodigoDoContaContabilidadeInvalido();
 				}
 			}
-			
+
 		}
-		
-		
+
 		if (nova.getId() == null) {
-			novaContaContabil = new ContaContabilFS2(nova.getCodigo(), nova.getNome(), contaSuperior);			
+			novaContaContabil = new ContaContabilFS2(nova.getCodigo(), nova.getNome(), contaSuperior);
 		} else {
-			novaContaContabil = new ContaContabilFS2(nova.getId(), nova.getCodigo(), nova.getNome(), contaSuperior);			
+			novaContaContabil = new ContaContabilFS2(nova.getId(), nova.getCodigo(), nova.getNome(), contaSuperior);
 		}
 		return repo.save(novaContaContabil);
 	}
 
 	public ContaContabilFS2 findById(UUID id) {
-		return repo
-				.findById(id)
-				.orElseThrow(() -> new RegistroNaoEncontrado("Conta contábil: " + id));
+		return repo.findById(id).orElseThrow(() -> new RegistroNaoEncontrado("Conta contábil: " + id));
 	}
+
 	public List<Map<String, Object>> recuperarHierarquia() {
 		return repo.recuperarHierarquia();
+	}
+
+	public Page<ContaContabilFS2> recuperarTodasPaginado(Pageable pageable) {
+		return repo.findAll(pageable);
+	}
+
+	public Slice<ContaContabilFS2> recuperarTodasPaginadoComSlice(Pageable pageable) {
+		return repo.findAll(pageable);
+	}
+
+	public List<ContaContabilFS2> recuperarTodasPaginadoManualmente(int page, int size) {
+		return repo.recuperarTodasPaginadoManualmente(page, size);
 	}
 }

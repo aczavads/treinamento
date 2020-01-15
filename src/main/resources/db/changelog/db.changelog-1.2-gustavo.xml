@@ -26,5 +26,40 @@
 			</column>
 		</createTable>
 	</changeSet>
+	<changeSet author="gustavo.camargo"
+		id="create-table-plano-de-contas2">
+		<createTable tableName="plano_de_contas2">
+			<column name="id" type="${TIPO_ID}">
+				<constraints primaryKey="true"
+					primaryKeyName="pk_plano_de_contas2" />
+			</column>
+			<column name="descricao" type="${TIPO_DESCRICAO_255}">
+				<constraints nullable="false" />
+			</column>
+			<column name="inicio_vigencia" type="${TIPO_DATE}">
+				<constraints nullable="false" />
+			</column>
+			<column name="fim_vigencia" type="${TIPO_DATE}">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="gustavo.camargo"
+		id="create-table-conta-plano-de-contas2">
+		<createTable tableName="conta_plano_de_contas2">
+			<column name="plano_de_contas2_id" type="${TIPO_ID}">
+				<constraints referencedTableName="plano_de_contas2"
+					nullable="false"
+					referencedColumnNames="id"
+					foreignKeyName="fk_conta_plano_de_contas2_plano" />
+			</column>
+			<column name="conta_contabil2_id" type="${TIPO_ID}">
+				<constraints  referencedTableName="conta_contabil2"
+					nullable="false"
+					referencedColumnNames="id"
+					foreignKeyName="fk_conta_plano_de_contas2_conta_contabil" />
+			</column>
+		</createTable>
+	</changeSet>
 </databaseChangeLog> 
 

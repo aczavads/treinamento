@@ -4,8 +4,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 /*
 --query recursiva de exemplo: contando de 1 até 10
@@ -35,6 +39,22 @@ public interface ContaContabilRepository extends JpaRepository<ContaContabil, UU
 	@Query(nativeQuery = true, value = "select * from conta_contabil c where c.conta_superior_id is null")
 	List<ContaContabil> selecionarContasRaiz();
 	
+	@Query(nativeQuery = true, 
+			value = "select * from conta_contabil",
+			countQuery = "select count(*) from conta_contabil")
+	Page<ContaContabil> recuperarTodas(Pageable pageable);
+
+	@Query(nativeQuery = true, 
+			value = "select * from conta_contabil")
+	Slice<ContaContabil> recuperarTodasFatiadas(Pageable pageable);
+
+	
+	@Query(nativeQuery = true, 
+			value = "select * from conta_contabil limit :size offset (:size * :page) ")
+	List<ContaContabil> recuperarTodasPaginadoManualmente(
+			@Param("page") int page, @Param("size")int size);
+	
+	
 	//Para retornar a query com o novo campo "nivel" precisamos retornar 
 	//com um tipo de retorno que aceite qualquer conjunto de campos e valores.
 	//Podemos criar um DTO específico ou usar uma lista de mapas. Ex:
@@ -51,6 +71,8 @@ public interface ContaContabilRepository extends JpaRepository<ContaContabil, UU
 					") " + 
 					"SELECT cast(id as varchar) as \"id\", nome, cast(conta_superior_id as varchar) as conta_superior_id, codigo, nivel FROM hierarquia")
 	List<Map<String, Object>> recuperarHierarquia();
+
+
 }
 
 

@@ -6,6 +6,9 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 
 import treinamento.diegomucheniski.annotations.TransactionalService;
 import treinamento.diegomucheniski.dia7.exceptions.HierarquiaInvalidaException;
@@ -74,6 +77,18 @@ public class ContaContabilMucheniskiService {
 	
 	List<Map<String, Object>> selecionarHierarquia() {
 		return repository.selecionarHierarquia();
+	}
+	
+	public Page<ContaContabilMucheniski> selecionarContasPaginado(Pageable pageable) {
+		return repository.selecionarContasPaginado(pageable);
+	}
+	
+	public Slice<ContaContabilMucheniski> selecionarContasFatiado(Pageable pageable) {
+		return repository.selecionarContasFatiado(pageable);
+	}
+
+	public List<ContaContabilMucheniski> recuperarTodasContas(int page, int size) {		
+		return repository.recuperarTodasContas(page, size);
 	}
 
 }

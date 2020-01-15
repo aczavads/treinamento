@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<changeSet author="diego.mucheniskii" id="create-table-conta-contabil">
+		<createTable tableName="conta_contabil_mucheniski">
+			<column name="id" type="${TIPO_ID}">
+				<constraints primaryKey="true" primaryKeyName="pk_conta_contabil_mucheniski" />
+			</column>
+			<column name="conta_superior_id" type="${TIPO_ID}">
+				<constraints referencedTableName="conta_contabil_mucheniski" referencedColumnNames="id"	foreignKeyName="fk_conta_contabil_superior" />
+			</column>
+			<column name="codigo" type="${TIPO_CODIGO_CONTABIL}">
+				<constraints nullable="false" unique="true"	uniqueConstraintName="unique_conta_contabil_mucheniski_codigo" />
+			</column>
+			<column name="nome" type="${TIPO_DESCRICAO_255}">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="diego.-mucheniski" id="create-table-plano-de-contas-mucheniski">
+		<createTable tableName="plano_de_contas_mucheniski">
+			<column name="id" type="${TIPO_ID}">
+				<constraints primaryKey="true" primaryKeyName="pk_plano_de_contas_mucheniski" />
+			</column>
+			<column name="nome" type="${TIPO_DESCRICAO_255}">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="diego.-mucheniski" id="create-table-conta-plano-de-contas-mucheniski">
+		<createTable tableName="conta_plano_de_contas_mucheniski">
+			<column name="plano_do_contas_mucheniski_id" type="{TIPO_ID}">
+				<constraints referencedTableName="plano_do_contas_mucheniski" referencedColumnNames="id" foreignKeyName="fk_plano_do_contas_mucheniski" />
+			</column>
+			<column name="conta_contabil_mucheniski_id" type="{TIPO_ID}">
+				<constraints referencedTableName="conta_contabil_mucheniski" referencedColumnNames="id" foreignKeyName="fk_conta_contabil_mucheniski" />
+			</column>
+		</createTable>
+	</changeSet>
+	
+</databaseChangeLog> 
+

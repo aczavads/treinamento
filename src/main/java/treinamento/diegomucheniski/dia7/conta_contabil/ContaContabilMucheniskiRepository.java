@@ -4,8 +4,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface ContaContabilMucheniskiRepository extends JpaRepository<ContaContabilMucheniski, UUID> {
 	
@@ -15,6 +19,14 @@ public interface ContaContabilMucheniskiRepository extends JpaRepository<ContaCo
 	@Query(nativeQuery = true, value = "SELECT * FROM CONTA_CONTABIL_MUCHENISKI C WHERE C.CONTA_SUPERIOR_ID IS NULL")
 	List<ContaContabilMucheniski> selecionarContasRaiz();
 	
+	@Query(nativeQuery = true, value = " select * from conta_contabil_mucheniski ", countQuery = " select count(*) from conta_contabil_mucheniski ")
+	Page<ContaContabilMucheniski> selecionarContasPaginado(Pageable pageable);
+	
+	
+	@Query(nativeQuery = true, value = " select * from conta_contabil_mucheniski ")
+	Slice<ContaContabilMucheniski> selecionarContasFatiado(Pageable pageable);
+	
+		
 	// Retornar uma relação de contas com o seu nível
 	@Query(nativeQuery = true, value = "WITH RECURSIVE " + 
 			"   hierarquia (id, nome, conta_superior, nivel) AS ( " + 
@@ -31,6 +43,10 @@ public interface ContaContabilMucheniskiRepository extends JpaRepository<ContaCo
 	exemplo <id, valorRetornado>, <nome, valorRetornado> ....List<ContaContabilMucheniski> findByCodigo(String codigo);
 	Feito dessa forma porque está genérico e o retorno dessa query não tem um objeto para ser atribuída, então atribuímos
 	no Map*/
+	
+
+	@Query(nativeQuery = true, value = "select * from conta_contabil_mucheniski limit :size offset (:size * :page)")
+	List<ContaContabilMucheniski> recuperarTodasContas(@Param("page") int page, @Param("size") int size);
 	
 	
 }

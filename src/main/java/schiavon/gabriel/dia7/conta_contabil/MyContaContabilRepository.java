@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -42,5 +45,14 @@ public interface MyContaContabilRepository extends JpaRepository<MyContaContabil
 	List<Map<String, Object>> selecionarContasPorHierarquia();
 	
 	List<MyContaContabil> findByCodigo(String codigo);
+	
+	@Query(nativeQuery = true, value = "select * from my_conta_contabil", countQuery = "select count(*) from my_conta_contabil")
+	Page<MyContaContabil> recuperarTodas(Pageable pageable);
+	
+	@Query(nativeQuery = true, value = "select * from my_conta_contabil")
+	Slice<MyContaContabil> recuperarTodasFateadas(Pageable pageable);
+
+	@Query(nativeQuery = true , value = "select * from my_conta_contabil limit :size offset (:page * :size)")
+	List<MyContaContabil> recuperarTodasManual(int page, int size);
 	
 }

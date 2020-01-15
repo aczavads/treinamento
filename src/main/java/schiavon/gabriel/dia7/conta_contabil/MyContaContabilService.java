@@ -7,6 +7,9 @@ import java.util.UUID;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 
 import schiavon.gabriel.dia7.conta_contabil.exceptions.CodigoDoFilhoNaoPertenceAoPaiException;
 import schiavon.gabriel.dia7.conta_contabil.exceptions.RegistroNaoEncontrado;
@@ -68,6 +71,18 @@ public class MyContaContabilService {
 
 	public List<Map<String, Object>> getContasRaizPorHierarquia() {
 		return contaContabilRepository.selecionarContasPorHierarquia();
+	}
+	
+	public Page<MyContaContabil> recuperarTodas(Pageable pageable) {
+		return contaContabilRepository.recuperarTodas(pageable);
+	}
+	
+	public Slice<MyContaContabil> recuperarTodasFatiado(Pageable pageable) {
+		return contaContabilRepository.recuperarTodasFateadas(pageable);
+	}
+
+	public List<MyContaContabil> recuperarTodasManual(int page, int size) {
+		return contaContabilRepository.recuperarTodasManual(page, size);
 	}
 
 }

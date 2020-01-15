@@ -6,12 +6,16 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -24,6 +28,21 @@ public class MyContaContabilController implements BaseController {
 	@GetMapping
 	public List<MyContaContabil> get() {
 		return contaContabilService.findAll();
+	}
+
+	@GetMapping("/paginado")
+	public Page<MyContaContabil> getPaginado(Pageable pageable) {
+		return contaContabilService.recuperarTodas(pageable);
+	}
+
+	@GetMapping("/paginado-manual")
+	public List<MyContaContabil> getPaginadoManual(@RequestParam("page") int page, @RequestParam("size") int size) {
+		return contaContabilService.recuperarTodasManual(page, size);
+	}
+
+	@GetMapping("/slice")
+	public Slice<MyContaContabil> getPaginadoPorSlice(Pageable pageable) {
+		return contaContabilService.recuperarTodasFatiado(pageable);
 	}
 
 	@PostMapping

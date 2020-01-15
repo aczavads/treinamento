@@ -1,4 +1,4 @@
-package treinamento.thyagofranco.dia7.conta_contabil;
+package treinamento.thyagofranco.dia7.conta_contabil.entities;
 
 import java.util.List;
 import java.util.UUID;

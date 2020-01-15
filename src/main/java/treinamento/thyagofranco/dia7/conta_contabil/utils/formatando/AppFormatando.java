@@ -1,4 +1,4 @@
-package treinamento.thyagofranco.dia7.conta_contabil.formatando;
+package treinamento.thyagofranco.dia7.conta_contabil.utils.formatando;
 
 import java.util.StringTokenizer;
 

@@ -1,4 +1,4 @@
-package treinamento.thyagofranco.dia7.conta_contabil;
+package treinamento.thyagofranco.dia7.conta_contabil.services;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

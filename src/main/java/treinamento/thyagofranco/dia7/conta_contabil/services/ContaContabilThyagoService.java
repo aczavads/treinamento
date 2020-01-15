@@ -1,4 +1,4 @@
-package treinamento.thyagofranco.dia7.conta_contabil;
+package treinamento.thyagofranco.dia7.conta_contabil.services;
 
 import java.util.List;
 import java.util.Map;
@@ -6,9 +6,17 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Service;
 
+import treinamento.thyagofranco.dia7.conta_contabil.DTOs.ContaContabilThyagoDTO;
+import treinamento.thyagofranco.dia7.conta_contabil.entities.ContaContabilThyago;
 import treinamento.thyagofranco.dia7.conta_contabil.exceptions.CodigoDaHierarquiaInvalidoException;
 import treinamento.thyagofranco.dia7.conta_contabil.exceptions.RegistroNaoEncontrado;
+import treinamento.thyagofranco.dia7.conta_contabil.repository.ContaContabilThyagoRepository;
 
 //Nossa anotação criada para @Service @Transactional
 @TransactionalService
@@ -55,6 +63,19 @@ public class ContaContabilThyagoService {
 
 	public List<Map<String, Object>> recuperarHierarquia() {
 		return repo.recuperarHierarquia();
+	}
+	
+	public Page<ContaContabilThyago> recuperarTodas(Pageable pageable){
+		return repo.recuperarTodas(pageable);
+	}
+	
+	public Slice<ContaContabilThyago> recuperarTodasFatiadas(Pageable pageable){
+		return repo.recuperarTodasFatiadas(pageable);
+	}
+
+	public List<ContaContabilThyago> recuperarTodasPaginadoManualmente(@Param("page") int page, @Param("size") int size) {
+		
+		return repo.recuperarTodasPaginadoManualmente(page, size);
 	}
 
 }

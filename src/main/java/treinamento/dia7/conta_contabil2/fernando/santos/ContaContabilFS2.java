@@ -7,12 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import treinamento.dia5.jpa.associacoes.BaseEntity;
 
 @Entity
+@Table(name = "conta_contabil_fs2")
 public class ContaContabilFS2 extends BaseEntity {
 	private String codigo;	
 	private String nome;

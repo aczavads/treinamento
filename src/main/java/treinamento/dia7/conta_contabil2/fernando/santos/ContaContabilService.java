@@ -27,7 +27,7 @@ public class ContaContabilService {
 		ContaContabilFS2 novaContaContabil = null;
 
 		UUID contaSuperiorId = nova.getContaSuperiorId();
-		if (contaSuperiorId != null) {
+		if (!contaSuperiorId.toString().isEmpty()) {
 			Optional<ContaContabilFS2> contaSuperiorEncontrada = repo.findById(contaSuperiorId);
 
 			if (contaSuperiorEncontrada.isPresent()) {
@@ -36,7 +36,7 @@ public class ContaContabilService {
 					codigoSuperior = codigoSuperior.concat(".");
 				}
 				String codigoFilho = nova.getCodigo();
-				if (!codigoSuperior.startsWith(codigoFilho)) {
+				if (!codigoFilho.startsWith(codigoSuperior)) {
 					throw new CodigoDoContaContabilidadeInvalido();
 				}
 			}

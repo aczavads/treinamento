@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 
-import treinamento.dia6.MotorV8;
+
 import william.silva.dia6.Livro.AppLivroWd;
 import william.silva.dia6.Livro.MeuLogger;
 

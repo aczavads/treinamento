@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-import treinamento.dia6.MotorV8;
 
 @Configuration
 @PropertySource("classpath:william.properties")

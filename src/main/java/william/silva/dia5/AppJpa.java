@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import treinamento.dia5.jpa.Pedido;
+
 
 public class AppJpa {
 	private static CPF cpfRandom = new CPF(ValidaCpf.getInstance().cpf(true));

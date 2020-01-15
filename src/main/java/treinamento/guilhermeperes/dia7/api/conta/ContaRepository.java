@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -21,4 +23,7 @@ public interface ContaRepository extends JpaRepository<Conta, UUID> {
 					")\r\n" + 
 					"SELECT * FROM hierarquia")
 	public List<Map<String, Object>> recuperarHierarquia();
+	
+	@Query("SELECT c from Conta c")
+	public Slice<Conta> findAll(Pageable pageable);
 }

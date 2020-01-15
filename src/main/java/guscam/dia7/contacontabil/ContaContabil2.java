@@ -1,6 +1,7 @@
 package guscam.dia7.contacontabil;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -23,6 +24,13 @@ public class ContaContabil2 extends BaseEntity {
 	
 	public ContaContabil2() {
 		super();
+	}
+
+	public ContaContabil2(UUID id, String codigo, String nome, ContaContabil2 contaSuperior) {
+		super(id);
+		this.codigo = codigo;
+		this.nome = nome;
+		this.contaSuperior = contaSuperior;
 	}
 
 	public ContaContabil2(String codigo, String nome, ContaContabil2 contaSuperior) {
@@ -48,6 +56,7 @@ public class ContaContabil2 extends BaseEntity {
 		this.nome = nome;
 	}
 
+	@JsonIgnore
 	public ContaContabil2 getContaSuperior() {
 		return contaSuperior;
 	}

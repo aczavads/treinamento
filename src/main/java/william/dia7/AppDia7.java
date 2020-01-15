@@ -10,5 +10,4 @@ public class AppDia7 {
 	public static void main(String[] args) {
 		SpringApplication.run(AppDia7.class, args);
 	}
-
 }

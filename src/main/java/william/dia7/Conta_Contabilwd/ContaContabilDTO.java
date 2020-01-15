@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class ContaContabilDTO {
 	private UUID id;
-	private UUID contaSuperior;
-	private String dfa;
+	private UUID contaSuperiorId;
+	private String nome;
+	private String codigo;
 }

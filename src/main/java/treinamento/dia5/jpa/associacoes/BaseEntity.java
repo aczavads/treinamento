@@ -16,6 +16,14 @@ public class BaseEntity {
 		id = UUID.randomUUID();
 	}
 	
+	
+	public BaseEntity(UUID id) {
+		super();
+		this.id = id;
+	}
+
+
+
 	public UUID getId() {
 		return id;
 	}

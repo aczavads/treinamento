@@ -1,6 +1,7 @@
 package william.dia7.Conta_Contabilwd;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,10 +19,10 @@ public class ContaContabil extends BaseEntity {
 	private String codigo;
 	private String nome;
 	
-	@JsonIgnore
 	@ManyToOne
 	private ContaContabil contaSuperior;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "contaSuperior", fetch = FetchType.LAZY)
 	private List<ContaContabil> contasFilhas;
 
@@ -32,10 +33,18 @@ public class ContaContabil extends BaseEntity {
 		this.contaSuperior = contaSuperior;
 	}
 
+	public ContaContabil(UUID id, String codigo, String nome, ContaContabil contaSuperior) {
+		super(id);
+		this.codigo = codigo;
+		this.nome = nome;
+		this.contaSuperior = contaSuperior;
+	}
+	
+	
+
 	public ContaContabil() {
 		super();
 	}
-	
 
 	public List<ContaContabil> getContasFilhas() {
 		return contasFilhas;

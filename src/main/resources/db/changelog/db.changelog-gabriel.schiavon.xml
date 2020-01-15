@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<changeSet author="gabriel.schiavon"
+		id="create-table-my-conta-contabil">
+		<createTable tableName="my_conta_contabil">
+			<column name="id" type="${TIPO_ID}">
+				<constraints primaryKey="true"
+					primaryKeyName="pk_my_conta_contabil" />
+			</column>
+			<column name="conta_superior_id" type="${TIPO_ID}">
+				<constraints referencedTableName="conta_contabil"
+					referencedColumnNames="id"
+					foreignKeyName="fk_my_conta_contabil_superior" />
+			</column>
+			<column name="codigo" type="${TIPO_CODIGO_CONTABIL}">
+				<constraints nullable="false" unique="true"
+					uniqueConstraintName="unique_my_conta_contabil_codigo" />
+			</column>
+			<column name="nome" type="${TIPO_DESCRICAO_255}">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="gabriel.schiavon"
+		id="create-table-my-plano-de-contas">
+		<createTable tableName="my_plano_de_contas">
+			<column name="id" type="${TIPO_ID}">
+				<constraints primaryKey="true"
+					primaryKeyName="pk_my_plano_de_contas" />
+			</column>
+			<column name="descricao" type="${TIPO_DESCRICAO_255}"></column>
+			<column name="data_inicio_vigencia" type="${TIPO_DATA}"></column>
+			<column name="data_fim_vigencia" type="${TIPO_DATA}"></column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="gabriel.schiavon"
+		id="create-table-my-conta-plano-de-contas">
+		<createTable tableName="my_conta_plano_de_contas">
+			<column name="plano_de_contas_id" type="${TIPO_ID}">
+				<constraints referencedTableName="my_plano_de_contas"
+					referencedColumnNames="id"
+					foreignKeyName="fk_my_conta_plano_de_contas" nullable="false" />
+			</column>
+			<column name="conta_superior_id" type="${TIPO_ID}">
+				<constraints referencedTableName="conta_contabil"
+					referencedColumnNames="id"
+					foreignKeyName="fk_my_conta_plano_de_contas_conta_contabil"
+					nullable="false" />
+			</column>
+		</createTable>
+		<addPrimaryKey
+			columnNames="my_plano_de_contas_id, my_conta_contabil_id"
+			tableName="my_conta_plano_de_conta">
+		</addPrimaryKey>
+	</changeSet>
+
+	<changeSet author="gabriel.schiavon"
+		id="adicionando-chave-primaria-na-tabela-associativa">
+		<addPrimaryKey
+			columnNames="my_plano_de_contas_id, my_conta_contabil_id"
+			tableName="my_plano_de_contas">
+		</addPrimaryKey>
+	</changeSet>
+</databaseChangeLog> 
+

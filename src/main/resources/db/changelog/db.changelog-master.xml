@@ -8,12 +8,13 @@
 	<property name="TIPO_ID" value="UUID" dbms="h2" />
 	<property name="TIPO_ID" value="PG-UUID" dbms="postgres" />
 
+	<property name="TIPO_DATA" value="date" />
 	<property name="TIPO_DESCRICAO_255" value="varchar(255)" />
 	<property name="TIPO_CODIGO_CONTABIL" value="varchar(49)" />
 
 	<property name="ID_TYPE" value="char(36)" dbms="postgres" />
 
 	<include file="classpath:db/changelog/db.changelog-1.0.xml" />
-	<!-- <include file="classpath:db/changelog/db.changelog-1.1.xml" /> -->
+	<include file="classpath:db/changelog/db.changelog-gabriel.schiavon.xml" />
 	<!-- <include file="classpath:db/changelog/db.changelog-2.0.xml" /> -->
 </databaseChangeLog> 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<changeSet author="thyago.franco"
+		id="create-table-conta-contabil-thyago">
+		<createTable tableName="conta_contabil_thyago">
+			<column name="id" type="${TIPO_ID}">
+				<constraints primaryKey="true"
+					primaryKeyName="pk_conta_contabil_thyago" />
+			</column>
+			<column name="conta_superior_id" type="${TIPO_ID}">
+				<constraints referencedTableName="conta_contabil_thyago"
+					referencedColumnNames="id"
+					foreignKeyName="fk_conta_contabil_thyago_superior" />
+			</column>
+			<column name="codigo" type="${TIPO_CODIGO_CONTABIL}">
+				<constraints nullable="false" unique="true"
+					uniqueConstraintName="unique_conta_contabil_thyago_codigo" />
+			</column>
+			<column name="nome" type="${TIPO_DESCRICAO_255}">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	
+	<changeSet author="thyago.franco"
+		id="create-table-plano-de-contas-thyago">
+		<createTable tableName="plano_de_contas_thyago">
+			<column name="id" type="${TIPO_ID}">
+				<constraints primaryKey="true"
+					primaryKeyName="pk_plano_de_contas_thyago" />
+			</column>
+			<column name="descricao" type="${TIPO_ID}">
+				<constraints primaryKey="true"
+					primaryKeyName="pk_plano_de_contas_thyago" />
+			</column>
+			
+		</createTable>
+	</changeSet>
+</databaseChangeLog> 
+

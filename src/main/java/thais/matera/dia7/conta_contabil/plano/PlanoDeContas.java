@@ -1,43 +1,39 @@
 package thais.matera.dia7.conta_contabil.plano;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.UUID;
 
+import javax.persistence.Entity;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import thais.matera.dia5.associacoes.BaseEntity;
 import thais.matera.dia7.conta_contabil.ContaContabil;
 
+@Entity
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
 public class PlanoDeContas extends BaseEntity {
 	private String descricao;
 	private LocalDate inicioVigencia;
 	private LocalDate fimVigencia;
 	
-	public PlanoDeContas(String descricao, LocalDate inicioVigencia, LocalDate fimVigencia) {
-		super();
+//	private List<ContaContabil> contas;
+	
+	public PlanoDeContas(UUID id, String descricao, LocalDate inicioVigencia, LocalDate fimVigencia) {
+		super(id);
 		this.descricao = descricao;
 		this.inicioVigencia = inicioVigencia;
 		this.fimVigencia = fimVigencia;
 	}
 	
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
+	public PlanoDeContas(String descricao, LocalDate inicioVigencia, LocalDate fimVigencia) {
+		super();
 		this.descricao = descricao;
-	}
-
-	public LocalDate getInicioVigencia() {
-		return inicioVigencia;
-	}
-
-	public void setInicioVigencia(LocalDate inicioVigencia) {
 		this.inicioVigencia = inicioVigencia;
-	}
-
-	public LocalDate getFimVigencia() {
-		return fimVigencia;
-	}
-
-	public void setFimVigencia(LocalDate fimVigencia) {
 		this.fimVigencia = fimVigencia;
 	}
 
@@ -48,4 +44,14 @@ public class PlanoDeContas extends BaseEntity {
 	public void remover(ContaContabil conta) {
 		
 	}
+
+//	public List<ContaContabil> getContas() {
+//		return contas;
+//	}
+//
+//	public void setContas(List<ContaContabil> contas) {
+//		this.contas = contas;
+//	}
+	
+	
 }

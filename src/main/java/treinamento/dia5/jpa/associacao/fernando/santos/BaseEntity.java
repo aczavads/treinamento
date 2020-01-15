@@ -20,6 +20,10 @@ public abstract class BaseEntity implements Serializable {
 		this.id = UUID.randomUUID();
 	}
 
+	public BaseEntity(UUID id) {
+		this.id = id;
+	}
+
 	public UUID getId() {
 		return id;
 	}

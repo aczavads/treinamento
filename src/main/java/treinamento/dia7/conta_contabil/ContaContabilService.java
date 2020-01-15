@@ -15,8 +15,18 @@ public class ContaContabilService {
 		return repo.findAll();
 	}
 	
-	public void save(ContaContabil nova) {
-		repo.save(nova);
+	public ContaContabil save(ContaContabilDTO nova) {
+		ContaContabil contaSuperior = null;
+		if (nova.getContaSuperiorId() != null) {
+			contaSuperior = findById(nova.getContaSuperiorId());
+		}
+		ContaContabil novaContaContabil = null;
+		if (nova.getId() == null) {
+			novaContaContabil = new ContaContabil(nova.getCodigo(), nova.getNome(), contaSuperior);			
+		} else {
+			novaContaContabil = new ContaContabil(nova.getId(), nova.getCodigo(), nova.getNome(), contaSuperior);			
+		}
+		return repo.save(novaContaContabil);
 	}
 
 	public ContaContabil findById(UUID id) {

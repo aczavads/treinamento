@@ -1,4 +1,4 @@
-package prefixo;
+package thais.matera.dia7.conta_contabil;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

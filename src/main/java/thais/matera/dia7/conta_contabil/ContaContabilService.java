@@ -5,8 +5,11 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import prefixo.HierarquiaInvalida;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @TransactionalService
 public class ContaContabilService {
@@ -75,5 +78,16 @@ public class ContaContabilService {
 	public List<ContaContabilDTO> selecionarContasRaiz() {
 		return repo.selecionarContasRaiz();
 	}
+	
+	public Page<ContaContabil> recuperarTodas(Pageable pageable) {
+		return repo.recuperarTodas(pageable);
+	}
+	
+	public Slice<ContaContabil> recuperarTodasFatiadas(Pageable pageable) {
+		return repo.recuperarTodas(pageable);
+	}
 
+	public List<ContaContabil> recuperarManual(int page, int size) {
+		return repo.recuperarManual(page, size);
+	}
 }

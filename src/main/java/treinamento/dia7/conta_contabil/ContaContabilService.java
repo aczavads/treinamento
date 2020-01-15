@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 
 @TransationalService
 public class ContaContabilService {
@@ -37,4 +40,27 @@ public class ContaContabilService {
 	public List<Map<String, Object>> recuperarHierarquia() {
 		return repo.recuperarHierarquia();
 	}
+	public Page<ContaContabil> recuperarTodas(Pageable pageable) {
+		return repo.recuperarTodas(pageable);
+	}
+	public Slice<ContaContabil> recuperarTodasFatiadas(Pageable pageable) {
+		return repo.recuperarTodasFatiadas(pageable);
+	}
+
+	public List<ContaContabil> recuperarTodasPaginadoManualmente(int page, int size) {
+		return repo.recuperarTodasPaginadoManualmente(page, size);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

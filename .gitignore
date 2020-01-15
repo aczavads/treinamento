@@ -3,3 +3,4 @@
 .settings/
 target/
 logs/
+src/main/resources/treinamento.asta.lock

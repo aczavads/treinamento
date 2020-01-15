@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+	<changeSet author="guilherme.peres" id="create-table-conta">
+		<createTable tableName="conta">
+			<column name="id" type="${TIPO_ID}">
+				<constraints primaryKey="true" primaryKeyName="pk_conta" />
+			</column>
+			<column name="conta_superior_id" type="${TIPO_ID}">
+				<constraints referencedTableName="conta"
+					referencedColumnNames="id" foreignKeyName="fk_conta_superior" />
+			</column>
+			<column name="codigo" type="${TIPO_CODIGO_CONTABIL}">
+				<constraints nullable="false" unique="true"
+					uniqueConstraintName="unique_conta_codigo" />
+			</column>
+			<column name="nome" type="${TIPO_DESCRICAO_255}">
+				<constraints nullable="false" />
+			</column>
+			<column name="created_at" type="timestamp">
+				<constraints nullable="false" />
+			</column>
+			<column name="updated_at" type="timestamp">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+</databaseChangeLog> 
+

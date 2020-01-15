@@ -14,6 +14,6 @@
 	<property name="ID_TYPE" value="char(36)" dbms="postgres" />
 
 	<include file="classpath:db/changelog/db.changelog-1.0.xml" />
-	<!-- <include file="classpath:db/changelog/db.changelog-1.1.xml" /> -->
+	<include file="classpath:db/changelog/db.changelog-1.1.xml" />
 	<!-- <include file="classpath:db/changelog/db.changelog-2.0.xml" /> -->
 </databaseChangeLog> 

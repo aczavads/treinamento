@@ -6,23 +6,20 @@ import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import treinamento.dia5.jpa.associacoes.BaseEntity;
-
 @Entity
 public class ContaContabil extends BaseEntity {
-	private String codigo;	
+	private String codigo;
 	private String nome;
-	
+
 	@ManyToOne
 	private ContaContabil contaSuperior;
-	
+
 	@OneToMany(mappedBy = "contaSuperior")
 	private List<ContaContabil> contasFilhas;
-	
+
 	public ContaContabil() {
 		super();
 	}
@@ -40,7 +37,6 @@ public class ContaContabil extends BaseEntity {
 		this.nome = nome;
 		this.contaSuperior = contaSuperior;
 	}
-
 
 	public String getCodigo() {
 		return codigo;
@@ -62,7 +58,7 @@ public class ContaContabil extends BaseEntity {
 	public ContaContabil getContaSuperior() {
 		return contaSuperior;
 	}
-	
+
 	@JsonIgnore
 	public List<ContaContabil> getContasFilhas() {
 		return contasFilhas;
@@ -71,21 +67,18 @@ public class ContaContabil extends BaseEntity {
 	public void setContaSuperior(ContaContabil contaSuperior) {
 		this.contaSuperior = contaSuperior;
 	}
-	
+
 	public UUID getContaSuperiorId() {
 		if (this.contaSuperior != null) {
 			return this.contaSuperior.getId();
-		} 
+		}
 		return null;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "ContaContabil [codigo=" + codigo + ", nome=" + nome + ", contaSuperior=" + contaSuperior + ", getId()="
 				+ getId() + "]";
 	}
-	
-	
-	
 
 }

@@ -22,25 +22,25 @@ import fernando_santos.treinamento.dia8.repository.PlanoDeContasRepository;
 public class PlanoDeContasService {
 
 	@Autowired
-	private PlanoDeContasRepository repositoryPlanoDeContas;
+	private PlanoDeContasRepository planoDeContasRepository;
 
 	@Autowired
-	private ContaContabilRepository repositoryContaContabil;
+	private ContaContabilRepository contaContabilRepository;
 
 	public PlanoDeContas save(PlanoDeContasDTO dto) {
 		PlanoDeContas novo = new PlanoDeContas(dto.getId(), dto.getDescricao(), dto.getInicioVigencia(),
 				dto.getFimVigencia());
-		return repositoryPlanoDeContas.save(novo);
+		return planoDeContasRepository.save(novo);
 	}
 
 	public List<PlanoDeContas> findAll() {
-		return repositoryPlanoDeContas.findAll();
+		return planoDeContasRepository.findAll();
 	}
 
 	public void adicionarContas(UUID idDoPlanoDeContas, List<UUID> idsDasContasParaAdicionar) {
-		PlanoDeContas plano = repositoryPlanoDeContas.findById(idDoPlanoDeContas)
+		PlanoDeContas plano = planoDeContasRepository.findById(idDoPlanoDeContas)
 				.orElseThrow(() -> new RegistroNaoEncontrado("Plano de contas não encontrado!"));
-		List<ContaContabil> contasParaAdicionar = repositoryContaContabil.findAllById(idsDasContasParaAdicionar);
+		List<ContaContabil> contasParaAdicionar = contaContabilRepository.findAllById(idsDasContasParaAdicionar);
 		if (contasParaAdicionar.size() != idsDasContasParaAdicionar.size()) {
 			throw new RegistroNaoEncontrado("Conta contábil não encontrada");
 		}
@@ -48,18 +48,26 @@ public class PlanoDeContasService {
 	}
 
 	public boolean existsById(UUID id) {
-		return repositoryPlanoDeContas.existsById(id);
+		return planoDeContasRepository.existsById(id);
 	}
 
 	public void removeContasDoPlanoDeContas(UUID idPlanoDeContas, Set<UUID> idsContasContabeis) {
-		if (!repositoryPlanoDeContas.existsById(idPlanoDeContas)) {
+		if (!planoDeContasRepository.existsById(idPlanoDeContas)) {
 			throw new RegistroNaoEncontrado("Plano de contas não encontrado.");
 		}
-		idsContasContabeis.forEach(conta -> repositoryPlanoDeContas.removeConta(conta));
+		idsContasContabeis.forEach(conta -> planoDeContasRepository.removeRelacionamentoDaContaDoPlanoDeContas(conta));
 	}
 
 	public void removeById(UUID idPlanoDeContas) {
-		repositoryPlanoDeContas.deleteById(idPlanoDeContas);
+		planoDeContasRepository.deleteById(idPlanoDeContas);
+	}
+
+	public void update(PlanoDeContasDTO planoDeContasDTO) {
+		PlanoDeContas planoDeContasRecuperado = planoDeContasRepository.findById(planoDeContasDTO.getId())
+				.orElseThrow(() -> new RegistroNaoEncontrado("Plano de contas não encontrado."));
+		planoDeContasRecuperado.setDescricao(planoDeContasDTO.getDescricao());
+		planoDeContasRecuperado.setInicioVigencia(planoDeContasDTO.getInicioVigencia());
+		planoDeContasRecuperado.setFimVigencia(planoDeContasDTO.getFimVigencia());
 	}
 
 }

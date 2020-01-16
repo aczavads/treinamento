@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,7 +50,7 @@ public class PlanoDeContasController {
 		PlanoDeContas novo = planoDeContasService.save(dto);
 		return novo.getId();
 	}
-	
+
 	@DeleteMapping("/{id}")
 	private void removeById(@PathVariable("id") UUID idPlanoDeContas) {
 		planoDeContasService.removeById(idPlanoDeContas);
@@ -59,6 +60,14 @@ public class PlanoDeContasController {
 	private void removeContasDoPlanoDeContas(@PathVariable("id") UUID idPlanoDeContas,
 			@RequestBody Set<UUID> idsContasContabeis) {
 		planoDeContasService.removeContasDoPlanoDeContas(idPlanoDeContas, idsContasContabeis);
+	}
+
+	@PutMapping("/{id}")
+	private void atualizaContas(@PathVariable UUID idPlanoDeContas, @RequestBody PlanoDeContasDTO planoDeContas) {
+		if (!idPlanoDeContas.equals(planoDeContas.getId())) {
+			throw new IllegalArgumentException("Os IDs são divergentes");
+		}
+		planoDeContasService.update(planoDeContas);
 	}
 
 }

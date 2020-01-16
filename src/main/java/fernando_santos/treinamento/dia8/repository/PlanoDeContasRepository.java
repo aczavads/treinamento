@@ -10,9 +10,9 @@ import fernando_santos.treinamento.dia8.domain.PlanoDeContas;
 
 public interface PlanoDeContasRepository extends JpaRepository<PlanoDeContas, UUID> {
 
-	@Query(nativeQuery = true, value = "delete from contas_contabeis_plano_de_contas "
-			                         + "where conta_contabil_id = :idContaContabil")
-	void removeConta(UUID idContaContabil);
+	@Query(nativeQuery = true, value = "delete "
+			                         + "   from contas_contabeis_plano_de_contas "
+			                         + "   where conta_contabil_id = :idContaContabil")
+	void removeRelacionamentoDaContaDoPlanoDeContas(UUID idContaContabil);
 
 }
-

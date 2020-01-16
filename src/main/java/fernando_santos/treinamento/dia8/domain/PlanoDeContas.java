@@ -9,9 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 
-import fernando_santos.treinamento.dia5.jpa.associacao.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -26,10 +24,7 @@ public class PlanoDeContas extends BaseEntity {
 	private LocalDate fimVigencia;
 
 	@ManyToMany
-	@JoinTable(
-			name = "contas_contabeis_plano_de_contas",
-			joinColumns = @JoinColumn(name = "plano_de_contas_id"), 
-			inverseJoinColumns = @JoinColumn(name = "conta_contabil_id"))
+	@JoinTable(name = "contas_contabeis_plano_de_contas", joinColumns = @JoinColumn(name = "plano_de_contas_id"), inverseJoinColumns = @JoinColumn(name = "conta_contabil_id"))
 	private Set<ContaContabil> contasContabeis = new HashSet<>();
 
 	public PlanoDeContas(UUID id, String descricao, LocalDate inicioVigencia, LocalDate fimVigencia) {
@@ -38,7 +33,7 @@ public class PlanoDeContas extends BaseEntity {
 		this.inicioVigencia = inicioVigencia;
 		this.fimVigencia = fimVigencia;
 	}
-	
+
 	public void adicionar(ContaContabil contaContabil) {
 		this.getContasContabeis().add(contaContabil);
 	}

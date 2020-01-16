@@ -50,6 +50,14 @@ public class ContaContabilService {
 	public List<ContaContabil> recuperarTodasPaginadoManualmente(int page, int size) {
 		return repo.recuperarTodasPaginadoManualmente(page, size);
 	}
+
+	public List<ContaContabil> findContasDoPlanoDeContas(UUID id) {
+		return repo.findContasDoPlanoDeContas(id);
+	}
+
+	public void deleteById(UUID id) {
+		repo.deleteById(id);
+	}
 }
 
 

@@ -5,44 +5,66 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-	<changeSet author="diego.mucheniskii" id="create-table-conta-contabil">
+	<changeSet author="diego.mucheniskii"
+		id="create-table-conta-contabil">
 		<createTable tableName="conta_contabil_mucheniski">
 			<column name="id" type="${TIPO_ID}">
-				<constraints primaryKey="true" primaryKeyName="pk_conta_contabil_mucheniski" />
+				<constraints primaryKey="true"
+					primaryKeyName="pk_conta_contabil_mucheniski" />
 			</column>
 			<column name="conta_superior_id" type="${TIPO_ID}">
-				<constraints referencedTableName="conta_contabil_mucheniski" referencedColumnNames="id"	foreignKeyName="fk_conta_contabil_superior" />
+				<constraints
+					referencedTableName="conta_contabil_mucheniski"
+					referencedColumnNames="id"
+					foreignKeyName="fk_conta_contabil_superior" />
 			</column>
 			<column name="codigo" type="${TIPO_CODIGO_CONTABIL}">
-				<constraints nullable="false" unique="true"	uniqueConstraintName="unique_conta_contabil_mucheniski_codigo" />
+				<constraints nullable="false" unique="true"
+					uniqueConstraintName="unique_conta_contabil_mucheniski_codigo" />
 			</column>
 			<column name="nome" type="${TIPO_DESCRICAO_255}">
 				<constraints nullable="false" />
 			</column>
 		</createTable>
 	</changeSet>
-	
-	<changeSet author="diego.-mucheniski" id="create-table-plano-de-contas-mucheniski">
+	<changeSet author="diego.-mucheniski"
+		id="create-table-plano-de-contas-mucheniski">
 		<createTable tableName="plano_de_contas_mucheniski">
 			<column name="id" type="${TIPO_ID}">
-				<constraints primaryKey="true" primaryKeyName="pk_plano_de_contas_mucheniski" />
+				<constraints primaryKey="true"
+					primaryKeyName="pk_plano_de_contas" />
 			</column>
-			<column name="nome" type="${TIPO_DESCRICAO_255}">
+			<column name="descricao" type="${TIPO_DESCRICAO_255}">
+				<constraints nullable="false" />
+			</column>
+			<column name="inicio_vigencia" type="${TIPO_DATE}">
+				<constraints nullable="false" />
+			</column>
+			<column name="fim_vigencia" type="${TIPO_DATE}">
 				<constraints nullable="false" />
 			</column>
 		</createTable>
 	</changeSet>
-	
-	<changeSet author="diego.-mucheniski" id="create-table-conta-plano-de-contas-mucheniski">
+	<changeSet author="diego.mucheniski"
+		id="create-table-conta-plano-de-contas-mucheniski">
 		<createTable tableName="conta_plano_de_contas_mucheniski">
-			<column name="plano_do_contas_mucheniski_id" type="{TIPO_ID}">
-				<constraints referencedTableName="plano_do_contas_mucheniski" referencedColumnNames="id" foreignKeyName="fk_plano_do_contas_mucheniski" />
+			<column name="plano_do_contas_id" type="{TIPO_ID}">
+				<constraints
+					referencedTableName="plano_do_contas_mucheniski"
+					referencedColumnNames="id" nullable="false"
+					foreignKeyName="fk_plano_do_contas_mucheniski" />
 			</column>
-			<column name="conta_contabil_mucheniski_id" type="{TIPO_ID}">
-				<constraints referencedTableName="conta_contabil_mucheniski" referencedColumnNames="id" foreignKeyName="fk_conta_contabil_mucheniski" />
+			<column name="conta_contabil_id" type="{TIPO_ID}">
+				<constraints
+					referencedTableName="conta_contabil_mucheniski"
+					referencedColumnNames="id" nullable="false"
+					foreignKeyName="fk_conta_contabil_mucheniski" />
 			</column>
 		</createTable>
+		<addPrimaryKey
+			columnNames="plano_de_contas_id, conta_contabil_id"
+			tableName="conta_plano_de_contas_mucheniski"
+			constraintName="pk_conta_plano_de_contas"></addPrimaryKey>
 	</changeSet>
-	
 </databaseChangeLog> 
 

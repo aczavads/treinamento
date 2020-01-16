@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.persistence.LockModeType;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -73,13 +76,19 @@ public interface ContaContabilRepository extends JpaRepository<ContaContabil, UU
 	List<Map<String, Object>> recuperarHierarquia();
 
 
-	@Query(nativeQuery = true, 
-		   value = "select cc.* from "
-		   		+ "conta_contabil cc "
-		   		+ "inner join conta_plano_de_contas cpc on cc.id = cpc.conta_contabil_id "
-		   		+ "where cpc.plano_de_contas_id = :idPlanoDeContas")
-	List<ContaContabil> findContasDoPlanoDeContas(UUID idPlanoDeContas); 
+//	@Query(nativeQuery = true, 
+//		   value = "select cc.* from "
+//		   		+ "conta_contabil cc "
+//		   		+ "inner join conta_plano_de_contas cpc on cc.id = cpc.conta_contabil_id "
+//		   		+ "where cpc.plano_de_contas_id = :idPlanoDeContas")
+//	List<ContaContabil> findContasDoPlanoDeContas(UUID idPlanoDeContas); 
 
+	@Lock(LockModeType.PESSIMISTIC_FORCE_INCREMENT)
+	@Query(value = "select cc from "
+			   		+ "PlanoDeContas p "
+			   		+ "inner join p.contasContabeis cc "
+			   		+ "where p.id = :idPlanoDeContas")
+	List<ContaContabil> findContasDoPlanoDeContas(UUID idPlanoDeContas); 
 
 }
 

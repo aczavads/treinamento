@@ -3,6 +3,7 @@ package treinamento.dia7;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,8 +20,8 @@ public class ExceptionManager {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@ExceptionHandler({RegistroNaoEncontrado.class})
-	public ResponseEntity<Void> registroNaoEncontrado(RegistroNaoEncontrado ex) {
+	@ExceptionHandler({RegistroNaoEncontrado.class, EmptyResultDataAccessException.class})
+	public ResponseEntity<Void> registroNaoEncontrado(Exception ex) {
 		logger.warn("Registro não encontrado.", ex);
 		return ResponseEntity.notFound().build();
 	}

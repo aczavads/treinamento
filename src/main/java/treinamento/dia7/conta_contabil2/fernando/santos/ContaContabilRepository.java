@@ -58,4 +58,12 @@ public interface ContaContabilRepository extends JpaRepository<ContaContabilFS2,
 			+ "  FROM conta_contabil f, hierarquia \r\n" + " WHERE f.conta_superior_id = hierarquia.id\r\n" + ") "
 			+ "SELECT cast(id as varchar) as \"id\", nome, cast(conta_superior_id as varchar) as conta_superior_id, codigo, nivel FROM hierarquia")
 	List<Map<String, Object>> recuperarHierarquia();
+
+	@Query(nativeQuery = true, 
+			value = "select cc.* "
+			      + "from conta_contabil_fs2 cc "
+			      + "inner join conta_plano_de_contas_fs2 cpc "
+			      + "on cc.id = cpc.conta_contabil_fs2_id "
+			      + "where cpc.plano_de_contas_fs2_id = :idPlanoDeContas")
+	List<ContaContabilFS2> findContasDoPlanoDeContas(UUID idPlanoDeContas);
 }

@@ -51,11 +51,21 @@ public class ContaContabilService {
 		return repo.recuperarTodasPaginadoManualmente(page, size);
 	}
 
+<<<<<<< HEAD
 //	public List<ContaContabil> findContasDoPlanoDeContas(UUID id) {
 //		return repo.findById(id).get().getContasFilhas();
 //		//return repo.findContasDoPlanoDeContas(id);
 //	}
 	
+=======
+	public List<ContaContabil> findContasDoPlanoDeContas(UUID id) {
+		return repo.findContasDoPlanoDeContas(id);
+	}
+
+	public void deleteById(UUID id) {
+		repo.deleteById(id);
+	}
+>>>>>>> 838b589a310fd43af5f7bd9427e06e95a6f1e244
 }
 
 

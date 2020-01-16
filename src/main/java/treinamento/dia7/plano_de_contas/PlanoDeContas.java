@@ -35,8 +35,8 @@ public class PlanoDeContas extends BaseEntity {
 			inverseJoinColumns = @JoinColumn(name = "conta_contabil_id"))
 	private Set<ContaContabil> contasContabeis = new HashSet<>();
 
-	public PlanoDeContas(UUID id, String descricao, LocalDate inicioVigencia, LocalDate fimVigencia) {
-		super(id);
+	public PlanoDeContas(UUID id, int version, String descricao, LocalDate inicioVigencia, LocalDate fimVigencia) {
+		super(id, version);
 		this.descricao = descricao;
 		this.inicioVigencia = inicioVigencia;
 		this.fimVigencia = fimVigencia;

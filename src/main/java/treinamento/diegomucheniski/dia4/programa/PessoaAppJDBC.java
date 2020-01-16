@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import diegomucheniski.domains.Pessoa;
 import treinamento.diegomucheniski.dia4.repositories.PessoaRepository;
-import treinamento.diegomucheniski.domains.Pessoa;
 
 public class PessoaAppJDBC {
 	

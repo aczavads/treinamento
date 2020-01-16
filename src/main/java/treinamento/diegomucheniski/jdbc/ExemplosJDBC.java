@@ -11,7 +11,7 @@ import java.util.UUID;
 
 import javax.swing.JOptionPane;
 
-import treinamento.diegomucheniski.domains.Pessoa;
+import diegomucheniski.domains.Pessoa;
 
 public class ExemplosJDBC {
 	

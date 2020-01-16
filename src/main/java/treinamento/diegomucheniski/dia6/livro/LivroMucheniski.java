@@ -2,7 +2,7 @@ package treinamento.diegomucheniski.dia6.livro;
 
 import javax.persistence.Entity;
 
-import treinamento.diegomucheniski.domains.BaseEntity;
+import diegomucheniski.domains.BaseEntity;
 
 @Entity
 public class LivroMucheniski extends BaseEntity {

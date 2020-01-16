@@ -1,4 +1,4 @@
-package treinamento.dia5.jpa.associacoes;
+package diegomucheniski.domains;
 
 import java.util.UUID;
 

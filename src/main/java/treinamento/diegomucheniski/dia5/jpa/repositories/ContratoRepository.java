@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import javax.persistence.EntityManager;
 
-import treinamento.diegomucheniski.domains.Contrato;
+import diegomucheniski.domains.Contrato;
 
 public class ContratoRepository {	
 	

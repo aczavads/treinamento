@@ -7,14 +7,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import treinamento.diegomucheniski.domains.CNPJValido;
-import treinamento.diegomucheniski.domains.CPFValido;
-import treinamento.diegomucheniski.domains.Conta;
-import treinamento.diegomucheniski.domains.Correntista;
-import treinamento.diegomucheniski.domains.CorrentistaPessoaFisica;
-import treinamento.diegomucheniski.domains.CorrentistaPessoaJuridica;
-import treinamento.diegomucheniski.domains.MovimentoConta;
-import treinamento.diegomucheniski.enums.TipoMovimentoConta;
+import diegomucheniski.domains.CNPJValido;
+import diegomucheniski.domains.CPFValido;
+import diegomucheniski.domains.Conta;
+import diegomucheniski.domains.Correntista;
+import diegomucheniski.domains.CorrentistaPessoaFisica;
+import diegomucheniski.domains.CorrentistaPessoaJuridica;
+import diegomucheniski.domains.MovimentoConta;
+import diegomucheniski.enums.TipoMovimentoConta;
 
 public class AppAssociacoes {
 	

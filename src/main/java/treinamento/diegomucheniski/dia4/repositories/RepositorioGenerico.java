@@ -8,8 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-import treinamento.diegomucheniski.annotations.ChavePrimaria;
-import treinamento.diegomucheniski.domains.Entidade;
+import diegomucheniski.annotations.ChavePrimaria;
+import diegomucheniski.domains.Entidade;
 
 public class RepositorioGenerico<ENTIDADE extends Entidade> {
 	private Class<ENTIDADE> classeDaEntidade;

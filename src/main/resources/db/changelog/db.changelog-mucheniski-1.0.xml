@@ -7,20 +7,20 @@
 
 	<changeSet author="diego.mucheniskii"
 		id="create-table-conta-contabil">
-		<createTable tableName="conta_contabil_mucheniski">
+		<createTable tableName="conta_contabil">
 			<column name="id" type="${TIPO_ID}">
 				<constraints primaryKey="true"
-					primaryKeyName="pk_conta_contabil_mucheniski" />
+					primaryKeyName="pk_conta_contabil" />
 			</column>
 			<column name="conta_superior_id" type="${TIPO_ID}">
 				<constraints
-					referencedTableName="conta_contabil_mucheniski"
+					referencedTableName="conta_contabil"
 					referencedColumnNames="id"
 					foreignKeyName="fk_conta_contabil_superior" />
 			</column>
 			<column name="codigo" type="${TIPO_CODIGO_CONTABIL}">
 				<constraints nullable="false" unique="true"
-					uniqueConstraintName="unique_conta_contabil_mucheniski_codigo" />
+					uniqueConstraintName="unique_conta_contabil_codigo" />
 			</column>
 			<column name="nome" type="${TIPO_DESCRICAO_255}">
 				<constraints nullable="false" />
@@ -29,7 +29,7 @@
 	</changeSet>
 	<changeSet author="diego.-mucheniski"
 		id="create-table-plano-de-contas-mucheniski">
-		<createTable tableName="plano_de_contas_mucheniski">
+		<createTable tableName="plano_de_contas">
 			<column name="id" type="${TIPO_ID}">
 				<constraints primaryKey="true"
 					primaryKeyName="pk_plano_de_contas" />
@@ -46,24 +46,24 @@
 		</createTable>
 	</changeSet>
 	<changeSet author="diego.mucheniski"
-		id="create-table-conta-plano-de-contas-mucheniski">
-		<createTable tableName="conta_plano_de_contas_mucheniski">
+		id="create-table-conta-plano-de-contas">
+		<createTable tableName="conta_plano_de_contas">
 			<column name="plano_do_contas_id" type="{TIPO_ID}">
 				<constraints
-					referencedTableName="plano_do_contas_mucheniski"
+					referencedTableName="plano_do_contas"
 					referencedColumnNames="id" nullable="false"
-					foreignKeyName="fk_plano_do_contas_mucheniski" />
+					foreignKeyName="fk_plano_do_contas" />
 			</column>
 			<column name="conta_contabil_id" type="{TIPO_ID}">
 				<constraints
-					referencedTableName="conta_contabil_mucheniski"
+					referencedTableName="conta_contabil"
 					referencedColumnNames="id" nullable="false"
-					foreignKeyName="fk_conta_contabil_mucheniski" />
+					foreignKeyName="fk_conta_contabil" />
 			</column>
 		</createTable>
 		<addPrimaryKey
 			columnNames="plano_de_contas_id, conta_contabil_id"
-			tableName="conta_plano_de_contas_mucheniski"
+			tableName="conta_plano_de_contas"
 			constraintName="pk_conta_plano_de_contas"></addPrimaryKey>
 	</changeSet>
 </databaseChangeLog> 

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import treinamento.diegomucheniski.domains.Pessoa;
+import diegomucheniski.domains.Pessoa;
 
 public class PessoaRepository {
 	

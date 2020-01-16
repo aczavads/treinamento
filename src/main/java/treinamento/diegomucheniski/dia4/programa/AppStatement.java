@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
+import diegomucheniski.domains.Pessoa;
 import treinamento.diegomucheniski.dia4.repositories.PessoaRepository;
-import treinamento.diegomucheniski.domains.Pessoa;
 
 public class AppStatement {
 

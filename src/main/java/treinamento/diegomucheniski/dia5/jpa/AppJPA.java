@@ -6,10 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import diegomucheniski.domains.CPFValido;
+import diegomucheniski.domains.Contrato;
+import diegomucheniski.domains.InteiroPositivo;
 import treinamento.diegomucheniski.dia5.jpa.repositories.ContratoRepository;
-import treinamento.diegomucheniski.domains.CPFValido;
-import treinamento.diegomucheniski.domains.Contrato;
-import treinamento.diegomucheniski.domains.InteiroPositivo;
 
 public class AppJPA {
 	

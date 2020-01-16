@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.time.LocalDate;
 
+import diegomucheniski.domains.Grupo;
+import diegomucheniski.domains.Produto;
+import diegomucheniski.domains.ProdutoBonificado;
 import treinamento.diegomucheniski.dia4.repositories.RepositorioGenerico;
-import treinamento.diegomucheniski.domains.Grupo;
-import treinamento.diegomucheniski.domains.Produto;
-import treinamento.diegomucheniski.domains.ProdutoBonificado;
 
 public class AppRepositorioGenerico {
 	

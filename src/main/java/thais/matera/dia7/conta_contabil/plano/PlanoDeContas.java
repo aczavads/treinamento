@@ -1,10 +1,16 @@
 package thais.matera.dia7.conta_contabil.plano;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+import org.hibernate.annotations.ManyToAny;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,7 +27,12 @@ public class PlanoDeContas extends BaseEntity {
 	private LocalDate inicioVigencia;
 	private LocalDate fimVigencia;
 	
-//	private List<ContaContabil> contas;
+	@ManyToMany
+	@JoinTable(
+			name = "conta_plano_de_contas",
+			joinColumns = @JoinColumn(name = "plano_de_contas_id"), 
+			inverseJoinColumns = @JoinColumn(name = "conta_contabil_id"))
+	private Set<ContaContabil> contas = new HashSet<>();
 	
 	public PlanoDeContas(UUID id, String descricao, LocalDate inicioVigencia, LocalDate fimVigencia) {
 		super(id);
@@ -38,20 +49,11 @@ public class PlanoDeContas extends BaseEntity {
 	}
 
 	public void adicionar(ContaContabil conta) {
-		
+		this.getContas().add(conta);
 	}
 	
 	public void remover(ContaContabil conta) {
-		
+		this.getContas().remove(conta);
 	}
-
-//	public List<ContaContabil> getContas() {
-//		return contas;
-//	}
-//
-//	public void setContas(List<ContaContabil> contas) {
-//		this.contas = contas;
-//	}
-	
 	
 }

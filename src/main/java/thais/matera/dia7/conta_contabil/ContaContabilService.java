@@ -90,4 +90,8 @@ public class ContaContabilService {
 	public List<ContaContabil> recuperarManual(int page, int size) {
 		return repo.recuperarManual(page, size);
 	}
+
+	public void delete(UUID id) {
+		repo.delete(this.findById(id));
+	}
 }

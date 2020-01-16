@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import schiavon.gabriel.dia7.conta_contabil.BaseController;
 
 @ControllerAdvice(assignableTypes = {BaseController.class})
-public class ControllerExceptionManager {
-	private final Logger logger = LoggerFactory.getLogger(ControllerExceptionManager.class);
+public class ExceptionManager {
+	private final Logger logger = LoggerFactory.getLogger(ExceptionManager.class);
 	
 	@ExceptionHandler({IllegalArgumentException.class})
 	public ResponseEntity<Void> illegalArgument(IllegalArgumentException ex) {

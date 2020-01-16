@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import treinamento.guilhermeperes.dia7.utils.Id;
+
 public abstract class BaseController<
 		ENTITY extends BaseEntity,
 		REPOSITORY extends JpaRepository<ENTITY, UUID>,
@@ -22,24 +24,23 @@ public abstract class BaseController<
 	private SERVICE service;
 	
 	@PostMapping
-	public ResponseEntity<Void> post(@RequestBody ENTITY entity) {
-		service.save(entity);
+	public ResponseEntity<Id> post(@RequestBody ENTITY entity) {
 		return ResponseEntity
 				.ok()
-				.build();
+				.body(new Id(service.save(entity)));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Void> updateById(@RequestBody ENTITY entity) {
-		service.save(entity);
+	public ResponseEntity<Id> updateById(@RequestBody ENTITY entity) {
 		return ResponseEntity
 				.ok()
-				.build();
+				.body(new Id(service.updateById(entity)));
 	}
 	
 	@DeleteMapping
 	public ResponseEntity<Void> deleteById(@RequestBody ENTITY entity) {
 		service.deleteById(entity);
+		
 		return ResponseEntity
 				.ok()
 				.build();

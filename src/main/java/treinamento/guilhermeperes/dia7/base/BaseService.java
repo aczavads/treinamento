@@ -15,11 +15,29 @@ public abstract class BaseService<
 	@Autowired
 	private REPOSITORY repo;
 	
-	public void save(ENTITY entity) {
-		repo.save(entity);
+	private void checkEntityNotExists(UUID id) {
+		if(!repo.existsById(id)) {
+			throw new NotFoundedException("Cannot find Entity with provided id");
+		}
+	}
+	
+	public UUID save(ENTITY entity) {
+		return repo
+				.save(entity)
+				.getId();
+	}
+	
+	public UUID updateById(ENTITY entity) {
+		checkEntityNotExists(entity.getId());
+		
+		return repo
+				.save(entity)
+				.getId();
 	}
 	
 	public void deleteById(ENTITY entity) {
+		checkEntityNotExists(entity.getId());
+		
 		repo.delete(entity);
 	}
 	
@@ -30,6 +48,6 @@ public abstract class BaseService<
 	public ENTITY findById(UUID id) {
 		return repo
 				.findById(id)
-				.orElseThrow(() -> new NotFoundedException("Cannot find Conta with provided id"));
+				.orElseThrow(() -> new NotFoundedException("Cannot find Entity with provided id"));
 	}
 }

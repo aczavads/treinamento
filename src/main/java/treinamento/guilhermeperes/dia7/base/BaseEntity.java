@@ -4,19 +4,23 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import lombok.Data;
+import lombok.Getter;
 
 @MappedSuperclass
-@Data
+@Getter
 public abstract class BaseEntity {
 	
 	@Id
+	@GeneratedValue(generator = "UUID")
+	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
 	private UUID id;
 	
 	@CreationTimestamp
@@ -25,8 +29,4 @@ public abstract class BaseEntity {
 	
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
-
-	public BaseEntity() {
-		this.id = UUID.randomUUID();
-	}
 }

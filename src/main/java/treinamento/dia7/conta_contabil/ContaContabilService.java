@@ -52,8 +52,11 @@ public class ContaContabilService {
 	}
 
 	public List<ContaContabil> findContasDoPlanoDeContas(UUID id) {
-		return repo.findById(id).get().getContasFilhas();
-		//return repo.findContasDoPlanoDeContas(id);
+		return repo.findContasDoPlanoDeContas(id);
+	}
+
+	public void deleteById(UUID id) {
+		repo.deleteById(id);
 	}
 }
 

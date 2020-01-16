@@ -17,6 +17,7 @@ import treinamento.thyagofranco.dia7.conta_contabil.entities.ContaContabilThyago
 import treinamento.thyagofranco.dia7.conta_contabil.exceptions.CodigoDaHierarquiaInvalidoException;
 import treinamento.thyagofranco.dia7.conta_contabil.exceptions.RegistroNaoEncontrado;
 import treinamento.thyagofranco.dia7.conta_contabil.repository.ContaContabilThyagoRepository;
+import treinamento.thyagofranco.dia7.plano_de_contas.entity.PlanoDeContasT;
 
 //Nossa anotação criada para @Service @Transactional
 @TransactionalService
@@ -77,10 +78,16 @@ public class ContaContabilThyagoService {
 		
 		return repo.recuperarTodasPaginadoManualmente(page, size);
 	}
-	
-	public List<ContaContabilThyago> findContasDoPlanoDeContas(UUID id) {
-		// TODO Auto-generated method stub
-		return null;
+
+	public void deleteById(UUID id) {
+		repo.deleteById(id);
 	}
+		
+
+	
+//	public List<ContaContabilThyago> findContasDoPlanoDeContas(UUID idPlanoDeContas) {
+//		
+//		return repo.findContaDoPlanoDeContas(idPlanoDeContas);
+//	}
 
 }

@@ -1,5 +1,6 @@
 package treinamento.thyagofranco.dia7.plano_de_contas.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -47,6 +48,16 @@ public class PlanoDeContasTService {
 		contasParaAdicionar
 			.forEach(cc -> plano.adicionar(cc));
 		
+		
+	}
+
+	public List<ContaContabilThyago> getContas(UUID id) {
+		return new ArrayList<ContaContabilThyago>(repo.findById(id).get().getContasContabeis());
+		
+	}
+
+	public void deleteById(UUID idPlanoDeContas) {
+		repo.deleteById(idPlanoDeContas);
 		
 	}
 	

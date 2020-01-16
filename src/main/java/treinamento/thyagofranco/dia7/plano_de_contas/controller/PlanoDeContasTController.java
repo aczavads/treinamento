@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +35,8 @@ public class PlanoDeContasTController {
 	
 	@GetMapping("/{id}/contas")
 	private List<ContaContabilThyago> getContas(@PathVariable("id") UUID id) {
-		return serviceContaContabil.findContasDoPlanoDeContas(id);
+		//return serviceContaContabil.findContasDoPlanoDeContas(id);
+		return service.getContas(id);
 	}
 	
 	@PostMapping("/{id}/contas")
@@ -49,6 +51,20 @@ public class PlanoDeContasTController {
 		PlanoDeContasT novo = service.save(dto);
 		return novo.getId();
 		
+	}
+	
+	
+	@DeleteMapping("/{id}")
+	private void delete(
+			@PathVariable("id")UUID idPlanoDeContas) {			
+		service.deleteById(idPlanoDeContas);
+	}
+	
+	@DeleteMapping("/{id}/contas")
+	private void removerContasDoPlano(
+			@PathVariable("id")UUID idPlanoDeContas,
+			@RequestBody List<UUID> idDasContasParaRemover) {
+		service.removerContas(idPlanoDeContas, idDasContasParaRemover);
 	}
 	
 

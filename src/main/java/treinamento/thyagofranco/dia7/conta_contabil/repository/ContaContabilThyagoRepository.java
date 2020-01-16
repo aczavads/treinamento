@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.persistence.LockModeType;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 
 import treinamento.thyagofranco.dia7.conta_contabil.entities.ContaContabilThyago;
@@ -74,12 +77,23 @@ public interface ContaContabilThyagoRepository extends JpaRepository<ContaContab
 //	
 //	List<HierarquiaThyagoDTO> recuperarHierarquiaDTO();
 	
+// Em SQL nativo
+//	@Query(nativeQuery = true,
+//			value = "select cc.* from"
+//					+ "conta_contabil_thyago cc"
+//					+ "inner join conta_plano_de_contast cpc on cc.id = cpc.conta_contabil_id "
+//					+ "where cpc.plano_de_contas_id = :idPlanoDeContas")
+//	List<ContaContabilThyago> findContaDoPlanoDeContas(UUID idPlanoDeContas);
 	
+ 	
+//	@Lock(LockModeType.PESSIMISTIC_WRITE)  // adiciona um FOR UPDATE na Query NO BANCO, trava o registro até a transação acabar
+//	EM JPQL
 	@Query(nativeQuery = true,
-			value = "select cc.* from conta_contabil_thyago"
-					+ "conta_contabil_thyago cc"
-					+ "inner join conta_plano_de_contas cpc on cc.id = cpc.conta_contabil_id "
-					+ "where cpc.plano_de_contas_id = :idPlanoDeContas")
+			value = "select cc from"
+					+ "PlanoDeContasT p"
+					+ "inner join p.contasContabeis cc "
+					+ "where p.id = :idPlanoDeContas")
 	List<ContaContabilThyago> findContaDoPlanoDeContas(UUID idPlanoDeContas);
+
 }
 

@@ -17,11 +17,11 @@ public class ContaContabilThyago extends BaseEntity {
 	private String codigo;
 	private String nome;
 
-	@JsonIgnore
+	
 	@ManyToOne
 	private ContaContabilThyago contaSuperior;
 
-	@JsonIgnore
+	
 	@OneToMany(mappedBy = "contaSuperior", fetch = FetchType.LAZY)
 	private List<ContaContabilThyago> contasFilhas;
 
@@ -43,10 +43,15 @@ public class ContaContabilThyago extends BaseEntity {
 		this.contaSuperior = contaSuperior;
 	}
 
+	@JsonIgnore
 	public List<ContaContabilThyago> getContasFilhas() {
 		return contasFilhas;
 	}
 
+	@JsonIgnore
+	public ContaContabilThyago getContaSuperior() {
+		return contaSuperior;
+	}
 	
 	public String getCodigo() {
 		return codigo;
@@ -63,10 +68,7 @@ public class ContaContabilThyago extends BaseEntity {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public ContaContabilThyago getContaSuperior() {
-		return contaSuperior;
-	}
+	
 
 	public void setContaSuperior(ContaContabilThyago contaSuperior) {
 		this.contaSuperior = contaSuperior;

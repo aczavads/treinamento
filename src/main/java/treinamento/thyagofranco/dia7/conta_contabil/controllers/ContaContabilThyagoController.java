@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +42,12 @@ public class ContaContabilThyagoController implements BaseController{
 		return service.findById(id);
 
 	}
+	
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable UUID id) {
+		service.deleteById(id);
+	}
+	
 	
 //	@PostMapping
 //	public UUID post(@RequestBody ContaContabilThyago nova) {

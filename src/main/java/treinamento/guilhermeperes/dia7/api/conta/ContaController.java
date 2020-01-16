@@ -14,7 +14,7 @@ import treinamento.guilhermeperes.dia7.base.BaseController;
 import treinamento.guilhermeperes.dia7.base.annotations.RestConfig;
 
 @RestConfig
-@RequestMapping("/api/contas")
+@RequestMapping("/contas")
 public class ContaController extends BaseController<Conta, ContaRepository, ContaService> {
 	
 	@Autowired
@@ -22,11 +22,15 @@ public class ContaController extends BaseController<Conta, ContaRepository, Cont
 	
 	@GetMapping("/hierarquia")
 	public ResponseEntity<List<Map<String, Object>>> recuperarHierarquia() {
-		return ResponseEntity.ok().body(service.recuperarHierarquia());
+		return ResponseEntity
+				.ok()
+				.body(service.recuperarHierarquia());
 	}
 	
 	@GetMapping("/page")
 	public ResponseEntity<Slice<Conta>> findAllSlice(Pageable pageable) {
-		return ResponseEntity.ok().body(service.findAllSlice(pageable));
+		return ResponseEntity
+				.ok()
+				.body(service.findAllSlice(pageable));
 	}
 }

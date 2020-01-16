@@ -1,4 +1,4 @@
-package thais.matera.dia7.conta_contabil.plano;
+package thais.matera.dia7.plano_de_conta;
 
 import java.util.List;
 import java.util.UUID;

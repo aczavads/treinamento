@@ -1,4 +1,4 @@
-package thais.matera.dia7.conta_contabil.plano;
+package thais.matera.dia7.plano_de_conta;
 
 import java.time.LocalDate;
 import java.util.HashSet;

@@ -74,5 +74,12 @@ public interface ContaContabilThyagoRepository extends JpaRepository<ContaContab
 //	
 //	List<HierarquiaThyagoDTO> recuperarHierarquiaDTO();
 	
+	
+	@Query(nativeQuery = true,
+			value = "select cc.* from conta_contabil_thyago"
+					+ "conta_contabil_thyago cc"
+					+ "inner join conta_plano_de_contas cpc on cc.id = cpc.conta_contabil_id "
+					+ "where cpc.plano_de_contas_id = :idPlanoDeContas")
+	List<ContaContabilThyago> findContaDoPlanoDeContas(UUID idPlanoDeContas);
 }
 

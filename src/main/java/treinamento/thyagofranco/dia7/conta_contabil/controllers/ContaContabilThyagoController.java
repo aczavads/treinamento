@@ -6,6 +6,8 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.aspectj.bridge.context.PinpointingMessageHandler;
+import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +26,7 @@ import treinamento.thyagofranco.dia7.conta_contabil.entities.ContaContabilThyago
 import treinamento.thyagofranco.dia7.conta_contabil.services.ContaContabilThyagoService;
 
 @RestController
-@RequestMapping("/api/contascontabeis") // uri a qual responde
+@RequestMapping("/contascontabeis") // uri a qual responde
 public class ContaContabilThyagoController implements BaseController{
 	@Autowired
 	private ContaContabilThyagoService service;
@@ -84,6 +86,8 @@ public class ContaContabilThyagoController implements BaseController{
 		return service.recuperarTodasPaginadoManualmente(page, size);
 		
 	}
+	
+	
 	
 
 }

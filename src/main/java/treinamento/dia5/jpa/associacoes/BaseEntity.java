@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import liquibase.pro.packaged.iF;
+
 @MappedSuperclass
 public class BaseEntity {
 	@Id
@@ -17,6 +19,9 @@ public class BaseEntity {
 	}
 
 	public BaseEntity(UUID id) {
+		if(id == null) {
+			id = UUID.randomUUID();
+		}
 		this.id = id;
 	}
 	

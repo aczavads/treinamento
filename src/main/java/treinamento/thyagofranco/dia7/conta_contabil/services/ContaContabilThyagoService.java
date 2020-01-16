@@ -77,5 +77,10 @@ public class ContaContabilThyagoService {
 		
 		return repo.recuperarTodasPaginadoManualmente(page, size);
 	}
+	
+	public List<ContaContabilThyago> findContasDoPlanoDeContas(UUID id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

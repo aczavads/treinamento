@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,14 @@ public class PlanoDeContasController {
 	private List<PlanoDeContas> get() {
 		return service.findAll();
 	}
-
+	
+	@PutMapping("/{id}/contas")
+	private void getContas(@PathVariable("id") UUID id, @RequestBody PlanoDeContasDTO plano) {
+		if(!id.equals(plano.getId()))
+			throw new IllegalArgumentException("Os dois IDs são divergentes");
+		service.update(plano);
+	}
+	
 	@GetMapping("/{id}/contas")
 	private List<ContaContabil> getContas(@PathVariable("id") UUID id) {
 		return service.findContasDoPlanoDeContas(id);

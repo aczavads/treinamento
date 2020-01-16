@@ -59,4 +59,13 @@ public class PlanoDeContasService {
 			plano.remover(conta);
 		}
 	}
+
+	public void update(PlanoDeContasDTO plano) {
+		PlanoDeContas recuperado = repo
+				.findById(plano.getId()).orElseThrow(() -> new RegistroNaoEncontrado("Plano de contas não encontrado"));
+		
+		recuperado.setDescricao(plano.getDescricao());
+		recuperado.setInicioVigencia(plano.getFimVigencia());
+		recuperado.setFimVigencia(plano.getFimVigencia());
+	}
 }

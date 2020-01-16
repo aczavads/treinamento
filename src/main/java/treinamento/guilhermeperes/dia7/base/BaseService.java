@@ -4,13 +4,12 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import treinamento.guilhermeperes.dia7.base.exceptions.NotFoundedException;
 
 public abstract class BaseService<
 		ENTITY extends BaseEntity,
-		REPOSITORY extends JpaRepository<ENTITY, UUID>> {
+		REPOSITORY extends BaseRepository<ENTITY>> {
 	
 	@Autowired
 	private REPOSITORY repo;

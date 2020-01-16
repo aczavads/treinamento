@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +16,7 @@ import treinamento.guilhermeperes.dia7.utils.Id;
 
 public abstract class BaseController<
 		ENTITY extends BaseEntity,
-		REPOSITORY extends JpaRepository<ENTITY, UUID>,
+		REPOSITORY extends BaseRepository<ENTITY>,
 		SERVICE extends BaseService<ENTITY, REPOSITORY>> {
 	
 	@Autowired

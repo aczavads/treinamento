@@ -73,6 +73,14 @@ public interface ContaContabilRepository extends JpaRepository<ContaContabil, UU
 	List<Map<String, Object>> recuperarHierarquia();
 
 
+	@Query(nativeQuery = true, 
+		   value = "select cc.* from "
+		   		+ "conta_contabil cc "
+		   		+ "inner join conta_plano_de_contas cpc on cc.id = cpc.conta_contabil_id "
+		   		+ "where cpc.plano_de_contas_id = :idPlanoDeContas")
+	List<ContaContabil> findContasDoPlanoDeContas(UUID idPlanoDeContas); 
+
+
 }
 
 

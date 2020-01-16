@@ -1,7 +1,9 @@
 package treinamento.dia7.plano_de_contas;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -38,5 +40,9 @@ public class PlanoDeContas extends BaseEntity {
 		this.descricao = descricao;
 		this.inicioVigencia = inicioVigencia;
 		this.fimVigencia = fimVigencia;
+	}
+
+	public void adicionar(ContaContabil contaContabil) {
+		this.getContasContabeis().add(contaContabil);
 	}
 }

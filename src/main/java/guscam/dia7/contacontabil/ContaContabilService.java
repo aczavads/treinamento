@@ -12,26 +12,28 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 
+import guscam.dia7.RegistroNaoEncontrado;
+
 @Service
 @Transactional
-public class ContaContabil2Service {
+public class ContaContabilService {
 	@Autowired
-	private ContaContabil2Repository repo;
+	private ContaContabilRepository repo;
 
-	public List<ContaContabil2> findAll() {
+	public List<ContaContabil> findAll() {
 		return repo.findAll();
 	}
 	
-	public ContaContabil2 save(ContaContabil2DTO conta) {
-		ContaContabil2 contaSuperior = null;
+	public ContaContabil save(ContaContabilDTO conta) {
+		ContaContabil contaSuperior = null;
 		if (conta.getContaSuperiorId() != null) {
 			contaSuperior = findById(conta.getContaSuperiorId());
 		}
-		ContaContabil2 novaConta = new ContaContabil2(conta.getCodigo(), conta.getNome(), contaSuperior);
+		ContaContabil novaConta = new ContaContabil(conta.getCodigo(), conta.getNome(), contaSuperior);
 		return repo.save(novaConta);
 	}
 
-	public ContaContabil2 findById(UUID id) {
+	public ContaContabil findById(UUID id) {
 		return repo.findById(id).orElseThrow(() -> new RegistroNaoEncontrado("Conta não encontrada"));
 	}
 
@@ -39,7 +41,7 @@ public class ContaContabil2Service {
 		return repo.contarContas();
 	}
 
-	public List<ContaContabil2> selecionarContasRaiz() {
+	public List<ContaContabil> selecionarContasRaiz() {
 		return repo.selecionarContasRaiz();
 	}
 
@@ -47,16 +49,24 @@ public class ContaContabil2Service {
 		return repo.selecionarContasPelaHierarquia();
 	}
 	
-	public Page<ContaContabil2> recuperarTodas(Pageable pageable){
+	public Page<ContaContabil> recuperarTodas(Pageable pageable){
 		return repo.recuperarTodas(pageable);		
 	}
 
-	public Slice<ContaContabil2> recuperarTodasFatiadas(Pageable pageable){
+	public Slice<ContaContabil> recuperarTodasFatiadas(Pageable pageable){
 		return repo.recuperarTodasFatiadas(pageable);		
 	}
 
-	public List<ContaContabil2> recuperarTodasManualmente(int page, int size){
+	public List<ContaContabil> recuperarTodasManualmente(int page, int size){
 		return repo.recuperarTodasManualmente(page, size);		
+	}
+
+	public List<ContaContabil> recuperarContasDoPlanoDeContas(UUID idDoPlano) {
+		return repo.recuperarContasDoPlanoDeContas(idDoPlano);		
+	}
+
+	public void remover(UUID id) {
+		repo.deleteById(id);
 	}
 	
 }

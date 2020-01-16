@@ -5,7 +5,7 @@ import java.util.UUID;
 import lombok.Data;
 
 @Data
-public class ContaContabil2DTO {
+public class ContaContabilDTO {
 	private UUID id;
 	private UUID contaSuperiorId;
 	private String codigo;

@@ -12,28 +12,28 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import treinamento.dia5.jpa.associacoes.BaseEntity;
 
 @Entity
-public class ContaContabil2 extends BaseEntity {
+public class ContaContabil extends BaseEntity {
 	private String codigo;
 	private String nome;
 
 	@ManyToOne
-	private ContaContabil2 contaSuperior;
+	private ContaContabil contaSuperior;
 
 	@OneToMany(mappedBy = "contaSuperior")
-	private List<ContaContabil2> contasFilhas;
+	private List<ContaContabil> contasFilhas;
 	
-	public ContaContabil2() {
+	public ContaContabil() {
 		super();
 	}
 
-	public ContaContabil2(UUID id, String codigo, String nome, ContaContabil2 contaSuperior) {
+	public ContaContabil(UUID id, String codigo, String nome, ContaContabil contaSuperior) {
 		super(id);
 		this.codigo = codigo;
 		this.nome = nome;
 		this.contaSuperior = contaSuperior;
 	}
 
-	public ContaContabil2(String codigo, String nome, ContaContabil2 contaSuperior) {
+	public ContaContabil(String codigo, String nome, ContaContabil contaSuperior) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
@@ -57,20 +57,20 @@ public class ContaContabil2 extends BaseEntity {
 	}
 
 	@JsonIgnore
-	public ContaContabil2 getContaSuperior() {
+	public ContaContabil getContaSuperior() {
 		return contaSuperior;
 	}
 
-	public void setContaSuperior(ContaContabil2 contaSuperior) {
+	public void setContaSuperior(ContaContabil contaSuperior) {
 		this.contaSuperior = contaSuperior;
 	}
 
 	@JsonIgnore
-	public List<ContaContabil2> getContasFilhas() {
+	public List<ContaContabil> getContasFilhas() {
 		return contasFilhas;
 	}
 
-	public void setContasFilhas(List<ContaContabil2> contasFilhas) {
+	public void setContasFilhas(List<ContaContabil> contasFilhas) {
 		this.contasFilhas = contasFilhas;
 	}
 

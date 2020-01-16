@@ -6,14 +6,14 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
 	<changeSet author="arthur.zavadski"
-		id="create-table-conta-contabil2">
-		<createTable tableName="conta_contabil2">
+		id="create-table-conta-contabil">
+		<createTable tableName="conta_contabil">
 			<column name="id" type="${TIPO_ID}">
 				<constraints primaryKey="true"
-					primaryKeyName="pk_conta_contabil2" />
+					primaryKeyName="pk_conta_contabil" />
 			</column>
 			<column name="conta_superior_id" type="${TIPO_ID}">
-				<constraints referencedTableName="conta_contabil2"
+				<constraints referencedTableName="conta_contabil"
 					referencedColumnNames="id"
 					foreignKeyName="fk_conta_contabil_superior" />
 			</column>
@@ -27,11 +27,11 @@
 		</createTable>
 	</changeSet>
 	<changeSet author="gustavo.camargo"
-		id="create-table-plano-de-contas2">
-		<createTable tableName="plano_de_contas2">
+		id="create-table-plano-de-contas">
+		<createTable tableName="plano_de_contas">
 			<column name="id" type="${TIPO_ID}">
 				<constraints primaryKey="true"
-					primaryKeyName="pk_plano_de_contas2" />
+					primaryKeyName="pk_plano_de_contas" />
 			</column>
 			<column name="descricao" type="${TIPO_DESCRICAO_255}">
 				<constraints nullable="false" />
@@ -45,19 +45,17 @@
 		</createTable>
 	</changeSet>
 	<changeSet author="gustavo.camargo"
-		id="create-table-conta-plano-de-contas2">
-		<createTable tableName="conta_plano_de_contas2">
-			<column name="plano_de_contas2_id" type="${TIPO_ID}">
-				<constraints referencedTableName="plano_de_contas2"
-					nullable="false"
-					referencedColumnNames="id"
-					foreignKeyName="fk_conta_plano_de_contas2_plano" />
+		id="create-table-conta-plano-de-contas">
+		<createTable tableName="conta_plano_de_contas">
+			<column name="plano_de_contas_id" type="${TIPO_ID}">
+				<constraints referencedTableName="plano_de_contas"
+					nullable="false" referencedColumnNames="id"
+					foreignKeyName="fk_conta_plano_de_contas_plano" />
 			</column>
-			<column name="conta_contabil2_id" type="${TIPO_ID}">
-				<constraints  referencedTableName="conta_contabil2"
-					nullable="false"
-					referencedColumnNames="id"
-					foreignKeyName="fk_conta_plano_de_contas2_conta_contabil" />
+			<column name="conta_contabil_id" type="${TIPO_ID}">
+				<constraints referencedTableName="conta_contabil"
+					nullable="false" referencedColumnNames="id"
+					foreignKeyName="fk_conta_plano_de_contas_conta_contabil" />
 			</column>
 		</createTable>
 	</changeSet>

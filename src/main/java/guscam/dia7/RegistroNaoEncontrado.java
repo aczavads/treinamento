@@ -1,4 +1,4 @@
-package guscam.dia7.contacontabil;
+package guscam.dia7;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

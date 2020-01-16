@@ -2,16 +2,25 @@ package guscam.dia5.jpa.associacoes;
 
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class BaseEntity {
 	@Id
+	@Column(columnDefinition = "uuid")
 	private UUID id;
 	
 	public BaseEntity() {
 		this.id = UUID.randomUUID();
+	}
+
+	public BaseEntity(UUID id) {
+		if (id == null) {
+			id = UUID.randomUUID();
+		}
+		this.id = id;
 	}
 
 	public UUID getId() {

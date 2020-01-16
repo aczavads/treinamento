@@ -1,15 +1,13 @@
 package william.dia5.GenericEntity;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.sound.midi.Soundbank;
 
-import william.silva.dia5.CPF;
-import william.silva.dia5.ValidaCpf;
+import william.dia5.CPF;
+import william.dia5.ValidaCpf;
 
 public class App {
 	public static void main(String[] args) {

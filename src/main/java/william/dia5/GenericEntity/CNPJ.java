@@ -2,7 +2,7 @@ package william.dia5.GenericEntity;
 
 import javax.persistence.Embeddable;
 
-import william.silva.dia5.ValidaCpf;
+import william.dia5.ValidaCpf;
 
 @Embeddable
 public class CNPJ {

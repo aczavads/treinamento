@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import william.silva.dia5.CPF;
+import william.dia5.CPF;
 
 @Entity
 public class CorrentistaFisica extends Correntista{

@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import william.silva.dia5.ValidaCpf;
+import william.dia5.ValidaCpf;
 @Entity
 public class CorrentistaJuridica extends Correntista{
 	@Column(unique=true, nullable = false)

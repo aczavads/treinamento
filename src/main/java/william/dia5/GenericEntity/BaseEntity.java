@@ -2,6 +2,7 @@ package william.dia5.GenericEntity;
 
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
@@ -9,10 +10,8 @@ import javax.persistence.Version;
 @MappedSuperclass
 public class BaseEntity {
 	@Id
+	@Column(columnDefinition = "uuid")
 	private UUID id;
-<<<<<<< HEAD:src/main/java/william/dia5/GenericEntity/BaseEntity.java
-
-=======
 	
 	@Version
 	private int version;
@@ -21,9 +20,8 @@ public class BaseEntity {
 		return version;
 	}
 	
->>>>>>> 838b589a310fd43af5f7bd9427e06e95a6f1e244:src/main/java/treinamento/dia5/jpa/associacoes/BaseEntity.java
 	public BaseEntity() {
-		this.id = UUID.randomUUID();
+		id = UUID.randomUUID();
 	}
 	
 	public BaseEntity(UUID id, int version) {
@@ -36,19 +34,11 @@ public class BaseEntity {
 
 	public BaseEntity(UUID id) {
 		if (id == null) {
-<<<<<<< HEAD:src/main/java/william/dia5/GenericEntity/BaseEntity.java
-			this.id = UUID.randomUUID();
-		} else {
-
-			this.id = id;
-		}
-=======
 			id = UUID.randomUUID();
 		}
 		this.id = id;
->>>>>>> 838b589a310fd43af5f7bd9427e06e95a6f1e244:src/main/java/treinamento/dia5/jpa/associacoes/BaseEntity.java
 	}
-
+	
 	public UUID getId() {
 		return id;
 	}

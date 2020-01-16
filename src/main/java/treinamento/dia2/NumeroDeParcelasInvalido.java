@@ -1,0 +1,9 @@
+package treinamento.dia2;
+
+public class NumeroDeParcelasInvalido extends RuntimeException {
+	
+	public NumeroDeParcelasInvalido(String message) {
+		super(message);
+	}
+
+}

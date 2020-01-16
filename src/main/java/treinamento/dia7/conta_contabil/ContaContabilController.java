@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/contascontabeis")
+@RequestMapping("/contascontabeis")
 public class ContaContabilController {
 	@Autowired
 	private ContaContabilService service;

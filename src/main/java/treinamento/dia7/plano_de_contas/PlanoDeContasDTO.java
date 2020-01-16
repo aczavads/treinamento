@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 public class PlanoDeContasDTO {
 	private UUID id;
+	private int version;
 	private String descricao;
 	private LocalDate inicioVigencia;
 	private LocalDate fimVigencia;

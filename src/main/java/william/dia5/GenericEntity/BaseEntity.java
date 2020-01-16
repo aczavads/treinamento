@@ -13,14 +13,15 @@ public class BaseEntity {
 	public BaseEntity() {
 		this.id = UUID.randomUUID();
 	}
-	
-	
+
 	public BaseEntity(UUID id) {
-		super();
-		this.id = id;
+		if (id == null) {
+			this.id = UUID.randomUUID();
+		} else {
+
+			this.id = id;
+		}
 	}
-
-
 
 	public UUID getId() {
 		return id;
@@ -50,6 +51,5 @@ public class BaseEntity {
 			return false;
 		return true;
 	}
-	
-	
+
 }

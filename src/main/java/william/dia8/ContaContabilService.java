@@ -1,4 +1,4 @@
-package william.dia7.Conta_Contabilwd;
+package william.dia8;
 
 import java.util.List;
 import java.util.Map;
@@ -11,6 +11,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
+
+import william.dia7.Conta_Contabilwd.ContaNãoEncontrada;
+import william.dia8.Exceptions.CodigoInvalido;
+import william.dia8.Exceptions.ContaExistente;
 
 
 @Service
@@ -96,6 +100,10 @@ public class ContaContabilService {
 	public List<ContaContabil> recuperarTodasManual(int page, int size) {
 		// TODO Auto-generated method stub
 		return repository.recuperarTodasManual(page, size);
+	}
+
+	public List<ContaContabil> findAllById(List<UUID> idsDasContasParaAdicionar) {
+		return repository.findAllById(idsDasContasParaAdicionar);
 	}
 
 

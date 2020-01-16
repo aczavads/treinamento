@@ -16,7 +16,7 @@ import guscam.dia7.contacontabil.ContaContabil;
 import guscam.dia7.contacontabil.ContaContabilService;
 
 @RestController
-@RequestMapping("/api/planosdecontas")
+@RequestMapping("/planosdecontas")
 public class PlanoDeContasController {
 	@Autowired
 	private PlanoDeContasService service;

@@ -9,6 +9,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
+import guscam.dia7.BaseEntity;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Correntista extends BaseEntity {

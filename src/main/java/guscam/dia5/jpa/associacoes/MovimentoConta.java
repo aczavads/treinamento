@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import guscam.dia7.BaseEntity;
+
 @Entity
 public class MovimentoConta extends BaseEntity {
 

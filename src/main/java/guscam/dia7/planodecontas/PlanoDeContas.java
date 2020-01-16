@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import guscam.dia5.jpa.associacoes.BaseEntity;
+import guscam.dia7.BaseEntity;
 import guscam.dia7.contacontabil.ContaContabil;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

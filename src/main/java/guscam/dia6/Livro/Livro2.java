@@ -2,7 +2,7 @@ package guscam.dia6.Livro;
 
 import javax.persistence.Entity;
 
-import guscam.dia5.jpa.associacoes.BaseEntity;
+import guscam.dia7.BaseEntity;
 
 @Entity
 public class Livro2 extends BaseEntity {

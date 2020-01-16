@@ -9,7 +9,7 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import treinamento.dia5.jpa.associacoes.BaseEntity;
+import guscam.dia7.BaseEntity;
 
 @Entity
 public class ContaContabil extends BaseEntity {

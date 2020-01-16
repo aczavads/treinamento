@@ -13,7 +13,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import treinamento.dia2.fernando.santos.parcelamento.Parcela;
+import fernando_santos.treinamento.dia2.parcelamento.Parcela;
+import fernando_santos.treinamento.dia3.AppMapaDeParcelas;
 
 public class AppMapaDeParcelasTest {
 

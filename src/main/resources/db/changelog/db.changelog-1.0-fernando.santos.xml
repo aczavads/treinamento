@@ -6,20 +6,20 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
 	<changeSet author="fernando.santos"
-		id="create-table-conta-contabil-fs2">
-		<createTable tableName="conta_contabil_fs2">
+		id="create-table-conta-contabil-fs">
+		<createTable tableName="conta_contabil">
 			<column name="id" type="${TIPO_ID}">
 				<constraints primaryKey="true"
-					primaryKeyName="pk_conta_contabil_fs2" />
+					primaryKeyName="pk_conta_contabil" />
 			</column>
 			<column name="conta_superior_id" type="${TIPO_ID}">
-				<constraints referencedTableName="conta_contabil_fs2"
+				<constraints referencedTableName="conta_contabil"
 					referencedColumnNames="id"
-					foreignKeyName="fk_conta_contabil_superior_fs2" />
+					foreignKeyName="fk_conta_contabil_superior" />
 			</column>
 			<column name="codigo" type="${TIPO_CODIGO_CONTABIL}">
 				<constraints nullable="false" unique="true"
-					uniqueConstraintName="unique_conta_contabil_codigo_fs2" />
+					uniqueConstraintName="unique_conta_contabil_codigo" />
 			</column>
 			<column name="nome" type="${TIPO_DESCRICAO_255}">
 				<constraints nullable="false" />
@@ -28,11 +28,11 @@
 	</changeSet>
 	
 	<changeSet author="fernando.santos"
-		id="create-table-plano-de-contas-fs2">
-		<createTable tableName="plano_de_contas_fs2">
+		id="create-table-plano-de-contas-fs">
+		<createTable tableName="plano_de_contas">
 			<column name="id" type="${TIPO_ID}">
 				<constraints primaryKey="true"
-					primaryKeyName="pk_plano_de_contas_fs2" />
+					primaryKeyName="pk_plano_de_contas" />
 			</column>
 			<column name="descricao" type="${TIPO_DESCRICAO_255}">
 				<constraints nullable="false" />
@@ -47,24 +47,24 @@
 	</changeSet>
 	
 	<changeSet author="fernando.santos"
-		id="create-table-conta-plano-de-contas-fs2">
-		<createTable tableName="conta_plano_de_contas_fs2">
+		id="create-table-conta-plano-de-contas-fs">
+		<createTable tableName="conta_plano_de_contas">
 			<column name="plano_de_contas_id" type="${TIPO_ID}">
-				<constraints referencedTableName="plano_de_contas_fs2"
+				<constraints referencedTableName="plano_de_contas"
 					nullable="false"
 					referencedColumnNames="id"
-					foreignKeyName="fk_conta_plano_de_contas_plano_fs2" />
+					foreignKeyName="fk_conta_plano_de_contas_plano" />
 			</column>
 			<column name="conta_contabil_id" type="${TIPO_ID}">
-				<constraints referencedTableName="conta_contabil_fs2"
+				<constraints referencedTableName="conta_contabil"
 					nullable="false"
 					referencedColumnNames="id"
-					foreignKeyName="fk_conta_plano_de_contas_conta_contabil_fs2" />
+					foreignKeyName="fk_conta_plano_de_contas_conta_contabil" />
 			</column>
 		</createTable>
 		<addPrimaryKey
 			columnNames="plano_de_contas_id, conta_contabil_id"
-			tableName="conta_plano_de_contas_fs2" constraintName="pk_conta_plano_de_contas_fs2"></addPrimaryKey>
+			tableName="conta_plano_de_contas" constraintName="pk_conta_plano_de_contas"></addPrimaryKey>
 	</changeSet>
 	
 </databaseChangeLog> 

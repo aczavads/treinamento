@@ -9,10 +9,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import treinamento.dia2.fernando.santos.parcelamento.Parcela;
-import treinamento.dia2.fernando.santos.parcelamento.Parcelador;
-import treinamento.dia2.fernando.santos.parcelamento.QuantidadeDeParcelasComValorInvalidoException;
-import treinamento.dia2.fernando.santos.parcelamento.ValorTotalAParcelarComValorInvalidoException;
+import fernando_santos.treinamento.dia2.parcelamento.Parcela;
+import fernando_santos.treinamento.dia2.parcelamento.Parcelador;
+import fernando_santos.treinamento.dia2.parcelamento.QuantidadeDeParcelasComValorInvalidoException;
+import fernando_santos.treinamento.dia2.parcelamento.ValorTotalAParcelarComValorInvalidoException;
 
 public class ParceladorTest {
 

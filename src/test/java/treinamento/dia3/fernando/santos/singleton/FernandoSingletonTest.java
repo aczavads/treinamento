@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import fernando_santos.treinamento.dia3.singleton.FernandoSingleton;
+
 public class FernandoSingletonTest {
 
 	@Test

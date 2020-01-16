@@ -12,6 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 
+import valdenir.junior.dia7.NumeroInvalidoException;
+import valdenir.junior.dia7.RegistroNaoEncontrato;
+
 @Service
 @Transactional
 public class ContaContabilsService {
@@ -40,13 +43,14 @@ public class ContaContabilsService {
 		String[] filho = nova.getCodigo().split("\\.");
 		if (superior == null && filho.length > 1)
 			throw new NumeroInvalidoException(msgErro);
-
-		String[] pai = superior.getCodigo().split("\\.");
-		if ((pai.length + 1) != filho.length)
-			throw new NumeroInvalidoException(msgErro);
-		for (int i = 0; i < pai.length; i++) {
-			if (!pai[i].equals(filho[i]))
+		else if (superior != null) {
+			String[] pai = superior.getCodigo().split("\\.");
+			if ((pai.length + 1) != filho.length)
 				throw new NumeroInvalidoException(msgErro);
+			for (int i = 0; i < pai.length; i++) {
+				if (!pai[i].equals(filho[i]))
+					throw new NumeroInvalidoException(msgErro);
+			}
 		}
 	}
 

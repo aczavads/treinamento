@@ -34,4 +34,7 @@ public interface ContaContabilsRepository extends JpaRepository<ContaContabils, 
 
 	@Query(nativeQuery = true, value = "select * from conta_contabils limit :size offset (:page * :size)")
 	List<ContaContabils> recuperarTodasPaginadoManualmente(@Param("page") int page, @Param("size") int size);
+
+	@Query(nativeQuery = true, value = "select cc.* from conta_contabils cc inner join conta_plano_de_contass cpc on cc.id = cpc.conta_contabils_id where cpc.plano_de_contas_id = :id")
+	List<ContaContabils> findContasDoPlanoDeContas(UUID id);
 }

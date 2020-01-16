@@ -16,7 +16,10 @@ public abstract class BaseEntity {
 	}
 
 	public BaseEntity(UUID id) {
-		this.id = id;
+		if (id != null)
+			this.id = id;
+		else
+			this.id = UUID.randomUUID();
 	}
 
 	public UUID getId() {

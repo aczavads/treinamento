@@ -1,4 +1,4 @@
-package valdenir.junior.dia7.conta_contabil;
+package valdenir.junior.dia7;
 
 public class NumeroInvalidoException extends RuntimeException {
 	/**

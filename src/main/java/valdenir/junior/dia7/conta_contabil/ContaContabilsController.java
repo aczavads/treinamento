@@ -33,6 +33,11 @@ public class ContaContabilsController {
 	public ResponseEntity<ContaContabils> get(@PathVariable UUID id) {
 		return ResponseEntity.ok(service.findById(id));
 	}
+	
+	@GetMapping("/find") 
+	public ResponseEntity<ContaContabils> geti(@RequestParam("id") UUID id) {
+		return ResponseEntity.ok(service.findById(id));
+	}
 
 	@PostMapping
 	public UUID post(@RequestBody ContaContabilsDTO nova) {
@@ -73,4 +78,5 @@ public class ContaContabilsController {
 	public List<ContaContabils> recuperarTodas(@RequestParam("page") int page, @RequestParam("size") int size) {
 		return service.recuperarTodasPaginadoManualmente(page, size);
 	}
+	
 }

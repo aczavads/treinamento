@@ -1,4 +1,4 @@
-package valdenir.junior.dia7.conta_contabil;
+package valdenir.junior.dia7;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +19,12 @@ public class ExceptionManager {
 
 	@ExceptionHandler(value = NumeroInvalidoException.class)
 	public ResponseEntity<Void> handlerNumeroInvalidoException(NumeroInvalidoException ex) {
+		logger.warn("erro ", ex);
+		return ResponseEntity.badRequest().build();
+	}
+
+	@ExceptionHandler(value = RegistroNaoEncontrato.class)
+	public ResponseEntity<Void> handlerRegistroNaoEncontrato(RegistroNaoEncontrato ex) {
 		logger.warn("erro ", ex);
 		return ResponseEntity.badRequest().build();
 	}

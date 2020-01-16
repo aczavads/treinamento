@@ -1,4 +1,4 @@
-package valdenir.junior.dia7.conta_contabil;
+package valdenir.junior.dia7;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

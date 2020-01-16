@@ -12,7 +12,9 @@ import org.springframework.data.domain.Slice;
 
 import diegomucheniski.annotations.TransactionalService;
 import diegomucheniski.domains.ContaContabil;
+import diegomucheniski.domains.PlanoDeContas;
 import diegomucheniski.dto.ContaContabilDTO;
+import diegomucheniski.dto.PlanoDeContasDTO;
 import diegomucheniski.repositories.ContaContabilRepository;
 import diegomucheniski.services.exceptions.RegistroNaoEncontradoMucheniski;
 

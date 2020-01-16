@@ -69,5 +69,12 @@ public class PlanoDeContasService {
 	public void deleteById(UUID planoDeContasId) {
 		planoDeContasRepository.deleteById(planoDeContasId);		
 	}
+	
+	public void update(PlanoDeContasDTO planoDeContasDTO) {
+		PlanoDeContas planoDeContas = planoDeContasRepository.findById(planoDeContasDTO.getId()).orElseThrow(() -> new RegistroNaoEncontradoMucheniski("Registro não encontrado!"));
+		planoDeContas.setDescricao(planoDeContasDTO.getDescricao());
+		planoDeContas.setInicioVigencia(planoDeContasDTO.getInicioVigencia());
+		planoDeContas.setFimVigencia(planoDeContasDTO.getFimVigencia());
+	}
 
 }

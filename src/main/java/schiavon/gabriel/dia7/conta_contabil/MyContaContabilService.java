@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 
+import schiavon.gabriel.dia7.TransationalService;
 import schiavon.gabriel.dia7.conta_contabil.exceptions.CodigoDoFilhoNaoPertenceAoPaiException;
 import schiavon.gabriel.dia7.conta_contabil.exceptions.RegistroNaoEncontrado;
 
@@ -85,4 +86,8 @@ public class MyContaContabilService {
 		return contaContabilRepository.recuperarTodasManual(page, size);
 	}
 
+	public void remover(UUID id) {
+		MyContaContabil contaContabil = contaContabilRepository.findById(id).orElseThrow(() -> new RegistroNaoEncontrado("Conta contabil não encontrada."));
+		contaContabilRepository.delete(contaContabil);
+	}
 }

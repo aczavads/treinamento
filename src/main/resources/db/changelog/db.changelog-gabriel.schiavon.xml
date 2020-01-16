@@ -35,37 +35,35 @@
 					primaryKeyName="pk_my_plano_de_contas" />
 			</column>
 			<column name="descricao" type="${TIPO_DESCRICAO_255}"></column>
-			<column name="data_inicio_vigencia" type="${TIPO_DATA}"></column>
-			<column name="data_fim_vigencia" type="${TIPO_DATA}"></column>
+			<column name="inicio_vigencia" type="${TIPO_DATE}">
+				<constraints nullable="false"/>	
+			</column>
+			<column name="termino_vigencia" type="${TIPO_DATE}"></column>
 		</createTable>
 	</changeSet>
 
 	<changeSet author="gabriel.schiavon"
 		id="create-table-my-conta-plano-de-contas">
 		<createTable tableName="my_conta_plano_de_contas">
-			<column name="plano_de_contas_id" type="${TIPO_ID}">
+			<column name="my_plano_de_contas_id" type="${TIPO_ID}">
 				<constraints referencedTableName="my_plano_de_contas"
 					referencedColumnNames="id"
 					foreignKeyName="fk_my_conta_plano_de_contas" nullable="false" />
 			</column>
-			<column name="conta_superior_id" type="${TIPO_ID}">
-				<constraints referencedTableName="conta_contabil"
+			<column name="my_conta_contabil_id" type="${TIPO_ID}">
+				<constraints referencedTableName="my_conta_contabil"
 					referencedColumnNames="id"
 					foreignKeyName="fk_my_conta_plano_de_contas_conta_contabil"
 					nullable="false" />
 			</column>
 		</createTable>
-		<addPrimaryKey
-			columnNames="my_plano_de_contas_id, my_conta_contabil_id"
-			tableName="my_conta_plano_de_conta">
-		</addPrimaryKey>
 	</changeSet>
 
 	<changeSet author="gabriel.schiavon"
 		id="adicionando-chave-primaria-na-tabela-associativa">
 		<addPrimaryKey
 			columnNames="my_plano_de_contas_id, my_conta_contabil_id"
-			tableName="my_plano_de_contas">
+			tableName="my_conta_plano_de_contas">
 		</addPrimaryKey>
 	</changeSet>
 </databaseChangeLog> 

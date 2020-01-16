@@ -2,6 +2,7 @@ package schiavon.gabriel.dia7.conta_contabil;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
@@ -54,5 +55,12 @@ public interface MyContaContabilRepository extends JpaRepository<MyContaContabil
 
 	@Query(nativeQuery = true , value = "select * from my_conta_contabil limit :size offset (:page * :size)")
 	List<MyContaContabil> recuperarTodasManual(int page, int size);
+	
+	@Query(nativeQuery = true ,
+			value = "select cc.* "
+					+ "from MY_CONTA_CONTABIL cc "
+					+ "inner join MY_CONTA_PLANO_DE_CONTAS cpc on cc.id = cpc.MY_CONTA_CONTABIL_ID "
+					+ "where cpc.MY_PLANO_DE_CONTAS_ID = :idPlanoDeContas")
+	Set<MyContaContabil> recuperarTodasContasVinculadasAoPlanoDeContas(UUID idPlanoDeContas);
 	
 }

@@ -8,7 +8,6 @@
 	<property name="TIPO_ID" value="UUID" dbms="h2" />
 	<property name="TIPO_ID" value="PG-UUID" dbms="postgres" />
 
-	<property name="TIPO_DATA" value="date" />
 	<property name="TIPO_DESCRICAO_255" value="varchar(255)" />
 	<property name="TIPO_CODIGO_CONTABIL" value="varchar(49)" />
 	<property name="TIPO_DATE" value="date" />

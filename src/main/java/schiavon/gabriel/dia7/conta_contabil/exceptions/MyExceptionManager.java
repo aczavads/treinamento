@@ -1,4 +1,4 @@
-package schiavon.gabriel.dia7.conta_contabil;
+package schiavon.gabriel.dia7.conta_contabil.exceptions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,6 +38,14 @@ public class PlanoDeContasController {
 	private UUID post(@RequestBody PlanoDeContasDTO dto) {
 		PlanoDeContas novo = service.save(dto);
 		return novo.getId();
+	}
+
+	@PutMapping("/{id}")
+	private void put(@PathVariable("id") UUID id, @RequestBody PlanoDeContasDTO dto) {
+		if (!id.equals(dto.getId())) {
+			throw new IllegalArgumentException("IDs divergentes");
+		}
+		service.update(dto);
 	}
 
 	@PostMapping("/{id}/contas")

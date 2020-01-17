@@ -13,6 +13,8 @@ import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import fernando_santos.treinamento.dia10.base.BaseRepository;
+
 /*
 --query recursiva de exemplo: contando de 1 até 10
 WITH contador (numero) AS (
@@ -32,7 +34,7 @@ SELECT contador.numero+1, random_uuid() FROM contador WHERE contador.numero < 10
 SELECT * FROM contador
  */
 
-public interface ContaContabilRepository extends JpaRepository<ContaContabil, Long> {
+public interface ContaContabilRepository extends BaseRepository<ContaContabil> {
 
 	@Query(nativeQuery = true, value = "select count(*) from conta_contabil")
 	Long contarContas();

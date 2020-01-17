@@ -8,26 +8,21 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 
+import fernando_santos.treinamento.dia10.base.BaseService;
 import fernando_santos.treinamento.dia10.base.RegistroNaoEncontrado;
 import fernando_santos.treinamento.dia10.base.TransationalService;
 
 @TransationalService
-public class ContaContabilService {
+public class ContaContabilService extends BaseService<ContaContabil, ContaContabilDTO, ContaContabilRepository> {
 
-	@Autowired
-	private ContaContabilRepository repo;
-
-	public List<ContaContabil> findAll() {
-		return repo.findAll();
-	}
-
-	public ContaContabil save(ContaContabilDTO nova) {
-		ContaContabil contaSuperior = findContaSuperiorById(nova.getId());
-		ContaContabil novaContaContabil = ContaContabil.builder().id(nova.getId()).version(nova.getVersion())
-				.nome(nova.getNome()).codigo(nova.getCodigo()).contaSuperior(contaSuperior).build();
+	@Override
+	public ContaContabil save(ContaContabilDTO dto) {
+		ContaContabil novaContaContabil = dto.toEntity();
+//		ContaContabil contaSuperior = findContaSuperiorById(nova.getContaSuperiorId())
+		novaContaContabil.setContaSuperior(findById(dto.getContaSuperiorId()));
 		return repo.save(novaContaContabil);
 	}
-
+	
 	private ContaContabil findContaSuperiorById(Long id) {
 		ContaContabil contaSuperior = null;
 		if (id != null) {
@@ -65,11 +60,16 @@ public class ContaContabilService {
 	}
 
 	public void update(ContaContabilDTO dto) {
-		ContaContabil contaContabilRecuperada = findById(dto.getId());
-		ContaContabil contaSuperiorRecuperada = findContaSuperiorById(dto.getContaSuperiorId());
-		contaContabilRecuperada.setCodigo(dto.getCodigo());
-		contaContabilRecuperada.setNome(dto.getNome());
-		contaContabilRecuperada.setContaSuperior(contaSuperiorRecuperada);
-		contaContabilRecuperada.setVersion(dto.getVersion());
+//		ContaContabil contaContabilRecuperada = findById(dto.getId());
+//		ContaContabil contaSuperiorRecuperada = findContaSuperiorById(dto.getContaSuperiorId());
+//		contaContabilRecuperada.setCodigo(dto.getCodigo());
+//		contaContabilRecuperada.setNome(dto.getNome());
+//		contaContabilRecuperada.setContaSuperior(contaSuperiorRecuperada);
+//		contaContabilRecuperada.setVersion(dto.getVersion());
+		
+		ContaContabil actual = findById(dto.getId());
+		ContaContabil mergedToSave = dto.mergeEntity(actual);
+		mergedToSave.setContaSuperior(findById(dto.getContaSuperiorId()));
+		repo.save(mergedToSave);
 	}
 }

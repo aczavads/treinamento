@@ -5,13 +5,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import fernando_santos.treinamento.dia10.base.BaseService;
 import fernando_santos.treinamento.dia10.base.RegistroNaoEncontrado;
 import fernando_santos.treinamento.dia10.base.TransationalService;
 import fernando_santos.treinamento.dia10.conta_contabil.ContaContabil;
 import fernando_santos.treinamento.dia10.conta_contabil.ContaContabilRepository;
 
 @TransationalService
-public class PlanoDeContasService {
+public class PlanoDeContasService extends BaseService<
+	PlanoDeContas, 
+	PlanoDeContasDTO, 
+	PlanoDeContasRepository> {
 
 	@Autowired
 	private PlanoDeContasRepository repo;
@@ -36,7 +40,7 @@ public class PlanoDeContasService {
 		recuperado.setFimVigencia(dto.getFimVigencia());
 	}
 
-	public List<PlanoDeContas> findAll() {
+	public List<PlanoDeContas> find() {
 		return repo.findAll();
 	}
 

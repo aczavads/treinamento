@@ -1,7 +1,6 @@
 package fernando_santos.treinamento.dia10.plano_de_contas;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -28,8 +27,11 @@ public class PlanoDeContas extends BaseEntity {
 	private LocalDate fimVigencia;
 
 	@ManyToMany
-	@JoinTable(name = "conta_plano_de_contas", joinColumns = @JoinColumn(name = "plano_de_contas_id"), inverseJoinColumns = @JoinColumn(name = "conta_contabil_id"))
-	private Set<ContaContabil> contasContabeis = new HashSet<>();
+	@JoinTable(
+			name = "conta_plano_de_contas", 
+			joinColumns = @JoinColumn(name = "plano_de_contas_id"), 
+			inverseJoinColumns = @JoinColumn(name = "conta_contabil_id"))
+	private Set<ContaContabil> contasContabeis;
 
 	public void adicionar(ContaContabil contaContabil) {
 		this.getContasContabeis().add(contaContabil);

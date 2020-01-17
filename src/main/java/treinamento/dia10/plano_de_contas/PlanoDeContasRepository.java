@@ -1,7 +1,7 @@
 package treinamento.dia10.plano_de_contas;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import treinamento.dia10.base.BaseRespository;
 
-public interface PlanoDeContasRepository extends JpaRepository<PlanoDeContas, Long> {
+public interface PlanoDeContasRepository extends BaseRespository<PlanoDeContas> {
 
 }

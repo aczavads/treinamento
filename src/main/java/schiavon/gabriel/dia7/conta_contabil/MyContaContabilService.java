@@ -2,8 +2,6 @@ package schiavon.gabriel.dia7.conta_contabil;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,18 +26,18 @@ public class MyContaContabilService {
 	public MyContaContabil save(MyContaContabilDTO novaContaDTO) {
 		MyContaContabil contaSuperior = null;
 		if (novaContaDTO.getContaSuperiorId() != null) {
-			contaSuperior = findById(novaContaDTO.getContaSuperiorId()).orElseThrow(() -> new RegistroNaoEncontrado(
-					"Conta superior não existente: " + novaContaDTO.getContaSuperiorId()));
+			contaSuperior = findById(novaContaDTO.getContaSuperiorId());
 		}
 		
 		validaDadosEntrada(novaContaDTO, contaSuperior);
-		MyContaContabil novaConta;
-		if (novaContaDTO.getId() == null) {
-			novaConta = new MyContaContabil(novaContaDTO.getCodigo(), novaContaDTO.getNome(), contaSuperior);
-		} else {
-			novaConta = new MyContaContabil(novaContaDTO.getId(), novaContaDTO.getCodigo(), novaContaDTO.getNome(),
-					contaSuperior);
-		}
+		MyContaContabil novaConta = MyContaContabil
+				.builder()
+				.id(novaContaDTO.getId())
+				.codigo(novaContaDTO.getCodigo())
+				.nome(novaContaDTO.getNome())
+				.contaSuperior(contaSuperior)
+				.build();
+		
 		return contaContabilRepository.save(novaConta);
 	}
 
@@ -58,8 +56,11 @@ public class MyContaContabilService {
 		}
 	}
 
-	public Optional<MyContaContabil> findById(UUID id) {
-		return contaContabilRepository.findById(id);
+	public MyContaContabil findById(Long id) {
+		return contaContabilRepository
+				.findById(id)
+				.orElseThrow(() -> new RegistroNaoEncontrado(
+						"Conta superior não existente: " + id));
 	}
 
 	public Long getQuantidadeContas() {
@@ -86,8 +87,24 @@ public class MyContaContabilService {
 		return contaContabilRepository.recuperarTodasManual(page, size);
 	}
 
-	public void remover(UUID id) {
+	public void remover(Long id) {
 		MyContaContabil contaContabil = contaContabilRepository.findById(id).orElseThrow(() -> new RegistroNaoEncontrado("Conta contabil não encontrada."));
 		contaContabilRepository.delete(contaContabil);
+	}
+
+	public void alterarDadosPlano(Long id, MyContaContabilDTO contaContabilDTO) {
+		MyContaContabil contaContabil = findById(id);
+		MyContaContabil contaSuperior = findContaSuperiorOrNull(contaContabilDTO.getId());
+		contaContabil.setCodigo(contaContabilDTO.getCodigo());
+		contaContabil.setNome(contaContabilDTO.getNome());
+		contaContabil.setContaSuperior(contaSuperior);
+	}
+
+	private MyContaContabil findContaSuperiorOrNull(Long idContaSuperior) {
+		if (idContaSuperior != null) {
+			return findById(idContaSuperior);
+		}
+		
+		return null;
 	}
 }

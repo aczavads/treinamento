@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-	<property name="TIPO_ID" value="UUID" dbms="h2" />
+	<property name="TIPO_ID" value="long" dbms="h2" />
 	<property name="TIPO_ID" value="PG-UUID" dbms="postgres" />
 
 	<property name="TIPO_DESCRICAO_255" value="varchar(255)" />

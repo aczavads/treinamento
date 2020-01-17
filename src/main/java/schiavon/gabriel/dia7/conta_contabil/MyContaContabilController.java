@@ -2,8 +2,6 @@ package schiavon.gabriel.dia7.conta_contabil;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,13 +12,14 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/contascontabeis")
+@RequestMapping("/contascontabeis")
 public class MyContaContabilController implements BaseController {
 
 	@Autowired
@@ -47,17 +46,14 @@ public class MyContaContabilController implements BaseController {
 	}
 
 	@PostMapping
-	public UUID post(@RequestBody MyContaContabilDTO novaContaDTO) {
+	public Long post(@RequestBody MyContaContabilDTO novaContaDTO) {
 		return contaContabilService.save(novaContaDTO).getId();
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<MyContaContabil> getById(@PathVariable UUID id) {
-		Optional<MyContaContabil> optinal = contaContabilService.findById(id);
-		if (optinal.isPresent()) {
-			return ResponseEntity.ok(optinal.get());
-		}
-		return ResponseEntity.notFound().build();
+	public ResponseEntity<MyContaContabil> getById(@PathVariable Long id) {
+		MyContaContabil contaContabil = contaContabilService.findById(id);
+		return ResponseEntity.ok(contaContabil);
 	}
 
 	@GetMapping("/quantidade")
@@ -76,7 +72,12 @@ public class MyContaContabilController implements BaseController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void remover(@PathVariable UUID id) {
+	public void remover(@PathVariable Long id) {
 		contaContabilService.remover(id);
+	}
+	
+	@PutMapping("/{id}")
+	public void alterarPlano(@PathVariable Long id, @RequestBody MyContaContabilDTO contaContabilDTO) {
+		contaContabilService.alterarDadosPlano(id, contaContabilDTO);
 	}
 }

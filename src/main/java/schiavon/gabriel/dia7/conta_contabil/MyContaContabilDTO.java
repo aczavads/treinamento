@@ -1,13 +1,11 @@
 package schiavon.gabriel.dia7.conta_contabil;
 
-import java.util.UUID;
-
 import lombok.Data;
 
 @Data
 public class MyContaContabilDTO {
-	private UUID id;
-	private UUID contaSuperiorId;
+	private Long id;
+	private Long contaSuperiorId;
 	private String nome;
 	private String codigo;
 }

@@ -66,5 +66,15 @@
 			tableName="my_conta_plano_de_contas">
 		</addPrimaryKey>
 	</changeSet>
+	
+	<changeSet author="gabriel.schiavon"
+		id="criando-sequence">
+		<createSequence 
+			sequenceName="sequence"
+			dataType="long"
+			incrementBy="1"
+			startValue="1"
+			cacheSize="50"/>
+	</changeSet>
 </databaseChangeLog> 
 

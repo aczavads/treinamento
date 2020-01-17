@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "a3ac83f4-2cd2-4104-a35c-4ba9e81ebab2",
+		"name": "ContaContabilAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Contas - save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"codigo\": \"1.01.02\",\r\n\t\"nome\": \"Conta Neto 2\",\r\n\t\"contaSuperiorId\": 2\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/contascontabeis",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contascontabeis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contas - Find By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/contascontabeis/3bec809c-9111-4236-8ff1-816f109ec9df",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contascontabeis",
+						"3bec809c-9111-4236-8ff1-816f109ec9df"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contas - Find All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/contascontabeis",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contascontabeis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contas - Count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/contascontabeis/contarContas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contascontabeis",
+						"contarContas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contas - Selecionar Contas Raiz",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/contascontabeis/selecionarHierarquia",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contascontabeis",
+						"selecionarHierarquia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contas - Find All Paginado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/contascontabeis/paginado-manualmente?page=0&size=10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"contascontabeis",
+						"paginado-manualmente"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Plano de Contas - save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descricao\": \"Primeiro Plano de contas\",\n\t\"inicioVigencia\": \"2020-01-15\",\n\t\"fimVigencia\": \"2020-01-20\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/planosdecontas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"planosdecontas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Plano de Contas - Find All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/planosdecontas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"planosdecontas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Plano de Contas - Adicionar Contas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[ 1, 2, 3, 4 ]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/planosdecontas/5/contas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"planosdecontas",
+						"5",
+						"contas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Plano de Contas - Remover Conta",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[ \n\t\"3bec809c-9111-4236-8ff1-816f109ec9df\"\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/planosdecontas/9e69176c-0474-4d5e-a523-8330b92abab3/contas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"planosdecontas",
+						"9e69176c-0474-4d5e-a523-8330b92abab3",
+						"contas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Plano De Contas - Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"9e69176c-0474-4d5e-a523-8330b92abab3\",\n\t\"version\": 3,\n    \"descricao\": \"Primeiro Plano de contas Atualizado\",\n    \"inicioVigencia\": \"2020-01-15\",\n    \"fimVigencia\": \"2020-01-20\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/planosdecontas/9e69176c-0474-4d5e-a523-8330b92abab3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"planosdecontas",
+						"9e69176c-0474-4d5e-a523-8330b92abab3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

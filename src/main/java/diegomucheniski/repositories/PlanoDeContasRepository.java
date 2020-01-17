@@ -1,11 +1,8 @@
 package diegomucheniski.repositories;
 
-import java.util.UUID;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
+import diegomucheniski.base.BaseRepository;
 import diegomucheniski.domains.PlanoDeContas;
 
-public interface PlanoDeContasRepository extends JpaRepository<PlanoDeContas, UUID> {
+public interface PlanoDeContasRepository extends BaseRepository<PlanoDeContas> {
 
 }

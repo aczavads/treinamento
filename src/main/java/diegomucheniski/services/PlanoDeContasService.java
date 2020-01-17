@@ -3,12 +3,11 @@ package diegomucheniski.services;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.UUID;
-import java.util.function.Consumer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import diegomucheniski.annotations.TransactionalService;
+import diegomucheniski.base.BaseService;
 import diegomucheniski.domains.ContaContabil;
 import diegomucheniski.domains.PlanoDeContas;
 import diegomucheniski.dto.PlanoDeContasDTO;
@@ -17,7 +16,7 @@ import diegomucheniski.repositories.PlanoDeContasRepository;
 import diegomucheniski.services.exceptions.RegistroNaoEncontrado;
 
 @TransactionalService
-public class PlanoDeContasService {
+public class PlanoDeContasService extends BaseService<PlanoDeContas, PlanoDeContasDTO, PlanoDeContasRepository> {
 
 	@Autowired
 	private PlanoDeContasRepository planoDeContasRepository;
@@ -25,62 +24,48 @@ public class PlanoDeContasService {
 	@Autowired
 	private ContaContabilRepository contaContabilRepository;
 
-	public PlanoDeContas save(PlanoDeContasDTO planoDeContasDTO) {
-		PlanoDeContas planoDeContas = new PlanoDeContas(planoDeContasDTO.getId(),
-				planoDeContasDTO.getDescricao(), planoDeContasDTO.getInicioVigencia(),
-				planoDeContasDTO.getFimVigencia());
-		return planoDeContasRepository.save(planoDeContas);
+	@Override
+	public PlanoDeContas save(PlanoDeContasDTO dto) {		
+		return super.save(dto);
 	}
 	
-	public PlanoDeContas findById(UUID planoDeContasId) {
-		return planoDeContasRepository.findById(planoDeContasId).orElseThrow(() -> new RegistroNaoEncontrado("Não foi possível encontrar o plano de contas"));
+	@Override
+	public void update(PlanoDeContasDTO dto) {		
+		super.update(dto);
 	}
 
-	public List<PlanoDeContas> findAll() {
-		return planoDeContasRepository.findAll();
-	}
-
-	public PlanoDeContas adicionarConta(UUID idPlanoDeContas, Set<ContaContabil> contasContabeis) {
+	public PlanoDeContas adicionarConta(Long idPlanoDeContas, Set<ContaContabil> contasContabeis) {
 		Optional<PlanoDeContas> planoDeContas = planoDeContasRepository.findById(idPlanoDeContas);
 		planoDeContas.get().setContasContabeis(contasContabeis);
 		return planoDeContas.get();
 	}
 
-	public Set<ContaContabil> findContasByPlanoId(UUID planoDeContasId) {
+	public Set<ContaContabil> findContasByPlanoId(Long planoDeContasId) {
 		PlanoDeContas planoDeContas = findById(planoDeContasId);		
 		return planoDeContas.getContasContabeis();
 	}
 
-	public void adicionarContas(UUID idDoPlanoDeContas, List<UUID> idsDasContasParaAdicionar) {
-		PlanoDeContas plano = recuperarPlano(idDoPlanoDeContas);		
-		processarContas(idsDasContasParaAdicionar, (contaContabil) -> plano.adicionarConta(contaContabil));
+	public void adicionarContas(Long idDoPlanoDeContas, List<Long> idsDasContasParaAdicionar) {
+		PlanoDeContas plano = recuperarPlano(idDoPlanoDeContas);
+		List<ContaContabil> contasParaAdicionar = recuperarContasContabeis(idsDasContasParaAdicionar);
+		contasParaAdicionar.forEach(contaContabil -> plano.adicionarConta(contaContabil));
 	}
 	
-	public void removerContas(UUID idDoPlanoDeContas, List<UUID> idsDasContasParaRemover) {
-		PlanoDeContas plano = recuperarPlano(idDoPlanoDeContas);		
-		processarContas(idsDasContasParaRemover, (contaContabil) -> plano.removerConta(contaContabil));
-	}
-
-	public void deleteById(UUID planoDeContasId) {
-		planoDeContasRepository.deleteById(planoDeContasId);		
+	public void removerContas(Long idDoPlanoDeContas, List<Long> idsDasContasParaRemover) {
+		PlanoDeContas plano = recuperarPlano(idDoPlanoDeContas);
+		List<ContaContabil> contasParaAdicionar = recuperarContasContabeis(idsDasContasParaRemover);
+		contasParaAdicionar.forEach(contaContabil -> plano.removerConta(contaContabil));
 	}
 	
-	public void update(PlanoDeContasDTO planoDeContasDTO) {
-		PlanoDeContas planoDeContas = planoDeContasRepository.findById(planoDeContasDTO.getId()).orElseThrow(() -> new RegistroNaoEncontrado("Registro não encontrado!"));
-		planoDeContas.setDescricao(planoDeContasDTO.getDescricao());
-		planoDeContas.setInicioVigencia(planoDeContasDTO.getInicioVigencia());
-		planoDeContas.setFimVigencia(planoDeContasDTO.getFimVigencia());
-	}
-	
-	private void processarContas(List<UUID> idsDasContasParaAdicionar, Consumer<ContaContabil> acao) {
+	private List<ContaContabil> recuperarContasContabeis(List<Long> idsDasContasParaAdicionar) {
 		List<ContaContabil> contasParaProcessar = contaContabilRepository.findAllById(idsDasContasParaAdicionar);
 		if (contasParaProcessar.size() != idsDasContasParaAdicionar.size()) {
 			throw new RegistroNaoEncontrado("Conta contábil não encontrada");
 		}
-		contasParaProcessar.forEach(acao);
+		return contasParaProcessar;
 	}
 	
-	private PlanoDeContas recuperarPlano(UUID idDoPlanoDeContas) {
+	private PlanoDeContas recuperarPlano(Long idDoPlanoDeContas) {
 		PlanoDeContas plano = planoDeContasRepository.findById(idDoPlanoDeContas).orElseThrow(() -> new RegistroNaoEncontrado("Plano de contas não encontrado!"));
 		return plano;
 	}

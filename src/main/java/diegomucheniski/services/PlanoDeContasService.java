@@ -13,7 +13,7 @@ import diegomucheniski.domains.PlanoDeContas;
 import diegomucheniski.dto.PlanoDeContasDTO;
 import diegomucheniski.repositories.ContaContabilRepository;
 import diegomucheniski.repositories.PlanoDeContasRepository;
-import diegomucheniski.services.exceptions.RegistroNaoEncontradoMucheniski;
+import diegomucheniski.services.exceptions.RegistroNaoEncontrado;
 
 @TransactionalService
 public class PlanoDeContasService {
@@ -32,7 +32,7 @@ public class PlanoDeContasService {
 	}
 	
 	public PlanoDeContas findById(UUID planoDeContasId) {
-		return planoDeContasRepository.findById(planoDeContasId).orElseThrow(() -> new RegistroNaoEncontradoMucheniski("Não foi possível encontrar o plano de contas"));
+		return planoDeContasRepository.findById(planoDeContasId).orElseThrow(() -> new RegistroNaoEncontrado("Não foi possível encontrar o plano de contas"));
 	}
 
 	public List<PlanoDeContas> findAll() {
@@ -53,7 +53,7 @@ public class PlanoDeContasService {
 	public void adicionarContas(UUID planoDeContasId, List<UUID> idsDasContasParaAdicionar) {
 		PlanoDeContas planoDeContas = findById(planoDeContasId);
 		for (UUID contaContabilId : idsDasContasParaAdicionar) {
-			ContaContabil novaConta = contaContabilRepository.findById(contaContabilId).orElseThrow(() -> new RegistroNaoEncontradoMucheniski("Não foi possível encontrar a conta"));
+			ContaContabil novaConta = contaContabilRepository.findById(contaContabilId).orElseThrow(() -> new RegistroNaoEncontrado("Não foi possível encontrar a conta"));
 			planoDeContas.adicionarConta(novaConta);
 		}
 	}
@@ -61,7 +61,7 @@ public class PlanoDeContasService {
 	public void removerConta(UUID planoDeContasId,  List<UUID> idsDasContasParaRemover) {
 		PlanoDeContas planoDeContas = findById(planoDeContasId);
 		for (UUID contaContabilId : idsDasContasParaRemover) {
-			ContaContabil novaConta = contaContabilRepository.findById(contaContabilId).orElseThrow(() -> new RegistroNaoEncontradoMucheniski("Não foi possível encontrar a conta"));
+			ContaContabil novaConta = contaContabilRepository.findById(contaContabilId).orElseThrow(() -> new RegistroNaoEncontrado("Não foi possível encontrar a conta"));
 			planoDeContas.removerConta(novaConta);
 		}	
 	}
@@ -71,7 +71,7 @@ public class PlanoDeContasService {
 	}
 	
 	public void update(PlanoDeContasDTO planoDeContasDTO) {
-		PlanoDeContas planoDeContas = planoDeContasRepository.findById(planoDeContasDTO.getId()).orElseThrow(() -> new RegistroNaoEncontradoMucheniski("Registro não encontrado!"));
+		PlanoDeContas planoDeContas = planoDeContasRepository.findById(planoDeContasDTO.getId()).orElseThrow(() -> new RegistroNaoEncontrado("Registro não encontrado!"));
 		planoDeContas.setDescricao(planoDeContasDTO.getDescricao());
 		planoDeContas.setInicioVigencia(planoDeContasDTO.getInicioVigencia());
 		planoDeContas.setFimVigencia(planoDeContasDTO.getFimVigencia());

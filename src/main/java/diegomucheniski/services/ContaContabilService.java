@@ -16,7 +16,7 @@ import diegomucheniski.domains.PlanoDeContas;
 import diegomucheniski.dto.ContaContabilDTO;
 import diegomucheniski.dto.PlanoDeContasDTO;
 import diegomucheniski.repositories.ContaContabilRepository;
-import diegomucheniski.services.exceptions.RegistroNaoEncontradoMucheniski;
+import diegomucheniski.services.exceptions.RegistroNaoEncontrado;
 
 
 @TransactionalService
@@ -59,7 +59,7 @@ public class ContaContabilService {
 //	}
 	
 	public ContaContabil findById(UUID id) {
-		return repository.findById(id).orElseThrow(() -> new RegistroNaoEncontradoMucheniski("Registro não encontrado!"));
+		return repository.findById(id).orElseThrow(() -> new RegistroNaoEncontrado("Registro não encontrado!"));
 	}
 	
 	public Long contarContas(){

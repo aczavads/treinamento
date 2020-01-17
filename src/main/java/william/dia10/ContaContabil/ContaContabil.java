@@ -8,12 +8,12 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import william.dia10.BaseEntity;
+import william.dia10.Movimentos.MovimentoContaContabil;
 
 
 @Entity
@@ -32,6 +32,9 @@ public class ContaContabil extends BaseEntity {
 	@JsonIgnore
 	@OneToMany(mappedBy = "contaSuperior")
 	private List<ContaContabil> contasFilhas;
+	
+	@OneToMany(mappedBy = "contaContabil")
+	private List<MovimentoContaContabil> movimentos;
 
 	public Long getContaSuperior() {
 		if (this.contaSuperior != null) {

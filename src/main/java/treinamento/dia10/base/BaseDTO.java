@@ -11,6 +11,7 @@ public abstract class BaseDTO<ENTITY extends BaseEntity> {
 	
 	public abstract ENTITY toEntity();
 
+	@Deprecated
 	public abstract ENTITY mergeEntity(ENTITY entity);
 
 }

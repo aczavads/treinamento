@@ -5,10 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import liquibase.logging.LoggerFactory;
-import treinamento.dia10.conta_contabil.ContaContabil;
-import treinamento.dia10.conta_contabil.ContaContabilDTO;
-
 public class BaseService<
 		ENTITY extends BaseEntity, 
 		DTO extends BaseDTO<ENTITY>, 
@@ -20,6 +16,13 @@ public class BaseService<
 			
 	public void deleteById(Long id) {
 		repo.deleteById(id);
+	}
+
+	public ENTITY findByIdOrNull(Long id) {
+		if (id != null) {
+			return findById(id);
+		}
+		return null;
 	}
 
 	public void update(DTO dto) {
@@ -35,6 +38,7 @@ public class BaseService<
 
 	public ENTITY save(DTO dto) {
 		ENTITY toSave = dto.toEntity();
+		toSave = beforeSave(dto, toSave);
 		return repo.save(toSave);
 	}
 	

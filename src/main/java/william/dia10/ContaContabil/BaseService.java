@@ -7,9 +7,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import william.dia10.BaseEntity;
+import william.dia10.Exceptions.RegistroNaoEncontrado;
 
 public class BaseService<ENTITY extends BaseEntity, DTO extends BaseDTO<ENTITY>, REPOSITORY extends BaseRepository<ENTITY>> {
-	
+
 	@Autowired
 	protected REPOSITORY repository;
 
@@ -18,17 +19,25 @@ public class BaseService<ENTITY extends BaseEntity, DTO extends BaseDTO<ENTITY>,
 	}
 
 	public ENTITY findById(Long id) {
-		return repository.findById(id);
+		return repository.findById(id)
+				.orElseThrow(() -> new RegistroNaoEncontrado("Registro não encontrado! ID: " + id));
 	}
 
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
+		repository.deleteById(id);
+
 	}
 
 	public void update(DTO dto) {
 		ENTITY actual = findById(dto.getId());
-		dto.mergeEntity(actual);
+		ENTITY toSave = dto.mergeEntity(actual);
+		toSave = beforeUpdate(dto, toSave);
+		repository.save(toSave);
+	}
+
+	public ENTITY beforeUpdate(DTO dto, ENTITY toSave) {
+
+		return toSave;
 	}
 
 	public Page<ENTITY> findAll(Pageable pageable) {
@@ -36,9 +45,9 @@ public class BaseService<ENTITY extends BaseEntity, DTO extends BaseDTO<ENTITY>,
 		return repository.findAll(pageable);
 	}
 
-	
 	public ENTITY save(DTO dto) {
 		ENTITY toSave = dto.toEntity();
+		toSave = beforeUpdate(dto, toSave);
 		return repository.save(toSave);
 	}
 

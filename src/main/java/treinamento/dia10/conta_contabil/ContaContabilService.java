@@ -12,13 +12,6 @@ public class ContaContabilService extends BaseService<
 	ContaContabilDTO, 
 	ContaContabilRepository> {
 	
-	private ContaContabil findContaByIdOrNull(Long id) {
-		if (id != null) {
-			return  findById(id);
-		}
-		return null;
-	}
-
 	public List<Map<String, Object>> recuperarHierarquia() {
 		return repo.recuperarHierarquia();
 	}

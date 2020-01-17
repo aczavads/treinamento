@@ -43,7 +43,7 @@ public class BaseController<
 
 	@PutMapping("/{id}")
 	public void update(@PathVariable("id") Long id, @RequestBody DTO dto) {
-		if (id.equals(dto.getId())) {
+		if (!id.equals(dto.getId())) {
 			throw new ContaNãoEncontrada("ID's divergentes!");
 		}
 		service.update(dto);

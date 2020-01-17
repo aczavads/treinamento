@@ -27,9 +27,10 @@ public class PlanoDeContasDTO extends BaseDTO<PlanoDeContas>{
 				.build();
 	}
 	@Override
-	protected void mergeEntity(PlanoDeContas actual) {
+	protected PlanoDeContas mergeEntity(PlanoDeContas actual) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
+
 
 }

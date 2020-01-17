@@ -13,6 +13,6 @@ public abstract class BaseDTO<ENTITY extends BaseEntity> {
 
 	protected abstract ENTITY toEntity();
 
-	protected abstract void mergeEntity(ENTITY actual);
+	protected abstract ENTITY mergeEntity(ENTITY actual);
 
 }

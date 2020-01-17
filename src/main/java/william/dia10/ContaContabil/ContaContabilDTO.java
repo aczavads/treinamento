@@ -6,18 +6,18 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ContaContabilDTO extends BaseDTO<ContaContabil> {
-
 	private Long contaSuperiorId;
 	private String nome;
 	private String codigo;
+
 	@Override
-	protected ContaContabil toEntity() {
-		// TODO Auto-generated method stub
-		return null;
+	public ContaContabil toEntity() {
+		return ContaContabil.builder().id(id).version(version).nome(nome).codigo(codigo).build();
 	}
+
 	@Override
-	protected void mergeEntity(ContaContabil actual) {
-		// TODO Auto-generated method stub
-		
+	public ContaContabil mergeEntity(ContaContabil actual) {
+		return actual;
+
 	}
 }

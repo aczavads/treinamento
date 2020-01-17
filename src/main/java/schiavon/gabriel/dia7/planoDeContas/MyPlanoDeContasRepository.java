@@ -1,9 +1,10 @@
 package schiavon.gabriel.dia7.planoDeContas;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import schiavon.gabriel.dia7.base.BaseRepository;
+
 @Repository
-public interface MyPlanoDeContasRepository extends JpaRepository<MyPlanoDeContas, Long>{
+public interface MyPlanoDeContasRepository extends BaseRepository<Long, MyPlanoDeContas>{
 
 }

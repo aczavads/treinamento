@@ -17,10 +17,10 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(of = {"id"})
 @Getter
 @SuperBuilder
-public abstract class BaseEntity {
+public abstract class BaseEntity<ID> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence")
-	private Long id;
+	private ID id;
 
 }

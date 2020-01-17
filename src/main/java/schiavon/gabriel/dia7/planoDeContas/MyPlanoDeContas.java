@@ -22,7 +22,7 @@ import schiavon.gabriel.dia7.conta_contabil.MyContaContabil;
 @SuperBuilder
 @ToString
 @NoArgsConstructor
-public class MyPlanoDeContas extends BaseEntity {
+public class MyPlanoDeContas extends BaseEntity<Long> {
 
 	private String descricao;
 	private LocalDate inicioVigencia;

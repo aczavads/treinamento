@@ -6,26 +6,20 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import schiavon.gabriel.dia7.TransationalService;
+import schiavon.gabriel.dia7.base.BaseService;
 import schiavon.gabriel.dia7.conta_contabil.MyContaContabil;
 import schiavon.gabriel.dia7.conta_contabil.MyContaContabilRepository;
 import treinamento.dia7.conta_contabil.RegistroNaoEncontrado;
 
 @TransationalService
-public class MyPlanoDeContasService {
+public class MyPlanoDeContasService
+		extends BaseService<Long, MyPlanoDeContas, MyPlanoDeContasDTO, MyPlanoDeContasRepository> {
 
 	@Autowired
 	private MyPlanoDeContasRepository repository;
 
 	@Autowired
 	private MyContaContabilRepository contabilRepository;
-
-	public MyPlanoDeContas save(MyPlanoDeContasDTO myPlanoDeContasDTO) {
-		MyPlanoDeContas myPlanoDeContas = MyPlanoDeContas.builder().id(myPlanoDeContasDTO.getId())
-				.descricao(myPlanoDeContasDTO.getDescricao()).inicioVigencia(myPlanoDeContasDTO.getInicioVigencia())
-				.terminoVigencia(myPlanoDeContasDTO.getTerminoVigencia()).build();
-
-		return repository.save(myPlanoDeContas);
-	}
 
 	public List<MyPlanoDeContas> findAll() {
 		return repository.findAll();
@@ -69,11 +63,25 @@ public class MyPlanoDeContasService {
 
 		return contasContabeisRecuperadas;
 	}
-
-	public void alterarDadosPlano(Long id, MyPlanoDeContasDTO myPlanoDeContasDTO) {
-		MyPlanoDeContas planoDeContas = findById(myPlanoDeContasDTO.getId());
-		planoDeContas.setDescricao(myPlanoDeContasDTO.getDescricao());
-		planoDeContas.setInicioVigencia(myPlanoDeContasDTO.getInicioVigencia());
-		planoDeContas.setTerminoVigencia(myPlanoDeContasDTO.getTerminoVigencia());
-	}
+	
+//	@Override
+//	public MyPlanoDeContas save(MyPlanoDeContasDTO myPlanoDeContasDTO) {
+//		MyPlanoDeContas myPlanoDeContas = MyPlanoDeContas
+//				.builder()
+//				.id(myPlanoDeContasDTO.getId())
+//				.descricao(myPlanoDeContasDTO.getDescricao())
+//				.inicioVigencia(myPlanoDeContasDTO.getInicioVigencia())
+//				.terminoVigencia(myPlanoDeContasDTO.getTerminoVigencia())
+//				.build();
+//
+//		return repository.save(myPlanoDeContas);
+//	}
+//
+//	@Override
+//	public void update(Long id, MyPlanoDeContasDTO myPlanoDeContasDTO) {
+//		MyPlanoDeContas planoDeContas = findById(id);
+//		planoDeContas.setDescricao(myPlanoDeContasDTO.getDescricao());
+//		planoDeContas.setInicioVigencia(myPlanoDeContasDTO.getInicioVigencia());
+//		planoDeContas.setTerminoVigencia(myPlanoDeContasDTO.getTerminoVigencia());
+//	}
 }

@@ -2,94 +2,31 @@ package schiavon.gabriel.dia7.conta_contabil;
 
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Pattern;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
 
 import schiavon.gabriel.dia7.TransationalService;
-import schiavon.gabriel.dia7.conta_contabil.exceptions.CodigoDoFilhoNaoPertenceAoPaiException;
-import schiavon.gabriel.dia7.conta_contabil.exceptions.RegistroNaoEncontrado;
+import schiavon.gabriel.dia7.base.BaseService;
 
 @TransationalService
-public class MyContaContabilService {
+public class MyContaContabilService extends BaseService<Long, MyContaContabil, MyContaContabilDTO, MyContaContabilRepository> {
 
-	@Autowired
-	private MyContaContabilRepository contaContabilRepository;
-
-	public List<MyContaContabil> findAll() {
-		return contaContabilRepository.findAll();
-	}
-
-	public MyContaContabil save(MyContaContabilDTO novaContaDTO) {
-		MyContaContabil contaSuperior = null;
-		if (novaContaDTO.getContaSuperiorId() != null) {
-			contaSuperior = findById(novaContaDTO.getContaSuperiorId());
-		}
-		
-		validaDadosEntrada(novaContaDTO, contaSuperior);
-		MyContaContabil novaConta = MyContaContabil
-				.builder()
-				.id(novaContaDTO.getId())
-				.codigo(novaContaDTO.getCodigo())
-				.nome(novaContaDTO.getNome())
-				.contaSuperior(contaSuperior)
-				.build();
-		
-		return contaContabilRepository.save(novaConta);
-	}
-
-	private void validaDadosEntrada(MyContaContabilDTO novaContaDTO, MyContaContabil contaSuperior) {
-		if (contaSuperior != null) {
-			verificaCodigoComCodigoPai(novaContaDTO, contaSuperior);
-		}
-	}
-
-	private void verificaCodigoComCodigoPai(MyContaContabilDTO novaContaDTO, MyContaContabil contaSuperior) {
-		Pattern pattern = Pattern.compile("\\.\\d+$");
-		String codigoEnviado = pattern.matcher(novaContaDTO.getCodigo()).replaceAll("");
-		
-		if (!codigoEnviado.equals(contaSuperior.getCodigo())) {
-			throw new CodigoDoFilhoNaoPertenceAoPaiException("O código do filho não bate com código do pai");
-		}
-	}
-
-	public MyContaContabil findById(Long id) {
-		return contaContabilRepository
-				.findById(id)
-				.orElseThrow(() -> new RegistroNaoEncontrado(
-						"Conta superior não existente: " + id));
-	}
-
-	public Long getQuantidadeContas() {
-		return contaContabilRepository.contarContas();
-	}
+//	@Override
+//	public MyContaContabil save(MyContaContabilDTO dto) {
+//		return repository.save(dto.toEntity());
+//	}
+//	
+//	@Override
+//	public void update(Long id, MyContaContabilDTO dto) {
+//		MyContaContabil atual = findById(id);
+//		MyContaContabil mergedToSave = dto.mergeEntity(atual);
+//		mergedToSave.setContaSuperior(findContaSuperiorOrNull(dto.getContaSuperiorId()));
+//	}
 
 	public List<MyContaContabil> getContasRaiz() {
-		return contaContabilRepository.selecionarContasRaiz();
+		return repository.selecionarContasRaiz();
 	}
 
 	public List<Map<String, Object>> getContasRaizPorHierarquia() {
-		return contaContabilRepository.selecionarContasPorHierarquia();
-	}
-	
-	public Page<MyContaContabil> recuperarTodas(Pageable pageable) {
-		return contaContabilRepository.recuperarTodas(pageable);
-	}
-	
-	public Slice<MyContaContabil> recuperarTodasFatiado(Pageable pageable) {
-		return contaContabilRepository.recuperarTodasFateadas(pageable);
-	}
-
-	public List<MyContaContabil> recuperarTodasManual(int page, int size) {
-		return contaContabilRepository.recuperarTodasManual(page, size);
-	}
-
-	public void remover(Long id) {
-		MyContaContabil contaContabil = contaContabilRepository.findById(id).orElseThrow(() -> new RegistroNaoEncontrado("Conta contabil não encontrada."));
-		contaContabilRepository.delete(contaContabil);
+		return repository.selecionarContasPorHierarquia();
 	}
 
 	public void alterarDadosPlano(Long id, MyContaContabilDTO contaContabilDTO) {

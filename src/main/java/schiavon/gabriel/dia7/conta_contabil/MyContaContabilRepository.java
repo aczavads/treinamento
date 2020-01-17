@@ -7,10 +7,11 @@ import java.util.Set;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-public interface MyContaContabilRepository extends JpaRepository<MyContaContabil, Long> {
+import schiavon.gabriel.dia7.base.BaseRepository;
+
+public interface MyContaContabilRepository extends BaseRepository<Long, MyContaContabil> {
 
 //	WITH contador(numero) as (
 //			 select 1 as numero

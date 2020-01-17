@@ -14,14 +14,15 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import schiavon.gabriel.dia5.jpa.associacoes.BaseEntity;
+import schiavon.gabriel.dia7.movimentoContaContabil.MyMovimentoContaContabil;
 
-@Data
 @Entity
-@NoArgsConstructor
-@ToString
+@Data
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
-public class MyContaContabil extends BaseEntity {
+@ToString
+@NoArgsConstructor
+public class MyContaContabil extends BaseEntity<Long> {
 
 	private String codigo;
 	private String nome;
@@ -34,6 +35,10 @@ public class MyContaContabil extends BaseEntity {
 	@OneToMany(mappedBy = "contaSuperior")
 	private List<MyContaContabil> contasFilhas;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "contaContabil")
+	private List<MyMovimentoContaContabil> movimentos;
+	
 	public MyContaContabil(Long id, String codigo, String nome, MyContaContabil contaSuperior) {
 		super(id);
 		this.codigo = codigo;

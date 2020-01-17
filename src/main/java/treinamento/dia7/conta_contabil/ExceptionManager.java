@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import schiavon.gabriel.dia7.conta_contabil.BaseController;
+import schiavon.gabriel.dia7.base.BaseController;
 
 @ControllerAdvice(assignableTypes = {BaseController.class})
 public class ExceptionManager {

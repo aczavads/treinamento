@@ -73,8 +73,29 @@
 			sequenceName="sequence"
 			dataType="long"
 			incrementBy="1"
-			startValue="1"
-			cacheSize="50"/>
+			startValue="1"/>
+	</changeSet>
+	
+	<changeSet author="gabriel.schiavon"
+		id="create-table-my-movimento-conta-contabil">
+		<createTable tableName="my_movimento_conta_contabil">
+			<column name="id" type="${TIPO_ID}">
+				<constraints primaryKey="true"
+					primaryKeyName="pk_my_movimento_conta_contabil" />
+			</column>
+			<column name="historico" type="${TIPO_DESCRICAO_255}"></column>
+			<column name="tipo_movimento" type="varchar"><constraints nullable="false"/></column>
+			<column name="valor" type="numeric(15, 2)"><constraints nullable="false"/></column>			
+			<column name="efetuado_em" type="${TIPO_DATE}">
+				<constraints nullable="false"/>	
+			</column>
+			<column name="my_conta_contabil_id" type="${TIPO_ID}">
+				<constraints referencedTableName="my_conta_contabil"
+					referencedColumnNames="id"
+					foreignKeyName="fk_my_movimento_conta_conta_contabil"
+					nullable="false" />
+			</column>
+		</createTable>
 	</changeSet>
 </databaseChangeLog> 
 

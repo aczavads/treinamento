@@ -11,20 +11,6 @@ public class ContaContabilService extends BaseService<
 	ContaContabil, 
 	ContaContabilDTO, 
 	ContaContabilRepository> {
-
-	@Override
-	public ContaContabil save(ContaContabilDTO dto) {
-		ContaContabil nova = dto.toEntity();
-		nova.setContaSuperior(findContaByIdOrNull(dto.getContaSuperiorId()));
-		return repo.save(nova);
-	}
-	
-	@Override
-	public void update(ContaContabilDTO dto) {
-		ContaContabil actual = findById(dto.getId());
-		ContaContabil mergedToSave = dto.mergeEntity(actual);
-		mergedToSave.setContaSuperior(findContaByIdOrNull(dto.getContaSuperiorId()));
-	}
 	
 	private ContaContabil findContaByIdOrNull(Long id) {
 		if (id != null) {

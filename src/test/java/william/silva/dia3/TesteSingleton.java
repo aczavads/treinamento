@@ -10,6 +10,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import william.dia3.William;
+
 public class TesteSingleton {
 	@Test
 	public void testarSingletonUnico() {

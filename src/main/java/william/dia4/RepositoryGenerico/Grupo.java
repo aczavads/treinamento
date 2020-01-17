@@ -27,7 +27,4 @@ public class Grupo extends Entidade{
 		this.dataDeFundacao = dataDeFundacao;
 	}
 	
-	
-	
-
 }

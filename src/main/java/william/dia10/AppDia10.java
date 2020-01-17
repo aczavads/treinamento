@@ -1,13 +1,13 @@
-package william.dia8;
+package william.dia10;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import william.dia7.AppDia7;
-
 @SpringBootApplication
-public class AppLiquibase {
+public class AppDia10 {
+
 	public static void main(String[] args) {
-		SpringApplication.run(AppLiquibase.class, args);
+		SpringApplication.run(AppDia10.class, args);
 	}
+
 }

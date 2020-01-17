@@ -1,5 +1,6 @@
 package treinamento.guilhermeperes.dia7.base;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,11 +13,19 @@ public abstract class BaseService<
 		REPOSITORY extends BaseRepository<ENTITY>> {
 	
 	@Autowired
-	private REPOSITORY repo;
+	protected REPOSITORY repo;
+	
+	private String getEntityName() {
+	    return ((Class<?>) ((ParameterizedType)
+	    		getClass()
+	    		.getGenericSuperclass())
+	    		.getActualTypeArguments()[0])
+	    		.getSimpleName();
+	  }
 	
 	private void checkEntityNotExists(UUID id) {
 		if(!repo.existsById(id)) {
-			throw new NotFoundedException("Cannot find Entity with provided id");
+			throw new NotFoundedException("Cannot find " + getEntityName() + " with provided id");
 		}
 	}
 	
@@ -47,6 +56,6 @@ public abstract class BaseService<
 	public ENTITY findById(UUID id) {
 		return repo
 				.findById(id)
-				.orElseThrow(() -> new NotFoundedException("Cannot find Entity with provided id"));
+				.orElseThrow(() -> new NotFoundedException("Cannot find " + getEntityName() + " with provided id"));
 	}
 }

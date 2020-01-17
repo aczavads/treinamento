@@ -3,7 +3,6 @@ package treinamento.guilhermeperes.dia7.api.conta;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +15,6 @@ import treinamento.guilhermeperes.dia7.base.annotations.RestConfig;
 @RestConfig
 @RequestMapping("/contas")
 public class ContaController extends BaseController<Conta, ContaRepository, ContaService> {
-	
-	@Autowired
-	private ContaService service;
 	
 	@GetMapping("/hierarquia")
 	public ResponseEntity<List<Map<String, Object>>> recuperarHierarquia() {

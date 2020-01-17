@@ -20,7 +20,7 @@ public abstract class BaseController<
 		SERVICE extends BaseService<ENTITY, REPOSITORY>> {
 	
 	@Autowired
-	private SERVICE service;
+	protected SERVICE service;
 	
 	@PostMapping
 	public ResponseEntity<Id> post(@RequestBody ENTITY entity) {

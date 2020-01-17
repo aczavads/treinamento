@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -50,20 +51,14 @@ public class PlanoDeContasService {
 		return planoDeContas.getContasContabeis();
 	}
 
-	public void adicionarContas(UUID planoDeContasId, List<UUID> idsDasContasParaAdicionar) {
-		PlanoDeContas planoDeContas = findById(planoDeContasId);
-		for (UUID contaContabilId : idsDasContasParaAdicionar) {
-			ContaContabil novaConta = contaContabilRepository.findById(contaContabilId).orElseThrow(() -> new RegistroNaoEncontrado("Não foi possível encontrar a conta"));
-			planoDeContas.adicionarConta(novaConta);
-		}
+	public void adicionarContas(UUID idDoPlanoDeContas, List<UUID> idsDasContasParaAdicionar) {
+		PlanoDeContas plano = recuperarPlano(idDoPlanoDeContas);		
+		processarContas(idsDasContasParaAdicionar, (contaContabil) -> plano.adicionarConta(contaContabil));
 	}
-
-	public void removerConta(UUID planoDeContasId,  List<UUID> idsDasContasParaRemover) {
-		PlanoDeContas planoDeContas = findById(planoDeContasId);
-		for (UUID contaContabilId : idsDasContasParaRemover) {
-			ContaContabil novaConta = contaContabilRepository.findById(contaContabilId).orElseThrow(() -> new RegistroNaoEncontrado("Não foi possível encontrar a conta"));
-			planoDeContas.removerConta(novaConta);
-		}	
+	
+	public void removerContas(UUID idDoPlanoDeContas, List<UUID> idsDasContasParaRemover) {
+		PlanoDeContas plano = recuperarPlano(idDoPlanoDeContas);		
+		processarContas(idsDasContasParaRemover, (contaContabil) -> plano.removerConta(contaContabil));
 	}
 
 	public void deleteById(UUID planoDeContasId) {
@@ -76,5 +71,18 @@ public class PlanoDeContasService {
 		planoDeContas.setInicioVigencia(planoDeContasDTO.getInicioVigencia());
 		planoDeContas.setFimVigencia(planoDeContasDTO.getFimVigencia());
 	}
-
+	
+	private void processarContas(List<UUID> idsDasContasParaAdicionar, Consumer<ContaContabil> acao) {
+		List<ContaContabil> contasParaProcessar = contaContabilRepository.findAllById(idsDasContasParaAdicionar);
+		if (contasParaProcessar.size() != idsDasContasParaAdicionar.size()) {
+			throw new RegistroNaoEncontrado("Conta contábil não encontrada");
+		}
+		contasParaProcessar.forEach(acao);
+	}
+	
+	private PlanoDeContas recuperarPlano(UUID idDoPlanoDeContas) {
+		PlanoDeContas plano = planoDeContasRepository.findById(idDoPlanoDeContas).orElseThrow(() -> new RegistroNaoEncontrado("Plano de contas não encontrado!"));
+		return plano;
+	}
+ 
 }

@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import liquibase.logging.LoggerFactory;
+import treinamento.dia10.conta_contabil.ContaContabil;
+import treinamento.dia10.conta_contabil.ContaContabilDTO;
 
 public class BaseService<
 		ENTITY extends BaseEntity, 
@@ -22,7 +24,9 @@ public class BaseService<
 
 	public void update(DTO dto) {
 		ENTITY actual = findById(dto.getId());
-		actual = dto.mergeEntity(actual);
+		ENTITY toSave = dto.mergeEntity(actual);
+		toSave = beforeUpdate(dto, toSave);
+		repo.save(toSave);
 	}
 
 	public Page<ENTITY> findAll(Pageable pageable) {
@@ -38,6 +42,14 @@ public class BaseService<
 		return repo
 				.findById(id)
 				.orElseThrow(() -> new RegistroNaoEncontrado("Id: " + id));
+	}
+
+	public ENTITY beforeSave(DTO dto, ENTITY toSave) {
+		return toSave;
+	}
+
+	public ENTITY beforeUpdate(DTO dto, ENTITY toSave) {
+		return toSave;
 	}
 
 }

@@ -1,7 +1,6 @@
 package treinamento.dia10.plano_de_contas;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,7 +32,7 @@ public class PlanoDeContasController {
 	}
 	
 	@PutMapping("/{id}")
-	private void getContas(@PathVariable("id") UUID id, @RequestBody PlanoDeContasDTO plano) {
+	private void getContas(@PathVariable("id") Long id, @RequestBody PlanoDeContasDTO plano) {
 		if (!id.equals(plano.getId())) {
 			throw new IllegalArgumentException("Os IDs são divergentes!");
 		}
@@ -42,38 +41,38 @@ public class PlanoDeContasController {
 
 	@DeleteMapping("/{id}/contas")
 	private void deleteContasDoPlano(
-			@PathVariable("id") UUID id, 
-			@RequestBody List<UUID> idsDasContasParaRemover) {
+			@PathVariable("id") Long id, 
+			@RequestBody List<Long> idsDasContasParaRemover) {
 		service.deleteContasDoPlano(id, idsDasContasParaRemover);
 	}
 
 	@DeleteMapping("/{id}")
-	private void delete(@PathVariable("id") UUID id) {
+	private void delete(@PathVariable("id") Long id) {
 		service.deleteById(id);
 	}
 	
 	@GetMapping("/{id}/contas")
-	private List<ContaContabil> getContas(@PathVariable("id") UUID id) {
+	private List<ContaContabil> getContas(@PathVariable("id") Long id) {
 		return serviceContaContabil.findContasDoPlanoDeContas(id);
 		//return service.getContas(id);
 	}
 
 	@PostMapping("/{id}/contas")
 	private void postContas(
-			@PathVariable("id") UUID idDoPlanoDeContas, 
-			@RequestBody List<UUID> idsDasContasParaAdicionar) {
+			@PathVariable("id") Long idDoPlanoDeContas, 
+			@RequestBody List<Long> idsDasContasParaAdicionar) {
 		service.adicionarContas(idDoPlanoDeContas, idsDasContasParaAdicionar);
 	}
 	
 //	@DeleteMapping("/{id}/contas")
 //	private void removerContas(
-//			@PathVariable("id") UUID idDoPlanoDeContas, 
-//			@RequestBody List<UUID> idsDasContasParaRemover) {
+//			@PathVariable("id") Long idDoPlanoDeContas, 
+//			@RequestBody List<Long> idsDasContasParaRemover) {
 //		service.removerContas(idDoPlanoDeContas, idsDasContasParaRemover);
 //	}
 	
 	@PostMapping
-	private UUID post(@RequestBody PlanoDeContasDTO dto) {
+	private Long post(@RequestBody PlanoDeContasDTO dto) {
 		PlanoDeContas novo = service.save(dto);
 		return novo.getId();
 	}

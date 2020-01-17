@@ -1,13 +1,12 @@
 package treinamento.dia10.plano_de_contas;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import lombok.Data;
 
 @Data
 public class PlanoDeContasDTO {
-	private UUID id;
+	private Long id;
 	private int version;
 	private String descricao;
 	private LocalDate inicioVigencia;

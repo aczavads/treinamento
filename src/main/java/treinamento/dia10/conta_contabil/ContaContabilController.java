@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,17 +32,25 @@ public class ContaContabilController {
 	}
 	
 	@GetMapping("/{id}")
-	public ContaContabil get(@PathVariable UUID id) {
+	public ContaContabil get(@PathVariable Long id) {
 		return service.findById(id);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable UUID id) {
+	public void delete(@PathVariable Long id) {
 		service.deleteById(id);
 	}
 	
+	@PutMapping("/{id}")
+	public void put(@PathVariable Long id, @RequestBody ContaContabilDTO dto) {
+		if (!id.equals(dto.getId())) {
+			throw new IllegalArgumentException("Os IDs são divergentes!");
+		}
+		service.update(dto);
+	}
+	
 	@PostMapping
-	public UUID post(@RequestBody ContaContabilDTO nova) {
+	public Long post(@RequestBody ContaContabilDTO nova) {
 		ContaContabil novaContaContabil = service.save(nova);
 		return novaContaContabil.getId();
 	}

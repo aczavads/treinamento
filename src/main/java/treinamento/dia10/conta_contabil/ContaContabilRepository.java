@@ -2,7 +2,6 @@ package treinamento.dia10.conta_contabil;
 
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.persistence.LockModeType;
 
@@ -33,7 +32,7 @@ SELECT contador.numero+1, random_uuid() FROM contador WHERE contador.numero < 10
 SELECT * FROM contador
  */
 
-public interface ContaContabilRepository extends JpaRepository<ContaContabil, UUID>{
+public interface ContaContabilRepository extends JpaRepository<ContaContabil, Long>{
 	
 	@Query(nativeQuery = true, value = "select count(*) from conta_contabil")
 	Long contarContas();
@@ -72,7 +71,7 @@ public interface ContaContabilRepository extends JpaRepository<ContaContabil, UU
 					"  FROM conta_contabil f, hierarquia \r\n" + 
 					" WHERE f.conta_superior_id = hierarquia.id\r\n" + 
 					") " + 
-					"SELECT cast(id as varchar) as \"id\", nome, cast(conta_superior_id as varchar) as conta_superior_id, codigo, nivel FROM hierarquia")
+					"SELECT * FROM hierarquia")
 	List<Map<String, Object>> recuperarHierarquia();
 
 
@@ -88,7 +87,7 @@ public interface ContaContabilRepository extends JpaRepository<ContaContabil, UU
 			   		+ "PlanoDeContas p "
 			   		+ "inner join p.contasContabeis cc "
 			   		+ "where p.id = :idPlanoDeContas")
-	List<ContaContabil> findContasDoPlanoDeContas(UUID idPlanoDeContas); 
+	List<ContaContabil> findContasDoPlanoDeContas(Long idPlanoDeContas); 
 
 }
 

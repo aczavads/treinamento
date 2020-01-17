@@ -1,7 +1,0 @@
-package treinamento.thyagofranco.dia3.designpatterns.factory;
-
-public interface SuperLogger {
-	
-	void log(String mensagem);
-
-}

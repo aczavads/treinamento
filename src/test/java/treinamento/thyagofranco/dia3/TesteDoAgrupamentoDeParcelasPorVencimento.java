@@ -13,6 +13,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import thyagofranco.dia3.designpatterns.AgrupamentoDeParcelasPorVencimento;
 import treinamento.dia2.Parcela;
 
 public class TesteDoAgrupamentoDeParcelasPorVencimento {

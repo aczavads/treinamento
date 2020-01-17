@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import treinamento.thyagofranco.dia5.associacoes.BaseEntity;
+import thyagofranco.dia5.associacoes.BaseEntity;
 
 @Entity
 public class ContaContabilThyago extends BaseEntity {

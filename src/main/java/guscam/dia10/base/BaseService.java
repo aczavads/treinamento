@@ -11,6 +11,10 @@ public class BaseService<ENTITY extends BaseEntity, DTO extends BaseDTO<ENTITY>,
 	@Autowired
 	protected REPOSITORY repository;
 
+	public ENTITY findByIdOrNull(Long id) {
+		return id != null ? findById(id) : null;
+	}
+
 	public void deleteById(Long id) {
 		repository.deleteById(id);
 	}

@@ -12,7 +12,7 @@ public class ContaContabilService extends BaseService<ContaContabil, ContaContab
 	@Override
 	public ContaContabil save(ContaContabilDTO dto) {
 		ContaContabil novaContaContabil = dto.toEntity();
-		novaContaContabil.setContaSuperior(findContaByIdOrNull(novaContaContabil.getContaSuperiorId()));
+		novaContaContabil.setContaSuperior(findByIdOrNull(novaContaContabil.getContaSuperiorId()));
 		return repository.save(novaContaContabil);
 	}
 
@@ -21,16 +21,8 @@ public class ContaContabilService extends BaseService<ContaContabil, ContaContab
 		ContaContabil actual = findById(dto.getId());
 		System.out.println(actual.getVersion());
 		ContaContabil entity = dto.mergeEntity(actual);
-		System.out.println(actual.getVersion());
-		entity.setContaSuperior(findContaByIdOrNull(actual.getContaSuperiorId()));
-	}
-
-	public ContaContabil findContaByIdOrNull(Long id) {
-		ContaContabil contaSuperior = null;
-		if (id != null) {
-			contaSuperior = findById(id);
-		}
-		return contaSuperior;
+		System.out.println(entity.getVersion());
+		entity.setContaSuperior(findByIdOrNull(actual.getContaSuperiorId()));
 	}
 
 	public List<Map<String, Object>> recuperarHierarquia() {

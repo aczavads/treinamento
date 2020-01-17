@@ -31,7 +31,7 @@ public class PlanoDeContas extends BaseEntity {
 			name = "conta_plano_de_contas",
 			joinColumns = @JoinColumn(name = "plano_de_contas_id"), 
 			inverseJoinColumns = @JoinColumn(name = "conta_contabil_id"))
-	private Set<ContaContabil> contasContabeis = new HashSet<>();
+	private Set<ContaContabil> contasContabeis;
 
 	public void adicionar(ContaContabil contaContabil) {
 		this.getContasContabeis().add(contaContabil);

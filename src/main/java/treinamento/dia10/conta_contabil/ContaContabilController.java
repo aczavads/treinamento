@@ -26,18 +26,13 @@ import treinamento.dia10.base.BaseController;
 public class ContaContabilController extends BaseController<
 		ContaContabil, 
 		ContaContabilDTO,
+		ContaContabilRepository,
 		ContaContabilService> {
 	
 	@GetMapping("/hierarquia")
 	public List<Map<String, Object>> recuperarHierarquia() {
 		return service.recuperarHierarquia();
 	}
-	@GetMapping("/paginado-manualmente")
-	public List<ContaContabil> recuperarTodas(
-			@RequestParam("page") int page, @RequestParam("size") int size) {
-		return service.recuperarTodasPaginadoManualmente(page, size);
-	}
-	
 }
 
 

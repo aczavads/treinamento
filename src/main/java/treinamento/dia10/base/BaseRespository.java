@@ -6,4 +6,5 @@ import org.springframework.data.repository.NoRepositoryBean;
 @NoRepositoryBean
 public interface BaseRespository<ENTITY> extends JpaRepository<ENTITY, Long> {
 
+		
 }

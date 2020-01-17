@@ -5,12 +5,12 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(of = {"id"})
-public class BaseDTO<ENTITY extends BaseEntity> {
-	private Long id;
-	private int version;
+public abstract class BaseDTO<ENTITY extends BaseEntity> {
+	protected Long id;
+	protected int version;
 	
-	public ENTITY toEntity() {
-		return null;
-	}
+	public abstract ENTITY toEntity();
+
+	public abstract ENTITY mergeEntity(ENTITY entity);
 
 }

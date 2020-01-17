@@ -1,52 +1,48 @@
 package treinamento.dia10.base;
 
-import java.util.List;
-
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
 
-import treinamento.dia10.conta_contabil.ContaContabil;
+import liquibase.logging.LoggerFactory;
 
 public class BaseService<
 		ENTITY extends BaseEntity, 
-		DTO extends BaseDTO, 
+		DTO extends BaseDTO<ENTITY>, 
 		REPOSITORY extends BaseRespository<ENTITY>> {
 	@Autowired
 	protected REPOSITORY repo;
 
-	public List<ENTITY> findAll() {
-		return repo.findAll();
-	}
-
-	public ENTITY findById(Long id) {
-		return null;
-	}
-
+	private Logger logger = org.slf4j.LoggerFactory.getLogger(BaseService.class);
+			
 	public void deleteById(Long id) {
-		
+		repo.deleteById(id);
 	}
 
 	public void update(DTO dto) {
+		ENTITY actual = findById(dto.getId());
+		actual = dto.mergeEntity(actual);
 	}
 
-	public Slice<ENTITY> findSliced(Pageable pageable) {
-		return null;
-	}
-
-	public Page<ENTITY> findPaged(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
+	public Page<ENTITY> findAll(Pageable pageable) {
+		return repo.findAll(pageable);
 	}
 
 	public ENTITY save(DTO dto) {
-		ENTITY toSave = prepareEntityToSave(dto);
+		ENTITY toSave = dto.toEntity();
 		return repo.save(toSave);
 	}
-
-	private ENTITY prepareEntityToSave(DTO dto) {
-		return dto.toEntity();
+	
+	public ENTITY findById(Long id) throws RegistroNaoEncontrado {
+		return repo
+				.findById(id)
+				.orElseThrow(() -> new RegistroNaoEncontrado("Id: " + id));
 	}
 
 }
+
+
+
+
+

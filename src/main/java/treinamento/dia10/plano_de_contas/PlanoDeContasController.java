@@ -22,6 +22,7 @@ import treinamento.dia10.conta_contabil.ContaContabilService;
 public class PlanoDeContasController extends BaseController<
 		PlanoDeContas, 
 		PlanoDeContasDTO, 
+		PlanoDeContasRepository,
 		PlanoDeContasService>{
 
 	@Autowired

@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public class BaseController<
 			ENTITY extends BaseEntity, 
-			DTO extends BaseDTO, 
-			SERVICE extends BaseService<ENTITY, DTO>> {
+			DTO extends BaseDTO<ENTITY>, 
+			REPOSITORY extends BaseRespository<ENTITY>,
+			SERVICE extends BaseService<ENTITY, DTO, REPOSITORY>> {
 	@Autowired 
 	protected SERVICE service;
 	
@@ -42,13 +43,8 @@ public class BaseController<
 	}
 
 	@GetMapping
-	public Slice<ENTITY> get(
-			Pageable pageable, 
-			@RequestParam(defaultValue = "true") boolean asSlice) {
-		if (asSlice) {
-			return service.findSliced(pageable);
-		} 
-		return service.findPaged(pageable);
+	public Slice<ENTITY> get(Pageable pageable) {
+		return service.findAll(pageable);
 	}
 
 }

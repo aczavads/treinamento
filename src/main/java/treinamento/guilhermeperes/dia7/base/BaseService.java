@@ -15,17 +15,15 @@ public abstract class BaseService<
 	@Autowired
 	protected REPOSITORY repo;
 	
-	private String getEntityName() {
-	    return ((Class<?>) ((ParameterizedType)
-	    		getClass()
-	    		.getGenericSuperclass())
-	    		.getActualTypeArguments()[0])
-	    		.getSimpleName();
-	  }
+	private final String entityName = ((Class<?>) ((ParameterizedType)
+    		getClass()
+    		.getGenericSuperclass())
+    		.getActualTypeArguments()[0])
+    		.getSimpleName();
 	
 	private void checkEntityNotExists(UUID id) {
 		if(!repo.existsById(id)) {
-			throw new NotFoundedException("Cannot find " + getEntityName() + " with provided id");
+			throw new NotFoundedException("Cannot find " + entityName + " with provided id");
 		}
 	}
 	
@@ -56,6 +54,6 @@ public abstract class BaseService<
 	public ENTITY findById(UUID id) {
 		return repo
 				.findById(id)
-				.orElseThrow(() -> new NotFoundedException("Cannot find " + getEntityName() + " with provided id"));
+				.orElseThrow(() -> new NotFoundedException("Cannot find " + entityName + " with provided id"));
 	}
 }

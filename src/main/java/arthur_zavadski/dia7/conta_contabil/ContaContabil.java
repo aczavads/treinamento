@@ -1,4 +1,4 @@
-package treinamento.dia7.conta_contabil;
+package arthur_zavadski.dia7.conta_contabil;
 
 import java.util.List;
 import java.util.UUID;
@@ -9,8 +9,7 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import treinamento.dia5.jpa.associacoes.BaseEntity;
-
+import arthur_zavadski.dia7.BaseEntity;
 
 
 @Entity

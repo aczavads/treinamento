@@ -5,13 +5,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import treinamento.dia10.base.BaseService;
 import treinamento.dia10.base.RegistroNaoEncontrado;
 import treinamento.dia10.base.TransationalService;
 import treinamento.dia10.conta_contabil.ContaContabil;
 import treinamento.dia10.conta_contabil.ContaContabilRepository;
 
 @TransationalService
-public class PlanoDeContasService {
+public class PlanoDeContasService extends BaseService<PlanoDeContas, PlanoDeContasDTO> {
 	@Autowired
 	private PlanoDeContasRepository repo;
 	

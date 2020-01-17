@@ -2,7 +2,6 @@ package treinamento.dia10.conta_contabil;
 
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,54 +17,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import treinamento.dia10.base.BaseController;
+
 
 
 @RestController
 @RequestMapping("/contascontabeis")
-public class ContaContabilController {
-	@Autowired
-	private ContaContabilService service;
-	
-	@GetMapping
-	public List<ContaContabil> get() {
-		return service.findAll();
-	}
-	
-	@GetMapping("/{id}")
-	public ContaContabil get(@PathVariable Long id) {
-		return service.findById(id);
-	}
-	
-	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
-		service.deleteById(id);
-	}
-	
-	@PutMapping("/{id}")
-	public void put(@PathVariable Long id, @RequestBody ContaContabilDTO dto) {
-		if (!id.equals(dto.getId())) {
-			throw new IllegalArgumentException("Os IDs são divergentes!");
-		}
-		service.update(dto);
-	}
-	
-	@PostMapping
-	public Long post(@RequestBody ContaContabilDTO nova) {
-		ContaContabil novaContaContabil = service.save(nova);
-		return novaContaContabil.getId();
-	}
+public class ContaContabilController extends BaseController<
+		ContaContabil, 
+		ContaContabilDTO,
+		ContaContabilService> {
 	
 	@GetMapping("/hierarquia")
 	public List<Map<String, Object>> recuperarHierarquia() {
 		return service.recuperarHierarquia();
-	}
-	@GetMapping("/paginado")
-	public Page<ContaContabil> recuperarTodas(Pageable pageable) {
-		return service.recuperarTodas(pageable);
-	}
-	@GetMapping("/fatiado")
-	public Slice<ContaContabil> recuperarTodasFatiadas(Pageable pageable) {
-		return service.recuperarTodasFatiadas(pageable);
 	}
 	@GetMapping("/paginado-manualmente")
 	public List<ContaContabil> recuperarTodas(

@@ -2,20 +2,21 @@ package treinamento.dia10.conta_contabil;
 
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 
+import treinamento.dia10.base.BaseService;
 import treinamento.dia10.base.RegistroNaoEncontrado;
 import treinamento.dia10.base.TransationalService;
 
 @TransationalService
-public class ContaContabilService {
-	@Autowired
-	private ContaContabilRepository repo;
+public class ContaContabilService extends BaseService<
+	ContaContabil, 
+	ContaContabilDTO, 
+	ContaContabilRepository> {
 
 	public List<ContaContabil> findAll() {
 		return repo.findAll();
@@ -23,14 +24,7 @@ public class ContaContabilService {
 	
 	public ContaContabil save(ContaContabilDTO nova) {
 		ContaContabil contaSuperior = findContaByIdOrNull(nova.getContaSuperiorId());
-		ContaContabil novaContaContabil = ContaContabil.builder()
-				.id(nova.getId())
-				.version(nova.getVersion())
-				.nome(nova.getNome())
-				.codigo(nova.getCodigo())
-				.contaSuperior(contaSuperior)
-				.build();
-		return repo.save(novaContaContabil);
+		ContaContabil nova = super.save(nova);
 	}
 
 	private ContaContabil findContaByIdOrNull(Long id) {

@@ -23,9 +23,17 @@ public class ContaContabilDTO extends BaseDTO<ContaContabil> {
 
 	@Override
 	public ContaContabil mergeEntity(ContaContabil entity) {
-		entity.setVersion(version);
-		entity.setNome(nome);
-		entity.setCodigo(codigo);
-		return entity;
+		return ContaContabil.builder()
+				.id(id)
+				.version(version)
+				.nome(nome)
+				.codigo(codigo)
+				.contaSuperior(entity.getContaSuperior())
+				.build();
 	}
 }
+
+
+
+
+

@@ -27,10 +27,12 @@ public class PlanoDeContasDTO extends BaseDTO<PlanoDeContas> {
 
 	@Override
 	public PlanoDeContas mergeEntity(PlanoDeContas planoDeContas) {
-		planoDeContas.setVersion(version);
-		planoDeContas.setDescricao(descricao);
-		planoDeContas.setInicioVigencia(inicioVigencia);
-		planoDeContas.setFimVigencia(fimVigencia);		
-		return planoDeContas;
+		return PlanoDeContas.builder()
+				.id(id) // Vem do Super
+				.version(version) // Vem do Super
+				.descricao(descricao)
+				.inicioVigencia(inicioVigencia)
+				.fimVigencia(fimVigencia)
+				.build();
 	}
 }

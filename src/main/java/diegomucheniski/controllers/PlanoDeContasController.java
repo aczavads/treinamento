@@ -3,7 +3,6 @@ package diegomucheniski.controllers;
 import java.util.List;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,16 +16,12 @@ import diegomucheniski.domains.ContaContabil;
 import diegomucheniski.domains.PlanoDeContas;
 import diegomucheniski.dto.PlanoDeContasDTO;
 import diegomucheniski.repositories.PlanoDeContasRepository;
-import diegomucheniski.services.ContaContabilService;
 import diegomucheniski.services.PlanoDeContasService;
 
 @RestController
 @RequestMapping("/planosdecontas")
 public class PlanoDeContasController extends BaseController<PlanoDeContas, PlanoDeContasDTO, PlanoDeContasRepository, PlanoDeContasService> {
-	
-	@Autowired
-	private ContaContabilService contaContabilService;
-		
+			
 	@GetMapping("/{planoDeContasId}/contas")
 	private Set<ContaContabil> findContasByPlanoId(@PathVariable("id") Long planoDeContasId) {
 		return service.findContasByPlanoId(planoDeContasId);

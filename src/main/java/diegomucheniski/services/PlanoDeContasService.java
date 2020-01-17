@@ -1,7 +1,6 @@
 package diegomucheniski.services;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,26 +18,7 @@ import diegomucheniski.services.exceptions.RegistroNaoEncontrado;
 public class PlanoDeContasService extends BaseService<PlanoDeContas, PlanoDeContasDTO, PlanoDeContasRepository> {
 
 	@Autowired
-	private PlanoDeContasRepository planoDeContasRepository;
-
-	@Autowired
 	private ContaContabilRepository contaContabilRepository;
-
-	@Override
-	public PlanoDeContas save(PlanoDeContasDTO dto) {		
-		return super.save(dto);
-	}
-	
-	@Override
-	public void update(PlanoDeContasDTO dto) {		
-		super.update(dto);
-	}
-
-	public PlanoDeContas adicionarConta(Long idPlanoDeContas, Set<ContaContabil> contasContabeis) {
-		Optional<PlanoDeContas> planoDeContas = planoDeContasRepository.findById(idPlanoDeContas);
-		planoDeContas.get().setContasContabeis(contasContabeis);
-		return planoDeContas.get();
-	}
 
 	public Set<ContaContabil> findContasByPlanoId(Long planoDeContasId) {
 		PlanoDeContas planoDeContas = findById(planoDeContasId);		
@@ -66,7 +46,7 @@ public class PlanoDeContasService extends BaseService<PlanoDeContas, PlanoDeCont
 	}
 	
 	private PlanoDeContas recuperarPlano(Long idDoPlanoDeContas) {
-		PlanoDeContas plano = planoDeContasRepository.findById(idDoPlanoDeContas).orElseThrow(() -> new RegistroNaoEncontrado("Plano de contas não encontrado!"));
+		PlanoDeContas plano = repository.findById(idDoPlanoDeContas).orElseThrow(() -> new RegistroNaoEncontrado("Plano de contas não encontrado!"));
 		return plano;
 	}
  

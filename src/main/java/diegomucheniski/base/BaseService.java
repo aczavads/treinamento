@@ -27,8 +27,8 @@ public class BaseService<ENTITY extends BaseEntity, DTO extends BaseDTO<ENTITY>,
 	// Como o service é transactional esse método abre uma transação e salva as alterações automáticamente pelo JPA
 	public void update(DTO dto) {
 		ENTITY actual = findById(dto.getId());
-		ENTITY toMerge = dto.mergeEntity(actual);
-		repository.save(toMerge);
+		ENTITY toSave = dto.mergeEntity(actual);		
+		repository.save(toSave);
 	}
 
 	public void deleteById(Long id) {	
